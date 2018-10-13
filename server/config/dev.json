@@ -1,0 +1,47 @@
+{
+  "server": {
+    "protocol": "http",
+    "host": "localhost",
+    "port": 3003
+  },
+  "database": {
+    "host": "localhost",
+    "database": "foodshop",
+    "username": "root",
+    "password": "1",
+    "dialect": "mysql",
+    "logging": false,
+    "timeout": 30000,
+    "pool": {
+      "max": 10,
+      "idle": 10000
+    },
+    "define": {
+      "charset": "utf8",
+      "dialectOptions": {
+        "collate": "utf8_general_ci"
+      },
+      "underscored": true,
+      "timestamps": true,
+      "paranoid": true
+    }
+  },
+  "direct": {
+    "ES6": true,
+    "rootNamespace": "Server",
+    "apiName": "API",
+    "apiUrl": "/api",
+    "classRouteUrl": "/api",
+    "classPath": "api",
+    "server": "localhost",
+    "port": 3003,
+    "protocol": "http",
+    "timeout": 30000,
+    "cacheAPI": false,
+    "relativeUrl": true,
+    "appendRequestResponseObjects": true,
+    "enableProcessors": false,
+    "enableMetadata": true,
+    "responseHelper": true
+  }
+}

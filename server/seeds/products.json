@@ -1,0 +1,14 @@
+[
+  {
+    "id": "41fb3630-5c58-4bee-b640-71acfb4c9346",
+    "name": "Pizza 1",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13"
+  },
+  {
+    "id": "ed9efc82-8a52-425d-a475-81722c62e7c0",
+    "name": "Juice 1",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13"
+  }
+]

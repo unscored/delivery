@@ -1,0 +1,10 @@
+# Global excludes
+.idea
+.vscode
+.git
+*.log
+
+# Excludes from the `server` folder
+server/config/local.json
+server/node_modules
+server/package-lock.json
