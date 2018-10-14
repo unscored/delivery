@@ -18,7 +18,13 @@ try {
 
   // Add to this array all filenames from current folder
   const models = [
-    'product'
+    'client',
+    'order',
+    'orderProduct',
+    'product',
+    'property',
+    'value',
+    'type',
   ];
 
   models.forEach(modelName => {
@@ -32,7 +38,7 @@ try {
     }
   });
 } catch (ex) {
-  console.log(`models/${__filename} | exception:`, ex);
+  console.log('models/index.js | exception:', ex);
 }
 
 db.sequelize = sequelize;

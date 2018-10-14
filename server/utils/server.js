@@ -10,7 +10,7 @@ const addErrorHandlers = app => {
   }));
 
   app.use((err, req, res, next) => {
-    console.error(`${__filename}, exception:`, err);
+    console.error('utils/server.js, exception:', err);
     res.status(err.status || 500);
     res.json({
       success: false,
@@ -25,7 +25,7 @@ const run = app => {
   const server = http.createServer(app).listen({host, port});
 
   server.on('error', err => {
-    console.error(`${__filename}, exception:`, err);
+    console.error('utils/server.js, exception:', err);
     process.exit(1);
   });
 

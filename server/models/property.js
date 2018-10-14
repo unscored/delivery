@@ -3,7 +3,7 @@
 const errors = require('../utils/errors');
 
 module.exports = (sequelize, dataTypes) => {
-  const Model = sequelize.define('product', {
+  const Model = sequelize.define('property', {
     id: {
       type: dataTypes.UUID,
       defaultValue: dataTypes.UUIDV4,
@@ -19,9 +19,6 @@ module.exports = (sequelize, dataTypes) => {
       unique: {
         msg: errors.recordAlreadyExists()
       }
-    },
-    description: {
-      type: dataTypes.TEXT
     },
     createdAt: {
       type: dataTypes.VIRTUAL,
@@ -51,7 +48,7 @@ module.exports = (sequelize, dataTypes) => {
       }
     }
   }, {
-    tableName: 'products',
+    tableName: 'properties',
     createdAt: 'createdAtDate',
     updatedAt: 'updatedAtDate',
     deletedAt: 'deletedAtDate',
@@ -62,11 +59,6 @@ module.exports = (sequelize, dataTypes) => {
       targetKey: 'id',
       foreignKey: 'typeId',
       required: true
-    });
-    Model.hasMany(models.orderProduct, {
-      as: 'ordersProducts',
-      sourceKey: 'id',
-      foreignKey: 'productId'
     });
   };
 

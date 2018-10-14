@@ -21,7 +21,7 @@
       "dialectOptions": {
         "collate": "utf8_general_ci"
       },
-      "underscored": true,
+      "underscored": false,
       "timestamps": true,
       "paranoid": true
     }

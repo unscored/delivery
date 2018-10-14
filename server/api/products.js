@@ -5,11 +5,11 @@ const models = require('../models');
 module.exports = {
   getList: async (params, callback) => {
     try {
-      const recordsArray = await models.product.findAll();
+      let recordsArray = [];
 
       callback(null, recordsArray);
     } catch (ex) {
-      console.log(`api/${__filename} | get | exception:`, ex);
+      console.log('api/products.js | get | exception:', ex);
       callback(ex);
     }
   }

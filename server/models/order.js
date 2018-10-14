@@ -1,9 +1,9 @@
 'use strict';
 
-const errors = require('../utils/errors');
+const constants = require('../utils/constants');
 
 module.exports = (sequelize, dataTypes) => {
-  const Model = sequelize.define('product', {
+  const Model = sequelize.define('order', {
     id: {
       type: dataTypes.UUID,
       defaultValue: dataTypes.UUIDV4,
@@ -13,14 +13,23 @@ module.exports = (sequelize, dataTypes) => {
         isUUID: 4
       }
     },
-    name: {
-      type: dataTypes.STRING,
+    status: {
+      type: dataTypes.INTEGER(1).UNSIGNED,
       allowNull: false,
-      unique: {
-        msg: errors.recordAlreadyExists()
+      defaultValue: constants.validators.ORDER.STATUS.NEW,
+      validate: {
+        isIn: [[
+          constants.validators.ORDER.STATUS.NEW,
+          constants.validators.ORDER.STATUS.PROCESSING,
+          constants.validators.ORDER.STATUS.READY,
+          constants.validators.ORDER.STATUS.PAID,
+          constants.validators.ORDER.STATUS.CLOSED,
+          constants.validators.ORDER.STATUS.REJECTED,
+          constants.validators.ORDER.STATUS.RETURNED
+        ]]
       }
     },
-    description: {
+    notices: {
       type: dataTypes.TEXT
     },
     createdAt: {
@@ -51,22 +60,22 @@ module.exports = (sequelize, dataTypes) => {
       }
     }
   }, {
-    tableName: 'products',
+    tableName: 'orders',
     createdAt: 'createdAtDate',
     updatedAt: 'updatedAtDate',
     deletedAt: 'deletedAtDate',
   });
 
   Model.associate = (models) => {
-    Model.belongsTo(models.type, {
+    Model.belongsTo(models.client, {
       targetKey: 'id',
-      foreignKey: 'typeId',
+      foreignKey: 'clientId',
       required: true
     });
     Model.hasMany(models.orderProduct, {
       as: 'ordersProducts',
       sourceKey: 'id',
-      foreignKey: 'productId'
+      foreignKey: 'orderId'
     });
   };
 

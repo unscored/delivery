@@ -1,14 +1,18 @@
 [
   {
     "id": "41fb3630-5c58-4bee-b640-71acfb4c9346",
-    "name": "Pizza 1",
+    "name": "Пицца вкусная",
+    "description": "Действительно очень вкусная",
     "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13"
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
   },
   {
     "id": "ed9efc82-8a52-425d-a475-81722c62e7c0",
-    "name": "Juice 1",
+    "name": "Сок свежий",
+    "description": "Прямо-таки, свежайший!",
     "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13"
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "2cb77f8c-9274-407f-9291-8fe9efe21d9d"
   }
 ]

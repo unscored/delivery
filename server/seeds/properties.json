@@ -1,0 +1,30 @@
+[
+  {
+    "id": "b90a9028-d97a-4bfc-98e5-00454b000e39",
+    "name": "Диаметр",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
+  },
+  {
+    "id": "e97d900d-bdd2-4c52-a22d-f660cdc5d8ab",
+    "name": "Соус",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
+  },
+  {
+    "id": "5390f8fd-5b30-459b-95dc-b9165e6d8f6f",
+    "name": "Тип сыра",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
+  },
+  {
+    "id": "93397349-5add-4e2d-95df-2132ad53b651",
+    "name": "Вкус",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "typeId": "2cb77f8c-9274-407f-9291-8fe9efe21d9d"
+  }
+]

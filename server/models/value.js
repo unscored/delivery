@@ -1,9 +1,7 @@
 'use strict';
 
-const errors = require('../utils/errors');
-
 module.exports = (sequelize, dataTypes) => {
-  const Model = sequelize.define('product', {
+  const Model = sequelize.define('value', {
     id: {
       type: dataTypes.UUID,
       defaultValue: dataTypes.UUIDV4,
@@ -13,15 +11,13 @@ module.exports = (sequelize, dataTypes) => {
         isUUID: 4
       }
     },
-    name: {
+    value: {
       type: dataTypes.STRING,
-      allowNull: false,
-      unique: {
-        msg: errors.recordAlreadyExists()
-      }
+      allowNull: false
     },
-    description: {
-      type: dataTypes.TEXT
+    price: {
+      type: dataTypes.DECIMAL(10, 2),
+      allowNull: false
     },
     createdAt: {
       type: dataTypes.VIRTUAL,
@@ -51,22 +47,22 @@ module.exports = (sequelize, dataTypes) => {
       }
     }
   }, {
-    tableName: 'products',
+    tableName: 'values',
     createdAt: 'createdAtDate',
     updatedAt: 'updatedAtDate',
     deletedAt: 'deletedAtDate',
   });
 
   Model.associate = (models) => {
-    Model.belongsTo(models.type, {
+    Model.belongsTo(models.property, {
       targetKey: 'id',
-      foreignKey: 'typeId',
+      foreignKey: 'propertyId',
       required: true
     });
     Model.hasMany(models.orderProduct, {
       as: 'ordersProducts',
       sourceKey: 'id',
-      foreignKey: 'productId'
+      foreignKey: 'valueId'
     });
   };
 
