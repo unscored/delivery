@@ -1,5 +1,6 @@
 ## Deployment project
 1\. Setup configs in folder `configs` in files:
+
 - dev.json
 - prod.json
 
@@ -12,6 +13,7 @@ npm run create
 npm run sync
 npm run fill    # optional
 ```
+
 Description of all commands see in the end of this documentation.
 
 ## Running application
@@ -43,25 +45,31 @@ npm run reinstall  // remove "node_modules" folder and "package-lock.json" file 
 
 ## Server API
 For using server API you should send all requests by the next rules:
+
 - URL: `/api`
 - method: `POST`
 - body:
+
 ```json
 {
   "action": "foo",
   "method": "bar",
-  "data": {
-    "someData": 123
-  },
+  "data": [
+    {
+      "someData": 123
+    }
+  ],
   "tid": 1,
   "type": "rpc"
 }
 ```
+
 Details:
+
 - URL value you can get from the `configs` > `direct` > `classRouteUrl` parameter;
 - params in the body:
     - `action` is the file name from the folder `server/api` (exclude `index.js` file) without extension;
     - `method` is the function name which exports from the `action` file;
-    - `data` is any data which you want to send to the server to `method` function;
+    - `data` is any data which you want to send to the server to `method` function; **IMPORTANT!**: `data` parameter should be an array with only one object inside;
     - `tid` is the number of request; actually can be any integer number;
     - `type` should be always `rpc`.
