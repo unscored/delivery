@@ -19,6 +19,10 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false
     },
+    address: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
     createdAt: {
       type: dataTypes.VIRTUAL,
       get () {

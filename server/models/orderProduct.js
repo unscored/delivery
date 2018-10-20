@@ -11,6 +11,14 @@ module.exports = (sequelize, dataTypes) => {
         isUUID: 4
       }
     },
+    position: {
+      type: dataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
+    quantity: {
+      type: dataTypes.INTEGER.UNSIGNED,
+      allowNull: false,
+    },
     createdAt: {
       type: dataTypes.VIRTUAL,
       get () {
@@ -49,17 +57,17 @@ module.exports = (sequelize, dataTypes) => {
     Model.belongsTo(models.order, {
       targetKey: 'id',
       foreignKey: 'orderId',
-      required: true
+      allowNull: false
     });
     Model.belongsTo(models.product, {
       targetKey: 'id',
       foreignKey: 'productId',
-      required: true
+      allowNull: false
     });
     Model.belongsTo(models.value, {
       targetKey: 'id',
       foreignKey: 'valueId',
-      required: true
+      allowNull: false
     });
   };
 

@@ -20,6 +20,9 @@ module.exports = (sequelize, dataTypes) => {
         msg: errors.recordAlreadyExists()
       }
     },
+    image: {
+      type: dataTypes.STRING,
+    },
     description: {
       type: dataTypes.TEXT
     },
@@ -61,10 +64,15 @@ module.exports = (sequelize, dataTypes) => {
     Model.belongsTo(models.type, {
       targetKey: 'id',
       foreignKey: 'typeId',
-      required: true
+      allowNull: false
     });
     Model.hasMany(models.orderProduct, {
       as: 'ordersProducts',
+      sourceKey: 'id',
+      foreignKey: 'productId'
+    });
+    Model.hasMany(models.productValue, {
+      as: 'productsValues',
       sourceKey: 'id',
       foreignKey: 'productId'
     });

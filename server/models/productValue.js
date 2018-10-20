@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = (sequelize, dataTypes) => {
-  const Model = sequelize.define('value', {
+  const Model = sequelize.define('productValue', {
     id: {
       type: dataTypes.UUID,
       defaultValue: dataTypes.UUIDV4,
@@ -10,14 +10,6 @@ module.exports = (sequelize, dataTypes) => {
       validate: {
         isUUID: 4
       }
-    },
-    value: {
-      type: dataTypes.STRING,
-      allowNull: false
-    },
-    price: {
-      type: dataTypes.DECIMAL(10, 0),
-      allowNull: false
     },
     createdAt: {
       type: dataTypes.VIRTUAL,
@@ -47,27 +39,22 @@ module.exports = (sequelize, dataTypes) => {
       }
     }
   }, {
-    tableName: 'values',
+    tableName: 'productsValues',
     createdAt: 'createdAtDate',
     updatedAt: 'updatedAtDate',
     deletedAt: 'deletedAtDate',
   });
 
   Model.associate = (models) => {
-    Model.belongsTo(models.property, {
+    Model.belongsTo(models.value, {
       targetKey: 'id',
-      foreignKey: 'propertyId',
+      foreignKey: 'valueId',
       allowNull: false
     });
-    Model.hasMany(models.orderProduct, {
-      as: 'ordersProducts',
-      sourceKey: 'id',
-      foreignKey: 'valueId'
-    });
-    Model.hasMany(models.productValue, {
-      as: 'productsValues',
-      sourceKey: 'id',
-      foreignKey: 'valueId'
+    Model.belongsTo(models.product, {
+      targetKey: 'id',
+      foreignKey: 'productId',
+      allowNull: false
     });
   };
 

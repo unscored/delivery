@@ -70,7 +70,7 @@ module.exports = (sequelize, dataTypes) => {
     Model.belongsTo(models.client, {
       targetKey: 'id',
       foreignKey: 'clientId',
-      required: true
+      allowNull: false
     });
     Model.hasMany(models.orderProduct, {
       as: 'ordersProducts',

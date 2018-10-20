@@ -2,36 +2,34 @@
 
 const models = require('../models');
 const errors = require('../utils/errors');
+const helpers = require('../utils/helpers');
 
 module.exports = {
-  getList2: async (params, callback) => {
+  getProducts: async (params, callback) => {
     try {
       const query = `
-        select
-          o.id
-        , c.name
-        , c.phone
-        , o.status
-        , SUM(v.price) as total
-        from ordersProducts
-          inner join orders o on ordersProducts.orderId = o.id
-          inner join clients c on o.clientId = c.id
-          inner join \`values\` v on ordersProducts.valueId = v.id
-        where
-          c.phone = :phone
-        group by
-          o.id
-          , c.name
-          , c.phone
-          , o.status;
+        SELECT
+          p.id
+        , p.name
+        , p.description
+        , p.image
+        , pr.id AS paramNameId
+        , pr.name AS paramName
+        , v.id AS paramValueId
+        , v.value AS paramValue
+        , v.price AS paramPrice
+        FROM productsValues pv
+        INNER JOIN products p ON p.id = pv.productId
+        INNER JOIN \`values\` v ON v.id = pv.valueId
+        INNER JOIN properties pr ON pr.id = v.propertyId
+        ORDER BY v.value, p.name;
       `;
 
-      const result = await models.sequelize.query(query, {
-        replacements: {
-          'phone': '+38 (000) 123-44-44'
-        },
+      const products = await models.sequelize.query(query, {
         type: models.sequelize.QueryTypes.SELECT
       });
+
+      const result = helpers.prepareProducts(products);
 
       callback(null, result);
     } catch (ex) {
@@ -39,4 +37,5 @@ module.exports = {
       callback(ex);
     }
   }
+  
 };

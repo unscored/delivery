@@ -58,7 +58,7 @@ module.exports = (sequelize, dataTypes) => {
     Model.belongsTo(models.type, {
       targetKey: 'id',
       foreignKey: 'typeId',
-      required: true
+      allowNull: false
     });
   };
 

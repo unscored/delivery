@@ -21,6 +21,7 @@ try {
     'client',
     'order',
     'orderProduct',
+    'productValue',
     'product',
     'property',
     'value',
