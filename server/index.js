@@ -14,6 +14,7 @@ app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(cors());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
+app.use(express.static(path.join(__dirname, '..', 'public')));
 
 direct.init(app);
 server.run(app);
