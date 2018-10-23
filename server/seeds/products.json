@@ -2,7 +2,7 @@
   {
     "id": "41fb3630-5c58-4bee-b640-71acfb4c9346",
     "name": "Гавайская",
-    "image": "/images/pizza3.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
     "description": "Сыр моцарелла, кукуруза, куриное филе, ананас, соус белый.",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -11,7 +11,7 @@
   {
     "id": "ed9efc82-8a52-425d-a475-81722c62e7c0",
     "name": "Четыре Сыра",
-    "image": "/images/pizza2.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
     "description": "Сыр моцарелла, сыр дор блю, сыр пармезан, сыр чеддер, соус белый.",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -20,7 +20,7 @@
   {
     "id": "d71e7eae-54a8-45b5-913b-bf115c5103d9",
     "name": "Дольче Вита",
-    "image": "/images/pizza1.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
     "description": "Кукуруза, соус белый, сыр, сыр фета (или брынза), специи, томаты, куриное филе, перец болгарский.",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -29,7 +29,7 @@
   {
     "id": "874d1642-8c26-46b9-b75a-556bba4c7466",
     "name": "Матерацци",
-    "image": "/images/pizza3.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
     "description": "Ветчина, соус белый, кислый огурчик, свинина, сыр моцарелла.",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -38,7 +38,7 @@
   {
     "id": "07942829-e0b3-43e7-b793-4716d9d27824",
     "name": "Чаобамбино",
-    "image": "/images/pizza2.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
     "description": "Ветчина, соус белый, кислый огурчик, свинина, сыр моцарелла.",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -47,7 +47,7 @@
   {
     "id": "abd04957-cc0c-43db-ab87-08372aa2b859",
     "name": "Дон Карлеоне",
-    "image": "/images/pizza1.png",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
     "description": "Сыр моцарелла, бекон, ветчина, курица копченая, соус белый, буженина, сыр сулугуни (борт пиццы).",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
