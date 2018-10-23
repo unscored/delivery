@@ -42,4 +42,70 @@
       }
     }
   }
+
+  @keyframes zoomIn {
+    from {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+  
+    50% {
+      opacity: 1;
+    }
+  }
+  
+  .zoomIn {
+    animation-name: zoomIn;
+  }
+  
+  @keyframes zoomOut {
+    from {
+      opacity: 1;
+    }
+  
+    50% {
+      opacity: 0;
+      transform: scale3d(.3, .3, .3);
+    }
+  
+    to {
+      opacity: 0;
+    }
+  }
+  
+  .zoomOut {
+    animation-name: zoomOut;
+  }
+  
+  .Toastify__toast-container {
+    &.cart-toast-container {
+      margin-top: 100px;
+    }
+  }
+  
+  .Toastify {
+    &__toast {
+      &--info {
+        &.cart-toast {
+          background-color: rgba(0, 0, 0, 0.8);
+          .Toastify__toast-body {
+            font-family: $el-mis-reg;
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+      }
+  
+      &--error {
+        &.cart-toast {
+          background-color: rgba(255, 0, 0, 0.8);
+          .Toastify__toast-body {
+            font-family: $el-mis-reg;
+            font-size: 14px;
+            line-height: 22px;
+          }
+        }
+      }
+    }
+  }
 }

@@ -15,7 +15,7 @@ import Header from './containers/Header';
 import Footer from './components/Footer';
 import store from './redux/store';
 
-import "react-toastify/dist/ReactToastify.css";
+import 'react-toastify/dist/ReactToastify.css';
 import './styles/main.scss';
 
 const Zoom = cssTransition({
