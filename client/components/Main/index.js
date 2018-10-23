@@ -1,11 +1,15 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import ParamsRow from './ParamsRow';
-import ProductItem from './ProductItem';
-import withSelectedItems from '../redux/decorators/withSelectedItems';
-import List from './List';
-import withScrollTop from './decorators/withScrollTop';
+import ParamsRow from '../ParamsRow';
+import ProductItem from '../ProductItem';
+import withSelectedItems from '../../redux/decorators/withSelectedItems';
+import List from '../List';
+import withScrollTop from '../decorators/withScrollTop';
+
+import banner from '../../images/main-page-2500x600.jpg';
+
+import css from './Main.scss';
 
 const Product = withSelectedItems(ProductItem);
 
@@ -40,8 +44,8 @@ export default class Main extends PureComponent {
     const { products: { items } } = this.props;
 
     return (
-      <div className="main-page">
-        <div className="banner banner-main"></div>
+      <div>
+        <div className={css.banner} style={{'background-image': `url(${banner})`}}/>
         <div className="container">
           <ParamsRow />
           <List
