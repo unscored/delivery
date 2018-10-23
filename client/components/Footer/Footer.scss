@@ -1,0 +1,41 @@
+@import "client/styles/variables";
+
+.top {
+  height: 250px;
+  position: relative;
+  background-image: url('../../images/footer_bg.jpg');
+}
+
+.bottom {
+  height: $header-h;
+  background-color: $black;
+  text-align: center;
+
+  p {
+    font-family: $el-mis-reg;
+    font-size: 14px;
+    line-height: $header-h;
+    color: $lightGray;
+  }
+}
+
+.contacts {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+  p {
+    font-family: $el-mis-reg;
+    font-size: 72px;
+    line-height: 72px;
+    color: $black;
+    white-space: nowrap;
+
+    &.email {
+      font-size: 48px;
+      line-height: 48px;
+    }
+  }
+}

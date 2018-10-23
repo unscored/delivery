@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { FiShoppingCart } from 'react-icons/fi';
+import { MdShoppingCart } from 'react-icons/md';
 import { I18n } from 'react-redux-i18n';
 
 import Button from '../Button';
@@ -74,7 +74,7 @@ const Cart = props => {
         onClick={handleCartBtnClick}
       >
         <div className={css.cartIcon}>
-          <FiShoppingCart size={38} color={'#FFF'}/>
+          <MdShoppingCart size={38} color={'#FFF'}/>
         </div>
 
         {totalItemsCount !== 0
