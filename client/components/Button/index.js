@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import css from './Button.scss';
 
 const Button = (props) => {
   const { value, primary, onClick, disabled } = props;
-  const buttonClass = primary ? css.btn : [css.btn, css.btnTransparent].join(' ');
+  const buttonClass = primary ? css.btn : classNames(css.btn, css.btnTransparent);
   const resultClass = disabled ? `${buttonClass} ${css.disabled}` : buttonClass;
 
   return (

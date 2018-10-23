@@ -3,6 +3,10 @@ import { I18n } from 'react-redux-i18n';
 import PropTypes from 'prop-types';
 
 import Params from './Params';
+import Button from '../Button';
+
+import css from './ProductItem.scss';
+
 export default class ProductItem extends Component {
   static propTypes = {
     item: PropTypes.shape({
@@ -47,38 +51,37 @@ export default class ProductItem extends Component {
     } = this.props;
 
     return (
-      <div className="product">
-        <div className="img">
+      <div className={css.product}>
+        <div className={css.productImg}>
           <img src={item.image} alt=""/>
         </div>
 
-        <div className="title">
+        <div className={css.title}>
           <h3>{item.name}</h3>
         </div>
 
-        <div className="description">
+        <div className={css.description}>
           <p>{item.description}</p>
         </div>
 
-        <div className="bottom">
+        <div className={css.bottom}>
           <Params
             itemId={item.id}
             items={activeProps}
           />
 
-          <div className="price">
+          <div className={css.price}>
             <p>{price} {I18n.t('currency')}.</p>
           </div>
         
         </div>
 
-        <div className="add-to-cart">
-          <div
-            className="btn"
+        <div className={css.addToCart}>
+          <Button
             onClick={this.onCLick}
-          >
-            {I18n.t('addToCart')}
-          </div>
+            value={I18n.t('addToCart')}
+            primary
+          />
         </div>
       </div>
     );

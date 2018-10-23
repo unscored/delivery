@@ -49,7 +49,7 @@ export default class Main extends PureComponent {
         <div className="container">
           <ParamsRow />
           <List
-            classNameCss="products-list"
+            classNameCss={css.productsList}
             ListItem={this._renderProductItem}
             items={items}
             keyExtractor={item => item.id}

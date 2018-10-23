@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
+import classNames from 'classnames';
 
 import css from './Menu.scss';
 
@@ -39,7 +40,7 @@ export default class Menu extends Component {
   
   render() {
     const { handleMenuBtnClick, isOpen } = this.props;
-    const sideMenuClass = isOpen ? [css.sideMenu, css.opened].join(' ') : css.sideMenu;
+    const sideMenuClass = isOpen ? classNames(css.sideMenu, css.opened) : css.sideMenu;
 
     return (
       <div className={sideMenuClass}>

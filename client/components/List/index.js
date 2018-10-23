@@ -9,7 +9,6 @@ export default class List extends Component {
     ListItem: PropTypes.func,
     renderItem: PropTypes.oneOfType([PropTypes.func, PropTypes.bool]),
     keyExtractor: PropTypes.func,
-    onPress: PropTypes.func,
     items: PropTypes.arrayOf(PropTypes.any),
   };
   
@@ -17,7 +16,6 @@ export default class List extends Component {
     classNameCss: 'list',
     items: [],
     ListItem: ListItemDefault,
-    onPress: () => {},
     renderItem: false,
     keyExtractor: (item, key) => item.id || key,
   };
@@ -28,7 +26,7 @@ export default class List extends Component {
   }
 
   render() {
-    const { ListItem, onPress, renderItem, keyExtractor, classNameCss } = this.props;
+    const { ListItem, renderItem, keyExtractor, classNameCss } = this.props;
     return (
       <div className={classNameCss}>
         {this.items.map((item, key) => {

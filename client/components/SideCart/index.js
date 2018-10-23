@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { MdShoppingCart } from 'react-icons/md';
 import { I18n } from 'react-redux-i18n';
+import classNames from 'classnames';
 
 import Button from '../Button';
 import List from '../List';
@@ -24,7 +25,7 @@ const Cart = props => {
     totalPrice,
     history,
   } = props;
-  const cartClass = show ? [css.orderCart, css.opened].join(' ') : css.orderCart;
+  const cartClass = show ? classNames(css.orderCart, css.opened) : css.orderCart;
 
   return (
     <div className={cartClass}>
