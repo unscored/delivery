@@ -6,7 +6,6 @@ const updateUserInfo = data => ({ type: constants.updateUser, payload: data });
 const clearUserInfo = () => ({ type: constants.clearUser });
 const validateOne = data => {
   const validator = data.phone ? validatePhone(data.phone) : validateField(data);
-  console.log('validator', validator);
   let action = null;
 
   if (validator.message) {

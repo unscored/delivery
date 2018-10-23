@@ -5,23 +5,25 @@ import PropTypes from 'prop-types';
 
 import Params from './CartItemParams';
 
+import css from './SideCart.scss';
+
 const CartItem = (props) => {
   const { item, onPressDelete } = props;
   return (
-    <div className="cart-item">
+    <div className={css.cartItem}>
       <span
-        className="remove-button"
+        className={css.cartItemDelBtn}
         onClick={() => onPressDelete()}
       >
         <FaTimes />
       </span>
-      <div className="img_w">
+      <div className={css.cartItemImg}>
         <img src={item.image} alt={item.name} />
       </div>
-      <div className="info">
-        <p className="name">{item.name}</p>
+      <div className={css.cartItemInfo}>
+        <p className={css.cartItemInfoName}>{item.name}</p>
         <Params items={item.selectedProps} />
-        <p className="count-price"><span>{item.quantity} x </span>{item.price} {I18n.t('currency')}</p>
+        <p className={css.countPrice}><span>{item.quantity} x </span>{item.price} {I18n.t('currency')}</p>
       </div>
     </div>
   );

@@ -1,0 +1,41 @@
+@import "client/styles/variables";
+
+.btn {
+  width: 100%;
+  text-align: center;
+  color: $black;
+  display: block;
+  background-color: $orange;
+  border-radius: 0;
+  border: 2px solid transparent;
+  font-family: $el-mis-reg;
+  font-size: 14px;
+  line-height: 40px;
+  text-transform: uppercase;
+  padding: 0 10px;
+  box-sizing: border-box;
+
+  &:hover {
+    color: $black;
+    background-color: $punch;
+  }
+}
+
+.disabled {
+  opacity: 0.3;
+}
+
+.btnTransparent {
+  background-color: transparent;
+  border: 2px solid $orange;
+  color: $orange;
+
+  &:hover {
+    background-color: $orange;
+    color: $black;
+  }
+}
+
+.banner {
+  height: 390px;
+}

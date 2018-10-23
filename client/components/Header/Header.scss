@@ -1,0 +1,27 @@
+@import "client/styles/variables";
+
+header {
+  background-color: $codGray;
+  height: 90px;
+  width: 100%;
+  box-shadow: inset 0px 5px 5px 0px rgba(0,0,0,0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
+.headerLogo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+
+  a {
+    font-family: $chicken;
+    font-size: 77px;
+    line-height: 90px;
+    color: $punch;
+  }
+}

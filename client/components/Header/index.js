@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 import { Link } from 'react-router-dom';
 
-import Menu from './Menu';
-import SideCart from '../containers/SideCart';
-import { ROUTES_MAP } from '../constants';
-import withHideExtraMenus from '../redux/decorators/withHideExtraMenus';
+import Menu from '../Menu';
+import SideCart from '../../containers/SideCart';
+import { ROUTES_MAP } from '../../constants';
+import withHideExtraMenus from '../../redux/decorators/withHideExtraMenus';
+
+import css from './Header.scss';
 
 const Logo = withHideExtraMenus(Link);
 
@@ -21,7 +23,7 @@ const Header = (props) => {
         handleMenuItemClick={() => onMenuItemPress(props)}
         isOpen={show}
       />
-      <div className="header-logo">
+      <div className={css.headerLogo}>
         <Logo to={ROUTES_MAP.main}><p>{I18n.t(`logo`)}</p></Logo>
       </div>
       <SideCart />

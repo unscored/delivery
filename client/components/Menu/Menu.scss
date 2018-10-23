@@ -1,0 +1,59 @@
+@import "client/styles/variables";
+
+.sideMenu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: $menu-width;
+  transform: translate3d(-$menu-width, 0, 0);
+  height: 100vh;
+  background-color: $codGray;
+  transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  z-index: 3;
+
+  &.opened {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.sideMenuContent {
+  padding: 36px;
+}
+
+.toggleBtn {
+  position: absolute;
+  top: 0;
+  right: -$header-h;
+  width: $header-h;
+  height: $header-h;
+  background-color: $black;
+  cursor: pointer;
+}
+
+.toggleBtnIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.menuItem {
+  padding: 0 0 38px 0;
+}
+
+.menuItemLink {
+  font-family: $el-mis-reg;
+  font-size: 14px;
+  line-height: 16px;
+  color: $white;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $punch;
+    text-decoration: none;
+  }
+}
+
+.menuItemLinkActive {
+  color: $punch
+}

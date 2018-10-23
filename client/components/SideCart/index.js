@@ -9,6 +9,8 @@ import CartItem from './CartItem';
 import { ROUTES_MAP } from '../../constants';
 import withHideExtraMenus from '../../redux/decorators/withHideExtraMenus';
 
+import css from './SideCart.scss';
+
 const { cart: cartRoute } = ROUTES_MAP;
 const ButtonWithHideCart = withHideExtraMenus(Button);
 
@@ -22,22 +24,22 @@ const Cart = props => {
     totalPrice,
     history,
   } = props;
-  const cartClass = show ? 'order-cart opened' : 'order-cart';
+  const cartClass = show ? [css.orderCart, css.opened].join(' ') : css.orderCart;
 
   return (
     <div className={cartClass}>
-      <div className="order-cart__content">
-        <div className="title">
+      <div className={css.orderCartContent}>
+        <div className={css.title}>
           <h3>{I18n.t('cart')}</h3>
         </div>
 
-        <div className="line"></div>
+        <div className={css.line}></div>
 
         { cartItems.length !== 0 ?
           (
-            <div className="cart-info">
+            <div>
               <List
-                classNameCss="items-list"
+                classNameCss={css.itemsList}
                 items={cartItems}
                 ListItem={({item}) => (
                   <CartItem item={item} onPressDelete={() => deleteFromCart(item.cartId)}/>
@@ -45,43 +47,40 @@ const Cart = props => {
                 keyExtractor={item => item.cartId}
               />
 
-              <div className="total">
+              <div className={css.total}>
                 <p>{I18n.t('totalOrder')}</p>
                 <p>{totalPrice} {I18n.t('currency')}.</p>
               </div>
 
-              <div className="buttons_wrap">
-                <div className="button_item">
+              <div>
+                <div className={css.buttonItem}>
                   <ButtonWithHideCart 
                     value={I18n.t('viewShopCart')}
                     onClick={() => history.push(cartRoute)}
                   />
                 </div>
-                <div className="button_item">
-                  <Button primary value={I18n.t('checkout')} />
-                </div>
               </div>
             </div>
           )
           : (
-            <div className="empty-cart">
+            <div className={css.emptyCart}>
               <p>{I18n.t('emptyCartText')}</p>
             </div>
           )
         }
       </div>
       <div
-        className="order-cart__toggle-btn"
+        className={css.toggleBtn}
         onClick={handleCartBtnClick}
       >
-        <div className="cart-icon">
+        <div className={css.cartIcon}>
           <FiShoppingCart size={38} color={'#FFF'}/>
         </div>
 
         {totalItemsCount !== 0
           && (
-            <div className="count">
-              <p className="count-text">
+            <div className={css.count}>
+              <p className={css.countText}>
                 <span>{totalItemsCount}</span>
               </p>
             </div>

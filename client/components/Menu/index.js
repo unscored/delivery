@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 
+import css from './Menu.scss';
+
 export default class Menu extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.shape({
@@ -20,12 +22,12 @@ export default class Menu extends Component {
 
     return this.props.items.map(item => {
       return (
-        <li key={item.id} className="menu-item" onClick={handleMenuItemClick}>
+        <li key={item.id} className={css.menuItem} onClick={handleMenuItemClick}>
           <NavLink
             key={item.id}
             to={item.path}
-            className="menu-item__link"
-            activeClassName="menu-item__link_active"
+            className={css.menuItemLink}
+            activeClassName={css.menuItemLinkActive}
             exact
           >
             {item.name}
@@ -37,20 +39,20 @@ export default class Menu extends Component {
   
   render() {
     const { handleMenuBtnClick, isOpen } = this.props;
-    const sideMenuCLass = isOpen ? "side-menu opened" : "side-menu";
+    const sideMenuClass = isOpen ? [css.sideMenu, css.opened].join(' ') : css.sideMenu;
 
     return (
-      <div className={sideMenuCLass}>
-        <div className="side-menu__content">
-          <ul className="side-menu_items">
+      <div className={sideMenuClass}>
+        <div className={css.sideMenuContent}>
+          <ul>
             {this._renderItems()}
           </ul>
         </div>
         <div
-          className="toggle-btn"
+          className={css.toggleBtn}
           onClick={handleMenuBtnClick}
         >
-          <div className="toggle-btn__icon">
+          <div className={css.toggleBtnIcon}>
             <MdMenu size={36} color={'#FFF'}/>
           </div>
         </div>

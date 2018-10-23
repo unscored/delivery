@@ -6,7 +6,7 @@ const TextInput = (props) => {
   const { mask, ...rest } = props;
 
   return (
-    <div className="text-input">
+    <div className="textInput">
       {mask ? <MaskedInput mask={mask} {...rest} /> : <input {...rest} /> }
     </div>
   )

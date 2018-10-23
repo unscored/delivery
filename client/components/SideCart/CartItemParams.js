@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+import css from './SideCart.scss';
+
 const CartItemParams = ({items}) => {
   return (
-    <ul className="params">
+    <ul className={css.params}>
       {items && items.map((item, i) => <li key={i}>{item}</li>)}
     </ul>
   );
