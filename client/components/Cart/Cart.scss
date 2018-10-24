@@ -1,0 +1,57 @@
+@import "client/styles/variables";
+
+.banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 90px;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.6);
+  height: 390px;
+}
+
+.container {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+.pageContent {
+  padding: 67px 0 155px 0;
+}
+
+.emptyCartMessage {
+  text-align: center;
+
+  p {
+    font-family: $el-mis-reg;
+    font-size: 24px;
+    line-height: 24px;
+    color: $white;
+    opacity: 0.5;
+  }
+}
+
+.orderRow {
+  padding: 30px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.additionalData {
+  display: flex;
+  justify-content: space-between;
+}
+
+.additionalDataItem {
+  width: 45%;
+}
+
+.cartTotal {
+  
+  p {
+    font-family: $west;
+    font-size: 28px;
+    line-height: 28px;
+    color: $punch;
+  }
+}

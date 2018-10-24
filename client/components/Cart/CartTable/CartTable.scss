@@ -1,0 +1,79 @@
+@import "client/styles/variables";
+
+.cartTable {
+
+  table { 
+    width: 100%;
+  }
+
+  thead {
+    border-bottom: 4px solid $punch;
+  
+    td {
+      font-family: $el-mis-reg;
+      color: $white;
+      text-transform: uppercase;
+      padding: 10px 15px 34px 15px;
+    }
+  }
+
+  tr {
+    &.bordered {
+      border-bottom: 1px solid $gray;
+    }
+  }
+
+  td {
+    padding: 26px 15px 30px 15px;
+    vertical-align: middle;
+
+    &.big60 {
+      width: 60%;
+    }
+    &.alignCenter {
+      text-align: center;
+    }
+    &.big40 {
+      width: 40%;
+    }
+
+    &.decor {
+      font-family: $west;
+      color: $punch;
+    }
+  }
+}
+
+.removeBtn {
+  display: block;
+  color: $white;
+  cursor: pointer;
+  transition: 0.15s color ease-in-out;
+
+  &:hover {
+    color: $punch;
+  }
+}
+
+.cartTableImage {
+  width: 100px;
+  display: block;
+}
+
+.itemInfo {
+
+  p {
+    font-family: $el-mis-reg;
+    font-size: 14px;
+    line-height: 14px;
+    color: $white;
+
+    &.name {
+      font-family: $west;
+      font-size: 24px;
+      line-height: 24px;
+      color: $orange;
+      padding: 0 0 8px 0;
+    }
+  } 
+}

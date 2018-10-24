@@ -1,0 +1,36 @@
+@import "client/styles/variables";
+
+.textInput {
+  height: 44px;
+
+  input {
+    width: 100%;
+    height: 100%;
+    border: 1px solid $white;
+    background-color: transparent;
+    outline: none;
+    color: $white;
+    padding: 0 18px;
+    font-family: $el-mis-reg;
+    font-size: 14px;
+    line-height: 14px;
+    box-sizing: border-box;
+
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+      color: $white;
+      opacity: 0.5;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+      color: $white;
+      opacity: 0.5;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+      color: $white;
+      opacity: 0.5;
+    }
+    &:-moz-placeholder { /* Firefox 18- */
+      color: $white;
+      opacity: 0.5;
+    }
+  }
+}

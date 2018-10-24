@@ -1,0 +1,87 @@
+@import "client/styles/variables";
+
+.quantityItemInput {
+  width: 50px;
+  height: 44px;
+  position: relative;
+
+  input {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid $white;
+    margin: 0;
+    padding: 0 15px 0 0;
+    display: inline-block;
+    vertical-align: middle;
+    white-space: normal;
+    line-height: 1;
+    text-align: center;
+    color: $white;
+    font-family: $el-mis-reg;
+    font-size: 16px;
+    line-height: 16px;
+    outline: 0;
+    box-sizing: border-box;
+
+    &:focus {
+      outline: 0;
+    }
+  }    
+}
+
+.actions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 15px;
+  height: 100%;
+
+  span {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    cursor: pointer;
+
+    &:before, &:after {
+      content: '';
+      position: absolute;
+      height: 1px;
+      background-color: $white;
+      width: 40%;
+    }
+
+    &.up {
+      top: 0;
+
+      &:before {
+        left: 0;
+        bottom: 40%;
+        transform: rotate(315deg);
+      }
+
+      &:after {
+        right: 5px;
+        bottom: 40%;
+        transform: rotate(-315deg);
+      }
+    }
+
+    &.down {
+      bottom: 0;
+
+      &:before {
+        top: 40%;
+        left: 0;
+        transform: rotate(45deg);
+      }
+
+      &:after {
+        top: 40%;
+        right: 5px;
+        transform: rotate(-45deg);
+      }
+    }
+  }
+}  

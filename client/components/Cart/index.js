@@ -1,4 +1,4 @@
-import React, { Fragment, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
@@ -7,6 +7,9 @@ import UserInfoForm from '../UserInfoForm';
 import Button from '../Button';
 import { cartItemTypes } from '../../propTypes';
 import { SUCCESS_PUSH_ORDER_MODAL } from '../../constants';
+import css from './Cart.scss';
+
+import banner from '../../images/cart-page-2500x600.jpg';
 
 export default class Cart extends Component {
   static propTypes = {
@@ -45,18 +48,18 @@ export default class Cart extends Component {
     } = this.props;
 
     return (
-      <div className="cart-page">
-        <div className="banner banner-cart" />
-        <div className="container">
+      <div>
+        <div className={css.banner} style={{'background-image': `url("${banner}")`}}/>
+        <div className={css.container}>
           {cartItems.length
             ? (
-              <Fragment>
+              <div className={css.pageContent}>
                 <CartTable items={cartItems} deleteItem={deleteFromCart} />
-                <div className="order-row">
-                  <div className="col-6 cart-total">
+                <div className={css.orderRow}>
+                  <div className={css.cartTotal}>
                     <p>{`${I18n.t('cartTableLabels.totalLabel')}: ${totalPrice} ${I18n.t('currency')}`}</p>
                   </div>
-                  <div className="col-2 order-btn">
+                  <div className={css.orderBtn}>
                     <Button
                       disabled={!isValid}
                       value={`${I18n.t('orderBtnTitle')}`}
@@ -64,18 +67,18 @@ export default class Cart extends Component {
                     />
                   </div>
                 </div>
-                <div className="additional-data row justify-content-between">
-                  <div className="col-5">
+                <div className={css.additionalData}>
+                  <div className={css.additionalDataItem}>
                     <UserInfoForm />
                   </div>
-                  <div className="col-5">
+                  <div className={css.additionalDataItem}>
                     {/* CouponBlock */}
                   </div>
                 </div>
-              </Fragment>
+              </div>
             )
             : (
-              <div className="empty-cart-message">
+              <div className={css.emptyCartMessage}>
                 <p>{I18n.t('emptyCartText')}</p>
               </div>
             )

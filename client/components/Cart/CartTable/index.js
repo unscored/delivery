@@ -1,17 +1,20 @@
 import React from 'react';
 import { I18n } from 'react-redux-i18n';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import RowRenderer from './RowRenderer';
-import { cartItemTypes } from '../../propTypes';
+import { cartItemTypes } from '../../../propTypes';
+
+import css from './CartTable.scss';
 
 const CartTable = ({ items, deleteItem }) => {
   return (
-    <div className="cart-table">
+    <div className={css.cartTable}>
       <table>
         <thead>
           <tr>
-            <td className="big-60 align-center" colSpan="3">{I18n.t('cartTableLabels.productLabel')}</td>
+            <td className={classNames(css.big60, css.alignCenter)} colSpan="3">{I18n.t('cartTableLabels.productLabel')}</td>
             <td>{I18n.t('cartTableLabels.priceLabel')}</td>
             <td>{I18n.t('cartTableLabels.quantityLabel')}</td>
             <td>{I18n.t('cartTableLabels.totalLabel')}</td>
