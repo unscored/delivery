@@ -8,7 +8,7 @@
     "host": "localhost",
     "database": "foodshop",
     "username": "root",
-    "password": "",
+    "password": "1",
     "dialect": "mysql",
     "logging": false,
     "timeout": 30000,
