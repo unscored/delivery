@@ -16,5 +16,9 @@ app.use(cors());
 app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.use(express.static(path.join(__dirname, '..', 'public')));
 
+app.get(['/', '/cart', '/contacts'], function(req, resp) {
+  resp.sendFile("/public/index.html");
+});
+
 direct.init(app);
 server.run(app);

@@ -1,6 +1,6 @@
 import { guid } from '../utils';
 
-export const BASE_URL = 'http://127.0.0.1:3003/api';
+export const BASE_URL = 'http://0.0.0.0:3003/api';
 
 export const API = {
   products: 'products',
