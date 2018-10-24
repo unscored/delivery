@@ -1,6 +1,6 @@
 import { guid } from '../utils';
 
-export const BASE_URL = 'http://95.46.44.56:3003/api';
+export const BASE_URL = $__WebPackConfig.API_URL;
 
 export const API = {
   products: 'products',
