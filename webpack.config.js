@@ -89,6 +89,9 @@ module.exports = {
       }
     ]
   },
+  devServer: {
+    historyApiFallback: true
+  },
   optimization: {
     minimizer: [
       uglifyJs,
