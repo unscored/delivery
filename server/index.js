@@ -19,7 +19,7 @@ app.use(favicon(path.join(__dirname, 'favicon.ico')));
 app.use(express.static(PUBLIC_PATH));
 
 app.get(['/', '/cart', '/contacts'], function(req, resp) {
-  resp.sendFile(PUBLIC_PATH + '/index.html');
+  resp.sendFile(path.join(PUBLIC_PATH, 'index.html'));
 });
 
 direct.init(app);
