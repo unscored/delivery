@@ -4,13 +4,16 @@ import { withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
-import actions from '../../redux/actions/modal';
-import userActions from '../../redux/actions/user';
-import cartActions from '../../redux/actions/cart';
-import { ROUTES_MAP } from '../../constants';
-import Button from '../../components/Button';
+import actions from '../../../redux/actions/modal';
+import userActions from '../../../redux/actions/user';
+import cartActions from '../../../redux/actions/cart';
+import { ROUTES_MAP } from '../../../constants';
+import Button from '../../../components/Button';
+
+import css from './SuccessPushOrderModal.scss';
 
 class SuccessPushOrderModal extends Component {
+  static CSS = css;
   static propTypes = {
     setModal: PropTypes.func.isRequired,
     clearCart: PropTypes.func.isRequired,
@@ -29,12 +32,12 @@ class SuccessPushOrderModal extends Component {
 
   render() {
     return (
-      <div className="modal">
-        <div className="modal-content">
-          <div className="title">
+      <div className={css.modal}>
+        <div className={css.modalContent}>
+          <div className={css.title}>
             <h3>{I18n.t('successOrderModalTitle')}</h3>
           </div>
-          <div className="text">
+          <div className={css.text}>
             <p>{I18n.t('successOrderModalText')}</p>
           </div>
           <div className="col-6">

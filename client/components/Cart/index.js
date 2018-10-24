@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
@@ -51,38 +51,40 @@ export default class Cart extends Component {
       <div>
         <div className={css.banner} style={{'background-image': `url("${banner}")`}}/>
         <div className={css.container}>
-          {cartItems.length
-            ? (
-              <div className={css.pageContent}>
-                <CartTable items={cartItems} deleteItem={deleteFromCart} />
-                <div className={css.orderRow}>
-                  <div className={css.cartTotal}>
-                    <p>{`${I18n.t('cartTableLabels.totalLabel')}: ${totalPrice} ${I18n.t('currency')}`}</p>
+          <div className={css.pageContent}>
+            {cartItems.length
+              ? (
+                <Fragment>
+                  <CartTable items={cartItems} deleteItem={deleteFromCart} />
+                  <div className={css.orderRow}>
+                    <div className={css.cartTotal}>
+                      <p>{`${I18n.t('cartTableLabels.totalLabel')}: ${totalPrice} ${I18n.t('currency')}`}</p>
+                    </div>
+                    <div className={css.orderBtn}>
+                      <Button
+                        disabled={!isValid}
+                        value={`${I18n.t('orderBtnTitle')}`}
+                        onClick={this.onClick}
+                      />
+                    </div>
                   </div>
-                  <div className={css.orderBtn}>
-                    <Button
-                      disabled={!isValid}
-                      value={`${I18n.t('orderBtnTitle')}`}
-                      onClick={this.onClick}
-                    />
+                  <div className={css.additionalData}>
+                    <div className={css.additionalDataItem}>
+                      <UserInfoForm />
+                    </div>
+                    <div className={css.additionalDataItem}>
+                      {/* CouponBlock */}
+                    </div>
                   </div>
+                </Fragment>
+              )
+              : (
+                <div className={css.emptyCartMessage}>
+                  <p>{I18n.t('emptyCartText')}</p>
                 </div>
-                <div className={css.additionalData}>
-                  <div className={css.additionalDataItem}>
-                    <UserInfoForm />
-                  </div>
-                  <div className={css.additionalDataItem}>
-                    {/* CouponBlock */}
-                  </div>
-                </div>
-              </div>
-            )
-            : (
-              <div className={css.emptyCartMessage}>
-                <p>{I18n.t('emptyCartText')}</p>
-              </div>
-            )
-          }
+              )
+            }
+          </div>
         </div>
       </div>
     );

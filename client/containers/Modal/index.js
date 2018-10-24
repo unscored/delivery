@@ -31,10 +31,11 @@ class Modal extends Component {
         PopUpComponent = SuccessPushOrderModal;
         break;
     }
+
     return (
       <CSSTransition
-        timeout={300}
-        classNames="fade-modal"
+        timeout={parseInt(PopUpComponent.CSS.animationTime, 10)}
+        classNames={PopUpComponent.CSS}
         unmountOnExit
       >
         <PopUpComponent />
