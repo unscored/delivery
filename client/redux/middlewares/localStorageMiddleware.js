@@ -20,7 +20,7 @@ export const localStorageMiddleware = store => next => action => {
   ];
 
   if (actions.includes(action.type)) {
-    saveState({ cart: store.getState().cart });
+    saveState({ cart: { ...store.getState().cart, show: false }});
   }
 
   return returnValue;
