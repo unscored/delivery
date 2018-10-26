@@ -49,8 +49,8 @@ export default class Cart extends Component {
 
     return (
       <div>
-        <div className={css.banner} style={{'background-image': `url("${banner}")`}}/>
-        <div className={css.container}>
+        <div className="banner" style={{'background-image': `url("${banner}")`}}/>
+        <div className="container">
           <div className={css.pageContent}>
             {cartItems.length
               ? (

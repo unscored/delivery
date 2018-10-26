@@ -11,8 +11,8 @@ export default class Cart extends Component {
   render() {
     return (
       <div>
-        <div className={css.banner} style={{'background-image': `url("${banner}")`}}></div>
-        <div className={css.container}>
+        <div className="banner" style={{'background-image': `url("${banner}")`}}></div>
+        <div className="container">
           Контакты
         </div>
       </div>
