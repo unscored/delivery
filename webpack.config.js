@@ -10,18 +10,21 @@ const devEnvironment = require('./config/dev.json');
 const prodEnvironment = require('./config/prod.json');
 
 
-const nodeEnv = process.env.NODE_ENV ? 'production' : 'development';
-const devMode = nodeEnv !== 'production';
-const jsonEnvironment = devMode ? devEnvironment : prodEnvironment;
-
 const CONSTANTS = {
   OUTPUT_PATH: 'public',
   ENTRY_CLIENT_PATH: 'client',
   ENTRY_ADMIN_PATH: 'admin',
 };
+
+const isAdmin = !!process.env.IS_ADMIN;
+const targetOutputPath = isAdmin ? `${CONSTANTS.OUTPUT_PATH}/${CONSTANTS.ENTRY_ADMIN_PATH}` : CONSTANTS.OUTPUT_PATH;
+const targetEntryPath = isAdmin ? CONSTANTS.ENTRY_ADMIN_PATH : CONSTANTS.ENTRY_CLIENT_PATH;
+const nodeEnv = process.env.NODE_ENV ? 'production' : 'development';
+const devMode = nodeEnv !== 'production';
+const jsonEnvironment = devMode ? devEnvironment : prodEnvironment;
 const htmlPlugin = new HtmlWebPackPlugin({
-  template: path.join(__dirname, CONSTANTS.ENTRY_CLIENT_PATH, 'index.html'),
-  favicon: path.join(__dirname, CONSTANTS.ENTRY_CLIENT_PATH, 'favicon.ico'),
+  template: path.join(__dirname, targetEntryPath, 'index.html'),
+  favicon: path.join(__dirname, targetEntryPath, 'favicon.ico'),
   filename: "./index.html"
 });
 const miniCssPlugin = new MiniCssExtractPlugin({
@@ -42,9 +45,9 @@ const optimizeCSS = new OptimizeCSSAssetsPlugin({});
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
-  entry: path.join(__dirname, CONSTANTS.ENTRY_CLIENT_PATH),
+  entry: path.join(__dirname, targetEntryPath),
   output: {
-    path: path.join(__dirname, CONSTANTS.OUTPUT_PATH),
+    path: path.join(__dirname, targetOutputPath),
     filename: 'main-[hash:8].js'
   },
   module: {
@@ -78,7 +81,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[path][name].[ext]',
-              context: CONSTANTS.ENTRY_CLIENT_PATH
+              context: targetEntryPath
             }
           }
         ]
@@ -89,7 +92,7 @@ module.exports = {
           loader: "file-loader",
           options: {
             name: "[path][name].[ext]",
-            context: CONSTANTS.ENTRY_CLIENT_PATH
+            context: targetEntryPath
           }
         }
       }
@@ -107,7 +110,7 @@ module.exports = {
   plugins: [
     htmlPlugin,
     miniCssPlugin,
-    cleanPlugin,
+    // cleanPlugin,
     definePlugin
   ]
 };

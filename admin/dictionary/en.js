@@ -1,0 +1,35 @@
+const translate = {
+  logo: 'Belvedere',
+  cart: 'Cart',
+  totalOrder: 'Total Order',
+  currency: 'hrn',
+  addToCart: 'Add',
+  emptyCartText: 'Your cart is empty',
+  viewShopCart: 'View Shopping Cart',
+  checkout: 'Checkout',
+  addedToCart: "Product added to cart",
+  yourName: 'Your name',
+  yourPhone: 'Your phone',
+  yourAddress: 'Your address',
+  phonePattern: '+08 000 000 00 00',
+  contactsDataTitle: 'Your Contacts',
+  orderBtnTitle: 'Order',
+  emptyFields: 'All fields in form Contact data are required!',
+  correctPhone: 'Please, enter correct phone number',
+  successOrderModalTitle: 'Your order is accepted',
+  successOrderModalText: 'Within 5 minutes, our manager will contact you!',
+  ok: 'Ok',
+  cartTableLabels: {
+    productLabel: 'Product',
+    priceLabel: 'Price',
+    quantityLabel: 'Qty',
+    totalLabel: 'Total',
+  },
+  menu: {
+    main: 'Home',
+    contacts: 'Contacts',
+    cart: 'Cart',
+  },
+};
+
+export default translate;

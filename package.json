@@ -4,8 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --color --open",
-    "build": "cross-env NODE_ENV=production webpack"
+    "start:client": "webpack-dev-server --port 5000 --color --open",
+    "start:admin": "IS_ADMIN=1 webpack-dev-server --port 8000 --color --open",
+    "build:client": "cross-env NODE_ENV=production webpack",
+    "build:admin": "IS_ADMIN=1 cross-env NODE_ENV=production webpack",
+    "build": "run-s build:client build:admin"
   },
   "keywords": [],
   "author": "",
@@ -27,6 +30,7 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.9.4",
+    "npm-run-all": "^4.1.3",
     "optimize-css-assets-webpack-plugin": "^5.0.1",
     "path": "^0.12.7",
     "sass-loader": "^7.1.0",
