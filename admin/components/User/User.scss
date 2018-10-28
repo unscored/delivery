@@ -1,0 +1,33 @@
+@import "admin/styles/variables";
+
+.user {
+  display: flex;
+  align-items: center;
+
+  p {
+    font-family: $roboto;
+    font-size: 14px;
+    line-height: 14px;
+    color: white;
+    letter-spacing: 0.5px;
+  }
+}
+
+.fakeAvatar {
+  border-radius: 50%;
+  border: 1px solid white;
+  width: 40px;
+  height: 40px;
+  margin: 0 0 0 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  p {
+    font-family: $roboto;
+    font-size: 18px;
+    line-height: 18px;
+    color: white;
+  }
+}

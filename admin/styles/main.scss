@@ -1,3 +1,20 @@
 @import "reset";
 @import "fonts";
 @import "variables";
+
+:global {
+  html, body {
+    background-color: #f0f0f0;
+  }
+
+  .content {
+    display: flex;
+    margin-top: $header-h;
+  }
+
+  .routeContent {
+    flex: 1;
+    height: calc(100vh - #{$header-h});
+    overflow: scroll;
+  }
+}

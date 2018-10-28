@@ -1,35 +1,9 @@
 const translate = {
-  logo: 'Belvedere',
-  cart: 'Корзина',
-  totalOrder: 'Итого',
-  currency: 'грн',
-  addToCart: 'Добавить',
-  emptyCartText: 'Ваша корзина пуста',
-  viewShopCart: 'Показать корзину',
-  checkout: 'Подтвердить заказ',
-  addedToCart: "Продукт добавлен",
-  yourName: 'Ваше имя',
-  yourPhone: 'Ваш телефон',
-  yourAddress: 'Ваш адрес',
-  phonePattern: '+08 000 000 00 00',
-  contactsDataTitle: 'Контактные данные',
-  orderBtnTitle: 'Заказать',
-  emptyFields: 'Все поля в форме "Контактные данные" обязательны для заполнения!',
-  correctPhone: 'Пожалуйста, введите корректный номер телефона',
-  successOrderModalTitle: 'Ваш заказ принят',
-  successOrderModalText: 'В течении 5 минут наш менеджер с вами свяжется!',
-  ok: 'Хорошо',
-  cartTableLabels: {
-    productLabel: 'Продукт',
-    priceLabel: 'Цена',
-    quantityLabel: 'Кол-во',
-    totalLabel: 'Итого',
-  },
-  menu: {
-    main: 'Главная',
-    contacts: 'Контакты',
-    cart: 'Корзина',
-  },
+  brand: "Belvedere",
+  login: "Логин",
+  password: "Пароль",
+  rememberMe: "Запомнить меня",
+  enter: "Войти"
 };
 
 export default translate;
