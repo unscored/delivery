@@ -6,7 +6,7 @@ export default class Clients extends Component {
   render() {
     return (
       <React.Fragment>
-        Clients
+        Клиенты
       </React.Fragment>
     );
   }

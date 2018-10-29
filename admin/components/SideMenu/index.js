@@ -1,18 +1,76 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import classNames from 'classnames';
+import {
+  MdShoppingCart,
+  MdSupervisorAccount,
+  MdDashboard,
+  MdMenu,
+  MdChevronLeft,
+} from 'react-icons/md';
 
 import css from './SideMenu.scss';
 import { ROUTES_MAP } from '../../constants';
 
 
-const SideMenu = () => (
-  <div className={css.sideMenu}>
-    <ul>
-      <li><Link to={ROUTES_MAP.main}>Main</Link></li>
-      <li><Link to={ROUTES_MAP.orders}>Orders</Link></li>
-      <li><Link to={ROUTES_MAP.clients}>Clients</Link></li>
-    </ul>
-  </div>
-);
+class SideMenu extends Component {
+  state = {
+    isCollapsed: true
+  }
+
+  static propTypes = {
+
+  };
+
+  handleCollapseClick = () => {
+     this.setState(prevState => ({
+       isCollapsed: !prevState.isCollapsed,
+     }));
+  }
+
+  renderControlIcon = () => {
+    const { isCollapsed } = this.state;
+
+    return (
+      isCollapsed
+        ? <MdMenu size={24}color={css.iconsColor} />
+        : <MdChevronLeft size={24}color={css.iconsColor} />
+    );
+  }
+  
+  render() {
+    const { isCollapsed } = this.state;
+
+    return (
+      <div className={isCollapsed ? classNames(css.sideMenu, css.collapsed) : css.sideMenu}>
+        <div className={css.control}>
+          <div onClick={this.handleCollapseClick} className={css.button}>
+            {this.renderControlIcon()}
+          </div>
+        </div>
+        <ul className={css.nav}>
+          <li>
+            <Link to={ROUTES_MAP.main}>
+              <MdDashboard size={24} color={css.iconsColor} />
+              <p>Главная</p>
+            </Link>
+          </li>
+          <li>
+            <Link to={ROUTES_MAP.orders}>
+              <MdShoppingCart size={24} color={css.iconsColor} />
+              <p>Заказы</p>
+            </Link>
+          </li>
+          <li>
+            <Link to={ROUTES_MAP.clients}>
+              <MdSupervisorAccount size={24} color={css.iconsColor} />
+              <p>Клиенты</p>
+            </Link>
+          </li>
+        </ul>
+      </div>
+    );
+  }
+};
 
 export default SideMenu;

@@ -1,6 +1,75 @@
+@import "admin/styles/variables";
+
+@value iconsColor: gray;
+@value sideMenuWidth: 240px;
+@value sideMenuWidthCollapsed: 50px;
+
 .sideMenu {
-  cursor: pointer;
-  width: 240px;
+  width: sideMenuWidth;
   background-color: white;
   border-right: 1px solid lightgray;
+  overflow: hidden;
+  transition: width 0.3s ease-in-out;
+
+  &.collapsed {
+    width: sideMenuWidthCollapsed;
+
+    .control {
+      width: sideMenuWidthCollapsed;
+    }
+  }
+}
+
+.control {
+  position: relative;
+  width: sideMenuWidth;
+  height: sideMenuWidthCollapsed;
+  border-bottom: 1px solid lightgray;
+  transition: width 0.3s ease-in-out;
+}
+
+.button {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.25s ease-in-out;
+
+  &:hover {
+    background-color: $lightGray;
+  }
+}
+
+.nav {
+  padding: 8px 0;
+  width: sideMenuWidth;
+
+  li {
+    padding: 11px 13px;
+    transition: background-color 0.25s ease-in-out;
+    
+    a {
+      font-family: $roboto;
+      font-size: 15px;
+      line-height: 28px;
+      color: black;
+      letter-spacing: 0.5px;
+      display: flex;
+      align-items: center;
+
+      p {
+        padding: 0 0 0 13px;
+      }
+    }
+
+    &:hover {
+      background-color: $lightGray;
+    }
+  }
 }

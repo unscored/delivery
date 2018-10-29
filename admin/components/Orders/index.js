@@ -6,7 +6,7 @@ export default class Orders extends Component {
   render() {
     return (
       <React.Fragment>
-        Orders
+        Заказы
       </React.Fragment>
     );
   }
