@@ -26,6 +26,7 @@ try {
     'property',
     'value',
     'type',
+    'user',
   ];
 
   models.forEach(modelName => {
