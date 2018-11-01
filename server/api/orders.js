@@ -2,39 +2,9 @@
 
 const models = require('../models');
 const errors = require('../utils/errors');
-const constants = require('../utils/constants');
+const helpers = require('../utils/helpers');
 
 module.exports = {
-  getOrders: async (params, callback) => {
-    try {
-      const query = `
-        select
-          o.id
-        , c.name
-        , c.phone
-        , o.status
-        , SUM(v.price) as total
-        from ordersProducts
-          inner join orders o on ordersProducts.orderId = o.id
-          inner join clients c on o.clientId = c.id
-          inner join \`values\` v on ordersProducts.valueId = v.id
-        group by
-          o.id
-          , c.name
-          , c.phone
-          , o.status;
-      `;
-
-      const result = await models.sequelize.query(query, {
-        type: models.sequelize.QueryTypes.SELECT
-      });
-
-      callback(null, result);
-    } catch (ex) {
-      console.log('api/orders.js | getOrders | exception:', ex);
-      callback(ex);
-    }
-  },
   addOrder: async (params, callback) => {
     try {
       const result = {};
@@ -76,6 +46,42 @@ module.exports = {
       callback(null, result);
     } catch (ex) {
       console.log('api/orders.js | addOrder | exception:', ex);
+      callback(ex);
+    }
+  },
+  getOrders: async (params, callback) => {
+    try {
+      const query = `
+        select
+          o.id
+        , c.name
+        , c.phone
+        , o.status
+        , v.value as propValue
+        , p.name as propName
+        , t.name as type
+        , pr.name as productName
+        , op.position
+        , op.quantity
+        , o.createdAtDate as date
+        from ordersProducts op
+          inner join orders o on op.orderId = o.id
+          inner join clients c on o.clientId = c.id
+          inner join \`values\` v on op.valueId = v.id
+          inner join properties p on v.propertyId = p.id
+          inner join types t on p.typeId = t.id
+          inner join products pr on op.productId = pr.id;
+      `;
+
+      const result = await models.sequelize.query(query, {
+        type: models.sequelize.QueryTypes.SELECT
+      });
+
+      const orders = helpers.prepareOrders(result);
+
+      callback(null, orders);
+    } catch (ex) {
+      console.log('api/orders.js | getOrders | exception:', ex);
       callback(ex);
     }
   }

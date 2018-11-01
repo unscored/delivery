@@ -43,8 +43,57 @@ const prepareProducts = data => {
   }, []);
   
   return result;
-}
+};
+
+/**
+ * 
+ * @param {Array} data
+ * 
+ * @returns {Array}
+ */
+const prepareOrders = data => {
+  const result = data.reduce((acc, item) => {
+    let duplicateOrderIndex = acc.findIndex(o => item.id === o.id);
+    const orderListItem = {
+      type: item.type,
+      name: item.productName,
+      quantity: item.quantity,
+      position: item.position,
+      params: [{
+        name: item.propName,
+        value: item.propValue,
+      }]
+    };
+
+    if (duplicateOrderIndex < 0) {
+      acc.push({
+        id: item.id,
+        name: item.name,
+        phone: item.phone,
+        status: item.status,
+        date: item.date,
+        orderList: [orderListItem],
+      });
+    } else {
+      let duplicateProductIndex = acc[duplicateOrderIndex].orderList.findIndex(p => item.position === p.position);
+
+      if (duplicateProductIndex < 0) {
+        acc[duplicateOrderIndex].orderList.push(orderListItem);
+      } else {
+        acc[duplicateOrderIndex].orderList[duplicateProductIndex].params.push({
+          name: item.propName,
+          value: item.propValue,
+        });
+      }
+      
+    }
+    return acc;
+  }, []);
+
+  return result
+};
 
 module.exports = {
   prepareProducts,
+  prepareOrders,
 }

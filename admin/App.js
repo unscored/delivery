@@ -10,7 +10,7 @@ import LogIn from './containers/LogIn';
 import Main from './components/Main';
 import Header from './components/Header';
 import SideMenu from './components/SideMenu';
-import Orders from './components/Orders';
+import Orders from './containers/Orders';
 import Clients from './components/Clients';
 import store from './redux/store';
 import { ROUTES_MAP } from './constants';

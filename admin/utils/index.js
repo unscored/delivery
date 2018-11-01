@@ -23,3 +23,23 @@ export const saveState = (state) => {
     // log errors
   }
 }
+
+/**
+ * 
+ * @param {String} date 
+ * @returns {String}
+ */
+export const parseDate = date => {
+  const opt = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    weekday: 'long',
+    timezone: 'UTC',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
+
+  return new Date(date).toLocaleString("ru", opt);
+}

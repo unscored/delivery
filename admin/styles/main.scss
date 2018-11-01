@@ -16,5 +16,6 @@
     flex: 1;
     height: calc(100vh - #{$header-h});
     overflow: scroll;
+    padding: 15px;
   }
 }
