@@ -2,9 +2,9 @@
 @import "fonts";
 @import "variables";
 
-:global {
-	@import '~react-toastify/scss/main.scss';
-}
+// :global {
+// 	@import '~react-toastify/scss/main.scss';
+// }
 :global {
   body, html {
     background-image: url('../images/blackboard-pattern.jpg');

@@ -3,7 +3,11 @@ const translate = {
   login: "Логин",
   password: "Пароль",
   rememberMe: "Запомнить меня",
-  enter: "Войти"
+  enter: "Войти",
+  form: {
+    emptyName: "Введите имя!",
+    emptyPassword: "Введите пароль!"
+  }
 };
 
 export default translate;

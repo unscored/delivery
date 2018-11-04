@@ -1,20 +1,24 @@
 
 
 export const constants = {
-  UPDATE_USER: 'UPDATE_USER',
+  updateUser: 'UPDATE_USER',
+  loginStart: 'LOGIN_START',
+  loginSuccess: 'LOGIN_SUCCESS',
+  loginFail: 'LOGIN_FAIL',
 };
 
 const model = {
-  isLogged: false,
+  fetching: false,
   name: '',
-  password: ''
+  password: '',
+  error: null,
+  token: null,
 };
 
 export default function (state = model, action) {
 
   switch(action.type) {
-    case constants.UPDATE_USER: {
-      console.log(action);
+    case constants.updateUser: {
       const { payload } = action;
 
       return {
@@ -22,6 +26,38 @@ export default function (state = model, action) {
         ...payload,
       };
     }
+
+    case constants.loginStart: {
+      return {
+        ...state,
+        fetching: true,
+      };
+    }
+
+    case constants.loginSuccess: {
+      const { payload: { name, token } } = action;
+
+      return {
+        ...state,
+        fetching: false,
+        name,
+        password: '',
+        error: null,
+        token,
+      };
+    }
+    
+    case constants.loginFail: {
+      const { payload: { message } } = action;
+
+      return {
+        ...state,
+        fetching: false,
+        error: message,
+      };
+    }
+
+    default: 
+      return { ...state };
   }
-  return state;
 }

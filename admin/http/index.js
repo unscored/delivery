@@ -17,7 +17,7 @@ export default class Http {
         if (response.data && response.data[0].result && !response.data[0].result.code) {
           resolve(response.data[0].result);
         } else {
-          reject(response.data[0].result);
+          reject(response.data[0].result || response.data[0].data);
         }
       }
       const onError = error => {

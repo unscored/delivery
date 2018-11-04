@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
@@ -10,10 +10,11 @@ const PrivateRoute = ({ component: Component, user, ...rest }) => {
   return (
     <Route 
       {...rest}
-      render={(props) => user.isLogged
+      render={props => (
+        user.token
           ? <Component {...props} />
           : <Redirect to={ROUTES_MAP.login} />
-        } 
+      )} 
     />
   );
 }
@@ -22,7 +23,7 @@ PrivateRoute.propTypes = {
   
 }
 
-export default connect(
+export default withRouter(connect(
   ({ user }) => ({ user }),
   null,
-)(PrivateRoute);
+)(PrivateRoute));

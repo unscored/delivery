@@ -29,6 +29,14 @@ module.exports = {
     code: 40103,
     message: 'Invalid token'
   },
+  USER_NOT_EXIST: {
+    code: 40104,
+    message: 'User not exist'
+  },
+  INVALID_PASSWORD: {
+    code: 40105,
+    message: 'Invalid password'
+  },
   ROUTE_NOT_FOUND: {
     code: 40401,
     message: 'Route not found'

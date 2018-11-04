@@ -1,3 +1,4 @@
+const crypto = require('crypto');
 
 /**
  * 
@@ -93,7 +94,38 @@ const prepareOrders = data => {
   return result
 };
 
+const generateHashAndSalt = (password) => {
+  if (!password) {
+    return {
+      password_hash: null,
+      password_salt: null
+    };
+  }
+
+  const salt = crypto.randomBytes(64).toString('hex').slice(0, 64);
+  const cryptedPassword = crypto.createHmac('sha512', salt).update(password).digest('hex');
+
+  return {
+    password_hash: cryptedPassword,
+    password_salt: salt
+  };
+};
+
+const isValid = (user, password) => {
+  if (!user || (user && (!user.password_hash || !user.password_salt))) {
+    return false;
+  }
+
+  const cryptedPassword = crypto.createHmac('sha512', user.password_salt).update(password).digest('hex');
+
+  return user.password_hash === cryptedPassword;
+}
+
 module.exports = {
   prepareProducts,
   prepareOrders,
+  password: {
+    generateHashAndSalt,
+    isValid
+  }
 }

@@ -15,6 +15,7 @@ import Clients from './components/Clients';
 import store from './redux/store';
 import { ROUTES_MAP } from './constants';
 
+import './styles/antd.less';
 import './styles/main.scss';
 
 export default class App extends Component {
@@ -26,10 +27,10 @@ export default class App extends Component {
             <Header />
             <SideMenu />
             <div className="routeContent">
-              <Route exact path={ROUTES_MAP.main} component={Main}/>
+              <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
               <Route exact path={ROUTES_MAP.login} component={LogIn}/>
-              <Route exact path={ROUTES_MAP.clients} component={Clients}/>
-              <Route exact path={ROUTES_MAP.orders} component={Orders}/>
+              <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
+              <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
             </div>
           </div>
         </Router>

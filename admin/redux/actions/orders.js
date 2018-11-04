@@ -11,7 +11,6 @@ const getOrders = () => dispatch => {
     method: API_METHODS.getOrders,
   };
 
-  console.log(body);
   const onSuccess = result => {
     dispatch({ type: constants.getOrdersSuccess, payload: { result } });
   };

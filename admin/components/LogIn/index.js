@@ -1,75 +1,87 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
+import { Redirect } from 'react-router-dom';
+import { Form, Input, Icon, Button } from 'antd';
 
-import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
-import CssBaseline from '@material-ui/core/CssBaseline';
-import FormControl from '@material-ui/core/FormControl';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import Checkbox from '@material-ui/core/Checkbox';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import Paper from '@material-ui/core/Paper';
-import Typography from '@material-ui/core/Typography';
-import { MdLock } from 'react-icons/md';
+// import Avatar from '@material-ui/core/Avatar';
+// import Button from '@material-ui/core/Button';
+// import CssBaseline from '@material-ui/core/CssBaseline';
+// import FormControl from '@material-ui/core/FormControl';
+// import FormControlLabel from '@material-ui/core/FormControlLabel';
+// import Checkbox from '@material-ui/core/Checkbox';
+// import Input from '@material-ui/core/Input';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import Paper from '@material-ui/core/Paper';
+// import Typography from '@material-ui/core/Typography';
+// import { MdLock } from 'react-icons/md';
+
 
 import css from './LogIn.scss';
+import { ROUTES_MAP } from '../../constants';
 
 const LogIn = props => {
+  const {
+    login,
+    form,
+    user: { name, password, token },
+    updateUserInfo,
+  } = props;
+  const { getFieldDecorator } = form;
+  const onLogin = e => {
+    e.preventDefault();
+
+    props.form.validateFields(err => {
+      if (!err) {
+        login({name, password});
+      }
+    });
+  };
 
   return (
-    <React.Fragment>
-      <CssBaseline />
-      <main
-        className={css.layout}
-      >
-        <Paper className={css.paper}>
-          <Avatar className={css.avatar}>
-            <MdLock />
-          </Avatar>
-          <Typography component="h1" variant="h5">
-          {I18n.t('enter')}
-          </Typography>
-          <form className={css.form}>
-            <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="email">{I18n.t('login')}</InputLabel>
+    !token ? (
+      <div className={css.loginContent}>
+        <div className={css.loginIcon}>
+          <Icon type="user" style={{ fontSize: '40px', color: 'white' }} />
+        </div>
+        <Form onSubmit={onLogin} className="login-form">
+          <Form.Item>
+            {getFieldDecorator('userName', {
+              rules: [{ required: true, message: I18n.t('form.emptyName') }],
+            })(
               <Input
+                prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />}
+                placeholder={I18n.t('login')}
+                onChange={updateUserInfo}
                 id="name"
                 name="name"
-                autoComplete="name"
-                autoFocus
-                onChange={props.updateUserInfo}
               />
-            </FormControl>
-            <FormControl margin="normal" required fullWidth>
-              <InputLabel htmlFor="password">{I18n.t('password')}</InputLabel>
+            )}
+          </Form.Item>
+          <Form.Item>
+            {getFieldDecorator('password', {
+              rules: [{ required: true, message: I18n.t('form.emptyPassword') }],
+            })(
               <Input
-                name="password"
+                prefix={<Icon type="lock" style={{ color: 'rgba(0,0,0,.25)' }}/>}
                 type="password"
                 id="password"
-                autoComplete="current-password"
-                onChange={props.updateUserInfo}
+                name="password"
+                placeholder={I18n.t('password')}
+                onChange={updateUserInfo}
               />
-            </FormControl>
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label={I18n.t('rememberMe')}
-            />
-            <Button
-              type="submit"
-              fullWidth
-              variant="contained"
-              color="primary"
-              className={css.submit}
-            >
-              Войти
-            </Button>
-          </form>
-        </Paper>
-      </main>
-    </React.Fragment>
+            )}
+          </Form.Item>
+          <Button type="primary" htmlType="submit" className={css.loginFormButton}>
+            {I18n.t('enter')}
+          </Button>
+        </Form>
+
+
+      </div>
+    )
+    : <Redirect to={ROUTES_MAP.main} />
   );
 }
 
-export default LogIn;
+export default Form.create()(LogIn);

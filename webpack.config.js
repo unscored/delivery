@@ -58,7 +58,7 @@ module.exports = {
         use: { loader: "babel-loader" }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.scss$/,
         use: [
           { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader },
           {
@@ -72,6 +72,19 @@ module.exports = {
             }
           },
           { loader: "sass-loader" }
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader },
+          { loader: "css-loader" },
+          {
+            loader: "less-loader",
+            options: {
+              javascriptEnabled: true
+            }
+          },
         ]
       },
       {

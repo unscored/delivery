@@ -15,5 +15,5 @@ module.exports = {
   invalidParams: message => generate(errors.INVALID_PARAMS, message),
   recordAlreadyExists: message => generate(errors.RECORD_ALREADY_EXISTS, message),
   recordNotFound: message => generate(errors.RECORD_NOT_FOUND, message),
-  userNotExist: message => generate(errors.RECORD_NOT_FOUND, message),
+  unauthorized: () => generate(errors.UNAUTHORIZED),
 };

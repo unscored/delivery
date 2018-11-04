@@ -2,33 +2,25 @@
 
 const models = require('../models');
 const errors = require('../utils/errors');
-var jwt = require('jsonwebtoken');
-
-const generateError = message => ({
-  success: false,
-  data: message
-});
+const jwt = require('jsonwebtoken');
 
 module.exports = {
   login: async (params, callback) => {
     try {
-      let result = null;
-      let token = null;
       const user = await models.user.findOne({
-        where: { name: params.name }
+        where: {
+          name: params.name
+        }
       });
 
-      if (!user) {
-        result = generateError("User not exist");
-      } else if (user && params.password === user.password) {
-        token = jwt.sign({ name: params.name }, 'secretKey');
-        result = {
-          name: params.name,
-          token,
-        };
-      } else {
-        result = generateError("Invalid password");
+      if (!user || (user && user.password !== params.password)) {
+        throw errors.unauthorized();
       }
+
+      const result = {
+        name: user.name,
+        token: jwt.sign({ name: user.name }, 'secretKey'),
+      };
 
       callback(null, result);
     } catch (ex) {
