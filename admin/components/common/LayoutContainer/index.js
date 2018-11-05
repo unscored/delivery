@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { Layout } from 'antd';
 
 import css from './LayoutContainer.scss';
+import withSiderCollapse from '../../../redux/decorators/withSiderCollapse';
 
 
 const { Content } = Layout;
 
-const LayoutContainer = ({ className, title, children }) => (
+const LayoutContainer = ({ className, title, children, isCollapsed }) => (
   <Layout>
-    <Content className={css.content} style={{ marginTop: 64, marginLeft: 250 }}>
+    <Content className={isCollapsed ? classNames(css.content, css.siderCollapse) : css.content}>
       <div className={css.title}>
         <h1>{title}</h1>
       </div>
@@ -28,6 +29,7 @@ LayoutContainer.propTypes = {
   ]),
   title: PropTypes.string.isRequired,
   className: PropTypes.string,
+  isCollapsed: PropTypes.bool,
 };
 
-export default LayoutContainer;
+export default  withSiderCollapse(LayoutContainer);

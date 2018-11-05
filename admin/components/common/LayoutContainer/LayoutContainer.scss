@@ -13,4 +13,10 @@
 
 .content {
   padding: 20px !important;
+  margin: 64px 0 0 250px !important;
+  transition: margin 0.2s ease-in-out;
+
+  &.siderCollapse {
+    margin: 64px 0 0 80px !important;
+  }
 }
