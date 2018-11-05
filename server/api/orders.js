@@ -56,6 +56,7 @@ module.exports = {
           o.id
         , c.name
         , c.phone
+        , c.address
         , o.status
         , v.value as propValue
         , p.name as propName

@@ -23,16 +23,14 @@ export default class App extends Component {
     return (
       <Provider store={store} >
         <Router>
-          <div className="content">
-            <Header />
-            <SideMenu />
-            <div className="routeContent">
+            <React.Fragment>
+              <Header />  
+              <SideMenu />
               <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
               <Route exact path={ROUTES_MAP.login} component={LogIn}/>
               <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
               <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
-            </div>
-          </div>
+            </React.Fragment>
         </Router>
       </Provider>
     );

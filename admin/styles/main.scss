@@ -4,13 +4,19 @@
 
 :global {
   html, body {
-    background-color: #f0f0f0;
+    background-color: $softGray;
     line-height: 1;
   }
 
   #root {
+    height: 100%;
+
     .ant-btn {
       line-height: 1;
+    }
+
+    .ant-layout {
+      background-color: $softGray;
     }
   }
 

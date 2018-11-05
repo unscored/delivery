@@ -1,26 +1,24 @@
 import { saveState } from '../../utils';
-import { constants } from '../reducers/cart';
+import { constants } from '../reducers/user';
 
 export const localStorageMiddleware = store => next => action => {
   const returnValue = next(action);
 
   const {
-    add,
-    remove,
-    changeQuantity,
-    setQuantity,
-    clear,
+    updateUser,
+    loginStart,
+    loginSuccess,
+    loginFail,
    } = constants;
   const actions = [
-    add,
-    remove,
-    changeQuantity,
-    setQuantity,
-    clear,
+    updateUser,
+    loginStart,
+    loginSuccess,
+    loginFail,
   ];
 
   if (actions.includes(action.type)) {
-    saveState({ cart: { ...store.getState().cart, show: false }});
+    saveState({ user: store.getState().user });
   }
 
   return returnValue;

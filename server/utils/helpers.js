@@ -72,6 +72,7 @@ const prepareOrders = data => {
         name: item.name,
         phone: item.phone,
         status: item.status,
+        address: item.address,
         date: item.date,
         orderList: [orderListItem],
       });

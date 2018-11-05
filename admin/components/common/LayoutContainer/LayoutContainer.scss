@@ -4,10 +4,13 @@
   padding: 0 0 15px 0;
 
   h1 {
-    font-family: $roboto;
     font-size: 24px;
     line-height: 28px;
     color: black;
     letter-spacing: 0.5px;
   }
+}
+
+.content {
+  padding: 20px !important;
 }
