@@ -3,6 +3,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 const path = require("path");
 
@@ -42,6 +43,13 @@ const definePlugin = new webpack.DefinePlugin({
 });
 const cleanPlugin = new CleanWebpackPlugin([CONSTANTS.OUTPUT_PATH]);
 const optimizeCSS = new OptimizeCSSAssetsPlugin({});
+const loaderOptionsPlugin = new webpack.LoaderOptionsPlugin({
+  options: {
+    postcss: [
+      autoprefixer()
+    ]
+  }
+});
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
@@ -71,13 +79,15 @@ module.exports = {
               minimize: true
             }
           },
-          {
-						loader: 'postcss-loader',
-						options: {
-							plugins: () => [require('autoprefixer')]
-						},
-					},
+          { loader: 'postcss-loader' },
           { loader: "sass-loader" }
+        ]
+      },
+      {
+        test: /\.css$/,
+        use: [
+          { loader: devMode ? "style-loader" : MiniCssExtractPlugin.loader },
+          { loader: "css-loader" }
         ]
       },
       {
@@ -130,6 +140,7 @@ module.exports = {
     htmlPlugin,
     miniCssPlugin,
     // cleanPlugin,
-    definePlugin
+    definePlugin,
+    loaderOptionsPlugin
   ]
 };

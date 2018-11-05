@@ -2,7 +2,7 @@ import { applyMiddleware, compose, createStore } from 'redux';
 import thunk from 'redux-thunk';
 import { loadTranslations, setLocale, syncTranslationWithStore } from 'react-redux-i18n';
 
-import { loadState } from '../modules/LocalStorage';
+import { loadState } from '../utils';
 import { localStorageMiddleware } from './middlewares/localStorageMiddleware';
 import translations from '../dictionary';
 import Reducers from './reducers';

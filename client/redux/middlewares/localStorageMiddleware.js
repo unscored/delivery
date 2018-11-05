@@ -1,4 +1,4 @@
-import { saveState } from '../../modules/LocalStorage';
+import { saveState } from '../../utils';
 import { constants } from '../reducers/cart';
 
 export const localStorageMiddleware = store => next => action => {
