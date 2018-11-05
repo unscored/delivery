@@ -5,6 +5,7 @@ export const constants = {
   loginStart: 'LOGIN_START',
   loginSuccess: 'LOGIN_SUCCESS',
   loginFail: 'LOGIN_FAIL',
+  logout: 'LOGOUT',
 };
 
 const model = {
@@ -55,6 +56,10 @@ export default function (state = model, action) {
         fetching: false,
         error: message,
       };
+    }
+
+    case constants.logout: {
+      return model;
     }
 
     default: 

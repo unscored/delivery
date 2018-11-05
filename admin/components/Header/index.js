@@ -14,11 +14,11 @@ const { Header } = Layout;
 const HeaderComponent = ({ location }) => (
   !hideArray.includes(location.pathname)
     && (
-      <Header style={{ position: 'fixed', zIndex: 100, width: '100%' }}>
+      <Header className={css.header} style={{ position: 'fixed', zIndex: 100, width: '100%' }}>
         <div className={css.title}>
           <h1>{I18n.t('brand')}</h1>
         </div>
-        <User name="admin"/>
+        <User />
       </Header>
     )
 );

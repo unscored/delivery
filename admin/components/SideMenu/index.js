@@ -1,16 +1,13 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
-import classNames from 'classnames';
 import { I18n } from 'react-redux-i18n';
 import { Layout, Menu, Icon } from 'antd';
 
 import { ROUTES_MAP, hideArray } from '../../constants';
 import withSiderCollapse from '../../redux/decorators/withSiderCollapse';
 import Header from '../Header';
-
-import css from './SideMenu.scss';
 
 
 const { Sider } = Layout;

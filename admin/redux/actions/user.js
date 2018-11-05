@@ -1,7 +1,6 @@
 import { constants } from '../reducers/user';
 import { API, API_METHODS } from '../../constants';
 import Http from '../../http';
-import { resolve } from 'url';
 
 
 const updateUser = data => {
@@ -21,7 +20,6 @@ const login = (name, password) => dispatch => {
   };
 
   const onSuccess = result => {
-    console.log(result);
     dispatch({ type: constants.loginSuccess, payload: { ...result } });
   };
   const onError = (error) => {
@@ -32,7 +30,10 @@ const login = (name, password) => dispatch => {
   Http.post(body).then(onSuccess).catch(onError);
 }
 
+const logout = () => ({ type: constants.logout });
+
 export default {
   updateUser,
   login,
+  logout,
 }

@@ -9,12 +9,14 @@ export const localStorageMiddleware = store => next => action => {
     loginStart,
     loginSuccess,
     loginFail,
+    logout,
    } = constants;
   const actions = [
     updateUser,
     loginStart,
     loginSuccess,
     loginFail,
+    logout,
   ];
 
   if (actions.includes(action.type)) {
