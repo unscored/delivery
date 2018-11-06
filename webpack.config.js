@@ -56,6 +56,7 @@ module.exports = {
   entry: path.join(__dirname, targetEntryPath),
   output: {
     path: path.join(__dirname, targetOutputPath),
+    publicPath: '/',
     filename: 'main-[hash:8].js'
   },
   module: {
@@ -128,7 +129,8 @@ module.exports = {
     ]
   },
   devServer: {
-    historyApiFallback: true
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, isAdmin ? CONSTANTS.ENTRY_ADMIN_PATH : '/'),
   },
   optimization: {
     minimizer: [

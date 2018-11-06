@@ -1,9 +1,10 @@
 export const ROUTES_MAP = {
-  main: '/',
-  login: '/login',
-  clients: '/clients',
-  orders: '/orders',
-  products: '/products',
+  default: '/',
+  main: '/admin',
+  login: `/admin/login`,
+  clients: `/admin/clients`,
+  orders: `/admin/orders`,
+  products: `/admin/products`,
 };
 
 export const BASE_URL = $__WebPackConfig.API_URL;

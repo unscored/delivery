@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Route,
+  Redirect,
+  Switch,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
 
@@ -25,10 +27,13 @@ export default class App extends Component {
             <React.Fragment>
               <Header />  
               <SideMenu />
-              <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
-              <Route exact path={ROUTES_MAP.login} component={LogIn}/>
-              <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
-              <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
+              <Switch>
+                <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
+                <Route exact path={ROUTES_MAP.login} component={LogIn}/>
+                <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
+                <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
+                <Redirect exact from={ROUTES_MAP.default} to={ROUTES_MAP.main} />
+              </Switch>
             </React.Fragment>
         </Router>
       </Provider>
