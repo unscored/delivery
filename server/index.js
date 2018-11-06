@@ -16,8 +16,14 @@ app.use(cookieParser());
 app.use(cors());
 app.use(express.static(PUBLIC_PATH));
 
+// client spa routing
 app.get(['/', '/cart', '/contacts'], function(req, resp) {
   resp.sendFile(path.join(PUBLIC_PATH, 'index.html'));
+});
+
+// admin spa routing
+app.get(['/admin', '/admin/orders', '/admin/clients'], function(req, resp) {
+  resp.sendFile(path.join(PUBLIC_PATH, 'admin', 'index.html'));
 });
 
 direct.init(app);

@@ -50,15 +50,19 @@ const loaderOptionsPlugin = new webpack.LoaderOptionsPlugin({
     ]
   }
 });
+const targetOutput = {
+  path: path.join(__dirname, targetOutputPath),
+  filename: 'main-[hash:8].js'
+};
+
+if (devMode) targetOutput.publicPath = '/';
+
+console.log(devMode, targetOutput);
 
 module.exports = {
   mode: process.env.NODE_ENV || 'development',
   entry: path.join(__dirname, targetEntryPath),
-  output: {
-    path: path.join(__dirname, targetOutputPath),
-    publicPath: '/',
-    filename: 'main-[hash:8].js'
-  },
+  output: targetOutput,
   module: {
     rules: [
       {
@@ -130,7 +134,6 @@ module.exports = {
   },
   devServer: {
     historyApiFallback: true,
-    contentBase: path.join(__dirname, isAdmin ? CONSTANTS.ENTRY_ADMIN_PATH : '/'),
   },
   optimization: {
     minimizer: [
