@@ -26,6 +26,10 @@ module.exports = (sequelize, dataTypes) => {
     description: {
       type: dataTypes.TEXT
     },
+    price: {
+      type: dataTypes.DECIMAL(10, 0),
+      allowNull: false
+    },
     createdAt: {
       type: dataTypes.VIRTUAL,
       get () {

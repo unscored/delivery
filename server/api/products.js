@@ -11,6 +11,7 @@ module.exports = {
         SELECT
           p.id
         , p.name
+        , p.price
         , p.description
         , p.image
         , pr.id AS paramNameId

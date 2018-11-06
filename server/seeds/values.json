@@ -2,7 +2,7 @@
   {
     "id": "f0744688-d79c-4075-95d3-ecbb456b5a30",
     "value": "35 см",
-    "price": 70,
+    "price": 20,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "propertyId": "b90a9028-d97a-4bfc-98e5-00454b000e39"
@@ -10,7 +10,7 @@
   {
     "id": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
     "value": "50 см",
-    "price": 140,
+    "price": 40,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "propertyId": "b90a9028-d97a-4bfc-98e5-00454b000e39"

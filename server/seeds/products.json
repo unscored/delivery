@@ -4,6 +4,7 @@
     "name": "Гавайская",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
     "description": "Сыр моцарелла, кукуруза, куриное филе, ананас, соус белый.",
+    "price": 90,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -13,6 +14,7 @@
     "name": "Четыре Сыра",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
     "description": "Сыр моцарелла, сыр дор блю, сыр пармезан, сыр чеддер, соус белый.",
+    "price": 85,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -22,6 +24,7 @@
     "name": "Дольче Вита",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
     "description": "Кукуруза, соус белый, сыр, сыр фета (или брынза), специи, томаты, куриное филе, перец болгарский.",
+    "price": 70,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -31,6 +34,7 @@
     "name": "Матерацци",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
     "description": "Ветчина, соус белый, кислый огурчик, свинина, сыр моцарелла.",
+    "price": 100,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -40,6 +44,7 @@
     "name": "Чаобамбино",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
     "description": "Ветчина, соус белый, кислый огурчик, свинина, сыр моцарелла.",
+    "price": 110,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -49,6 +54,7 @@
     "name": "Дон Карлеоне",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
     "description": "Сыр моцарелла, бекон, ветчина, курица копченая, соус белый, буженина, сыр сулугуни (борт пиццы).",
+    "price": 75,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"

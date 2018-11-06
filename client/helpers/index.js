@@ -88,7 +88,7 @@ const getDefValues = props => {
  * 
  * @returns {Number}
  */
-export const getProductPrice = props => {
+export const getProductPrice = (props, productPrice) => {
   const price = props.reduce((acc, item) => {
     return acc + item.values.reduce((accVal, val) => {
       if (val.isSelected) {
@@ -96,7 +96,7 @@ export const getProductPrice = props => {
       }
       return accVal;
     }, 0);
-  }, 0);
+  }, parseInt(productPrice, 10));
   return price;
 }
 

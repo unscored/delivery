@@ -9,7 +9,7 @@ const crypto = require('crypto');
 const prepareProducts = data => {
   const result = data.reduce((acc, item) => {
     const dublicateIndex = acc.findIndex((p => p.id === item.id));
-    const { id, name, image, description, ...rest } = item;
+    const { id, name, image, description, price, ...rest } = item;
     let properties = [];
     let itemProperties = null;
     let dublicateParamsIndex = null;
@@ -25,7 +25,7 @@ const prepareProducts = data => {
 
     if (dublicateIndex < 0) {
       properties.push(propItem);
-      acc.push({ id, name, image, description, properties });
+      acc.push({ id, name, image, price, description, properties });
     } else {
       itemProperties = acc[dublicateIndex].properties;
       dublicateParamsIndex = itemProperties.findIndex((p => p.id === rest.paramNameId));

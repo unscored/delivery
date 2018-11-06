@@ -45,7 +45,7 @@ export default class Main extends PureComponent {
 
     return (
       <div>
-        <div className="banner" style={{'background-image': `url("${banner}")`}}/>
+        <div className="banner" style={{'backgroundImage': `url("${banner}")`}}/>
         <div className="container">
           <ParamsRow />
           <List

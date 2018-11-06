@@ -18,7 +18,7 @@ const HOC = decorator(({ selectedItems, item, component: Component, ...props }) 
   const activeProps = prepareProps(targetSelectedItems, item.properties);
   const activePropsNamed = joinNamesWithValues(activeProps);
   const activePropsIDs = getActivePropsIDs(activeProps);
-  const price = getProductPrice(activeProps);
+  const price = getProductPrice(activeProps, item.price);
   const cartItemID = getIdFromActiveProps(activeProps);
 
   return (
