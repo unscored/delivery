@@ -1,6 +1,8 @@
 import React from 'react';
 import { render } from 'react-dom';
 
+// import './styles/antd.less';
+
 import App from './App';
 
 const renderApp = (Root) => {

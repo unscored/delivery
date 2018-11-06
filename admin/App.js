@@ -15,7 +15,6 @@ import Clients from './components/Clients';
 import store from './redux/store';
 import { ROUTES_MAP } from './constants';
 
-import './styles/antd.less';
 import './styles/main.scss';
 
 export default class App extends Component {
