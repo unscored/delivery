@@ -9,7 +9,7 @@ export const guid = function() {
 
 export const loadState = () => {
   try {
-    const serializeState = localStorage.getItem('state');
+    const serializeState = localStorage.getItem('adminState');
     if (serializeState === null) return undefined;
     return JSON.parse(serializeState);
   } catch(err) {
@@ -20,7 +20,7 @@ export const loadState = () => {
 export const saveState = (state) => {
   try {
     const serializeState = JSON.stringify(state);
-    localStorage.setItem('state', serializeState);
+    localStorage.setItem('adminState', serializeState);
   } catch(err) {
     // log errors
   }
