@@ -60,8 +60,10 @@ module.exports = {
         , o.status
         , v.value as propValue
         , p.name as propName
+        , v.price as propPrice
         , t.name as type
         , pr.name as productName
+        , pr.price as productPrice
         , op.position
         , op.quantity
         , o.createdAtDate as date

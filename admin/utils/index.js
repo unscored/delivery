@@ -73,17 +73,17 @@ export const getStatusTypeByConstant = t => type => {
  * @param {Array} data 
  * @returns {Array<String>}
  */
-export const getOrderItems = data => {
+export const getOrderItems = t => data => {
   let string = '';
   const result = data.reduce((acc, item) => {
-    string = `${item.type}: ${item.name}. ${item.quantity} шт.`;
+    string = `${item.type}: ${item.name}. ${item.quantity} ${t.t('countTitle')}`;
 
     const params = item.params.reduce((res, prop) => {
       res = res ? `${res}, ${prop.name}: ${prop.value}` : `${prop.name}: ${prop.value}`;
       return res;
     }, '');
 
-    acc.push(`${string} ${params}`);
+    acc.push(`${string} ${params} - ${item.price} ${t.t('currency')}`);
 
     return acc;
   }, []); 

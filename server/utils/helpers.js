@@ -60,11 +60,14 @@ const prepareOrders = data => {
       name: item.productName,
       quantity: item.quantity,
       position: item.position,
+      price: (parseInt(item.productPrice, 10) * item.quantity) + (parseInt(item.propPrice, 10) * item.quantity),
       params: [{
         name: item.propName,
         value: item.propValue,
       }]
     };
+
+    console.log(item.name, parseInt(item.productPrice, 10), parseInt(item.propPrice, 10), item.quantity);
 
     if (duplicateOrderIndex < 0) {
       acc.push({
@@ -73,6 +76,7 @@ const prepareOrders = data => {
         phone: item.phone,
         status: item.status,
         address: item.address,
+        totalPrice: orderListItem.price,
         date: item.date,
         orderList: [orderListItem],
       });
@@ -82,6 +86,11 @@ const prepareOrders = data => {
       if (duplicateProductIndex < 0) {
         acc[duplicateOrderIndex].orderList.push(orderListItem);
       } else {
+        let prevPrice = acc[duplicateOrderIndex].orderList[duplicateProductIndex].price;
+        let newPrice = prevPrice + (parseInt(item.propPrice, 10) * item.quantity);
+        
+        acc[duplicateOrderIndex].orderList[duplicateProductIndex].price = newPrice;
+        acc[duplicateOrderIndex].totalPrice += newPrice
         acc[duplicateOrderIndex].orderList[duplicateProductIndex].params.push({
           name: item.propName,
           value: item.propValue,

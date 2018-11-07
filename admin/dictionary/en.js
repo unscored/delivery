@@ -20,7 +20,8 @@ const translate = {
     phone: "Phone",
     address: "Address",
     status: "Status",
-    date: "Date"
+    date: "Date",
+    totalPrice: "Total"
   },
   statusTypes: {
     new: "New",
@@ -29,7 +30,9 @@ const translate = {
     rejected: "Rejected",
     returned: "Returned",
     processing: "Processing"
-  }
+  },
+  currency: 'uah',
+  countTitle: 'pc.'
 };
 
 export default translate;

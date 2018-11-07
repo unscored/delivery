@@ -22,6 +22,7 @@ export default class Orders extends Component {
     { title: I18n.t('orderTableTitles.address'), dataIndex: 'address', key: 'address' },
     { title: I18n.t('orderTableTitles.status'), dataIndex: 'status', key: 'status', render: item => getStatusTypeByConstant(I18n)(item) },
     { title: I18n.t('orderTableTitles.date'), dataIndex: 'date', key: 'date', render: item => parseDate(item) },
+    { title: I18n.t('orderTableTitles.totalPrice'), dataIndex: 'totalPrice', key: 'totalPrice', render: item => `${item} ${I18n.t('currency')}` },
   ];
 
   componentDidMount() {
@@ -33,7 +34,7 @@ export default class Orders extends Component {
   }
 
   expandedRowRender = record => {
-    const data = getOrderItems(record.orderList);
+    const data = getOrderItems(I18n)(record.orderList);
 
     return (
       <div>
