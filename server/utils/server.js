@@ -20,9 +20,15 @@ const addErrorHandlers = app => {
 };
 
 const run = app => {
-  addErrorHandlers(app);
+  let server = null;
 
-  const server = http.createServer(app).listen({host, port});
+  addErrorHandlers(app);
+  
+  if (process.env === 'production') {
+    server = http.createServer(app).listen({host});
+  } else {
+    server = http.createServer(app).listen({host, port});
+  }
 
   server.on('error', err => {
     console.error('utils/server.js, exception:', err);
