@@ -36,8 +36,13 @@ const run = app => {
   });
 
   server.on('listening', () => {
-    console.info('Server has started successfully. Application is available by ' +
-      protocol + '://' + host + ':' + port);
+    if (process.env === 'production') {
+      console.info('Server has started successfully. Application is available by ' +
+      protocol + '://' + host);
+    } else {
+      console.info('Server has started successfully. Application is available by ' +
+        protocol + '://' + host + ':' + port);
+    }
   });
 };
 
