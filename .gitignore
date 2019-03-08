@@ -9,6 +9,9 @@ server/config/local.json
 server/node_modules
 server/package-lock.json
 
+# Excludes from public directory
+public
+
 # Excludes from root directory
 node_modules
 package-lock.json
