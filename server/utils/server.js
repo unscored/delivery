@@ -20,15 +20,9 @@ const addErrorHandlers = app => {
 };
 
 const run = app => {
-  let server = null;
-
   addErrorHandlers(app);
-  
-  if (process.env === 'production') {
-    server = http.createServer(app).listen({host});
-  } else {
-    server = http.createServer(app).listen({host, port});
-  }
+
+  const server = http.createServer(app).listen({host, port});
 
   server.on('error', err => {
     console.error('utils/server.js, exception:', err);
@@ -36,13 +30,8 @@ const run = app => {
   });
 
   server.on('listening', () => {
-    if (process.env === 'production') {
-      console.info('Server has started successfully. Application is available by ' +
-      protocol + '://' + host);
-    } else {
-      console.info('Server has started successfully. Application is available by ' +
-        protocol + '://' + host + ':' + port);
-    }
+    console.info('Server has started successfully. Application is available by ' +
+      protocol + '://' + host + ':' + port);
   });
 };
 
