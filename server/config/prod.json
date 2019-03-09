@@ -1,7 +1,7 @@
 {
   "server": {
     "protocol": "http",
-    "host": "0.0.0.0",
+    "host": "185.86.76.103",
     "port": 80
   },
   "database": {
@@ -33,7 +33,7 @@
     "apiUrl": "/api",
     "classRouteUrl": "/api",
     "classPath": "api",
-    "server": "0.0.0.0",
+    "server": "185.86.76.103",
     "port": 80,
     "protocol": "http",
     "timeout": 30000,
