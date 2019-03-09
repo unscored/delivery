@@ -11,6 +11,7 @@ export const BASE_URL = $__WebPackConfig.API_URL;
 
 export const API = {
   orders: 'orders',
+  products: 'products',
   users: 'users',
   clients: 'clients',
 };
@@ -22,6 +23,7 @@ export const hideArray = [
 export const API_METHODS = {
   getOrders: 'getOrders',
   getClients: 'getClients',
+  getProducts: 'getProducts',
   login: 'login',
 }
 

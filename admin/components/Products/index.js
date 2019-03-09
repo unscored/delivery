@@ -6,31 +6,31 @@ import { get } from 'lodash';
 
 import LayoutContainer from '../common/LayoutContainer';
 
-export default class Clients extends Component {
+export default class Products extends Component {
   static propTypes = {
-    getClients: PropTypes.func.isRequired,
-    clients: PropTypes.shape({}),
+    getProducts: PropTypes.func.isRequired,
+    products: PropTypes.shape({}),
   };
 
   columns = [
     { title: I18n.t('orderTableTitles.name'), dataIndex: 'name', key: 'name' },
-    { title: I18n.t('orderTableTitles.phone'), dataIndex: 'phone', key: 'phone' },
-    { title: I18n.t('orderTableTitles.address'), dataIndex: 'address', key: 'address' },
+    { title: I18n.t('orderTableTitles.address'), dataIndex: 'description', key: 'description' },
+    { title: I18n.t('orderTableTitles.address'), dataIndex: 'price', key: 'price' },
   ];
 
   componentDidMount() {
-    const { clients: { fetched }, getClients } = this.props;
+    const { products: { fetched }, getProducts } = this.props;
 
     if (!fetched) {
-      getClients();
+      getProducts();
     }
   }
 
   render() {
-    const items = get(this.props, 'clients.items', []);
+    const items = get(this.props, 'products.items', []);
   
     return (
-      <LayoutContainer title={I18n.t('routesNames.clients')}>
+      <LayoutContainer title={I18n.t('routesNames.products')}>
         <Table
           locale={{ emptyText: I18n.t('noData') }}
           columns={this.columns}

@@ -14,6 +14,7 @@ import Header from './components/Header';
 import SideMenu from './components/SideMenu';
 import Orders from './containers/Orders';
 import Clients from './containers/Clients';
+import Products from './containers/Products';
 import store from './redux/store';
 import { ROUTES_MAP } from './constants';
 
@@ -31,6 +32,7 @@ export default class App extends Component {
                 <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
                 <Route exact path={ROUTES_MAP.login} component={LogIn}/>
                 <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
+                <PrivateRoute exact path={ROUTES_MAP.products} component={Products}/>
                 <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
                 <Redirect exact from={ROUTES_MAP.default} to={ROUTES_MAP.main} />
               </Switch>

@@ -67,8 +67,6 @@ const prepareOrders = data => {
       }]
     };
 
-    console.log(item.name, parseInt(item.productPrice, 10), parseInt(item.propPrice, 10), item.quantity);
-
     if (duplicateOrderIndex < 0) {
       acc.push({
         id: item.id,
