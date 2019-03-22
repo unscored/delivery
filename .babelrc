@@ -9,6 +9,7 @@
       "useESModules": false
     }],
     ["import", { "libraryName": "antd", "style": true }],
-    "@babel/plugin-proposal-class-properties"
+    "@babel/plugin-proposal-class-properties",
+    "@babel/plugin-proposal-export-namespace-from"
   ]
 }
