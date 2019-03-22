@@ -1,4 +1,4 @@
-import { saveState } from '../../utils';
+import { ls } from '../../utils';
 import { constants } from '../reducers/cart';
 
 export const localStorageMiddleware = store => next => action => {
@@ -20,7 +20,7 @@ export const localStorageMiddleware = store => next => action => {
   ];
 
   if (actions.includes(action.type)) {
-    saveState({ cart: { ...store.getState().cart, show: false }});
+    ls.saveState({ cart: { ...store.getState().cart, show: false }});
   }
 
   return returnValue;

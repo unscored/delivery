@@ -13,12 +13,12 @@ const HOC = connect(
     hideCart: () => dispatch(actions.hide()),
     hideMenu: () => dispatch(menuActions.hide()),
   }),
-)(({ onClick, hideCart, hideMenu, component: Component, ...props }) => (
+)(({
+  onClick, hideCart, hideMenu, component: Component, isCartShow, isMenuShow, ...props
+}) => (
 <Component
   {...props}
   onClick={(...clickProps) => {
-    const { isCartShow, isMenuShow } = props;
-
     if (isCartShow && isMenuShow) {
       hideCart();
       hideMenu();
