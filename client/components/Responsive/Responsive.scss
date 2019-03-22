@@ -1,0 +1,4 @@
+@import "client/styles/variables";
+
+@value mobile: #{$media-mobile};
+@value desktop: #{$media-desktop};

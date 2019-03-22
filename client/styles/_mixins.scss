@@ -1,0 +1,26 @@
+@import '~styles/vars';
+
+@mixin screen($size) {
+	$mediaQueries: (
+		'mobile': $media-mobile,
+		'mobile-portrait': $media-mobile-portrait,
+		'mobile-landscape': $media-mobile-landscape,
+		'desktop': $media-desktop
+	);
+
+	// Use predefined media query
+	@each $key, $value in $mediaQueries {
+		@if $key == $size {
+			@media only screen and #{$value} {
+				@content;
+			}
+		}
+	}
+
+	// Use custom media query
+	@if map-has-key($mediaQueries, $size) != true {
+		@media only screen and #{$size} {
+			@content;
+		}
+	}
+}

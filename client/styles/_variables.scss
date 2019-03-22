@@ -21,3 +21,12 @@ $lightGray: #636b6f;
 $mineShaft: #313131;
 $orange: #fdbc2c;
 $gray: #383838;
+
+// responsive:
+$media-mobile-max: 1023;
+$media-desktop-min: $media-mobile-max + 1;
+
+$media-mobile: '(max-width: #{$media-mobile-max}px)';
+$media-mobile-landscape: '(max-width: #{$media-mobile-max}px) and (orientation: landscape)';
+$media-mobile-portrait: '(max-width: #{$media-mobile-max}px) and (orientation: portrait)';
+$media-desktop: '(min-width: #{$media-desktop-min}px)';
