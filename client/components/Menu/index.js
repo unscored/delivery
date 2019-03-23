@@ -4,6 +4,8 @@ import { NavLink } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 import classNames from 'classnames';
 
+import { cssMQ } from '../../utils';
+
 import css from './Menu.scss';
 
 export default class Menu extends Component {
@@ -40,10 +42,9 @@ export default class Menu extends Component {
   
   render() {
     const { handleMenuBtnClick, isOpen } = this.props;
-    const sideMenuClass = isOpen ? classNames(css.sideMenu, css.opened) : css.sideMenu;
 
     return (
-      <div className={sideMenuClass}>
+      <div className={classNames(css.sideMenu, { [css.opened]: isOpen })}>
         <div className={css.sideMenuContent}>
           <ul>
             {this._renderItems()}
@@ -54,7 +55,7 @@ export default class Menu extends Component {
           onClick={handleMenuBtnClick}
         >
           <div className={css.toggleBtnIcon}>
-            <MdMenu size={36} color={'#FFF'}/>
+            <MdMenu size={cssMQ.isMobile() ? 22 : 36} color={'#FFF'}/>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import { I18n } from 'react-redux-i18n';
 import classNames from 'classnames';
 
 import Button from '../Button';
+import { cssMQ } from '../../utils';
 import List from '../List';
 import CartItem from './CartItem';
 import { ROUTES_MAP } from '../../constants';
@@ -25,10 +26,9 @@ const Cart = props => {
     totalPrice,
     history,
   } = props;
-  const cartClass = show ? classNames(css.orderCart, css.opened) : css.orderCart;
 
   return (
-    <div className={cartClass}>
+    <div className={classNames(css.orderCart, { [css.opened]: show })}>
       <div className={css.orderCartContent}>
         <div className={css.title}>
           <h3>{I18n.t('cart')}</h3>
@@ -75,14 +75,14 @@ const Cart = props => {
         onClick={handleCartBtnClick}
       >
         <div className={css.cartIcon}>
-          <MdShoppingCart size={38} color={'#FFF'}/>
+          <MdShoppingCart size={cssMQ.isMobile() ? 22 : 38} color={'#FFF'}/>
         </div>
 
         {totalItemsCount !== 0
           && (
             <div className={css.count}>
               <p className={css.countText}>
-                <span>{totalItemsCount}</span>
+                <span>{totalItemsCount > 9 ? '9+' : totalItemsCount}</span>
               </p>
             </div>
           )

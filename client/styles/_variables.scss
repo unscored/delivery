@@ -10,6 +10,7 @@ $el-mis-reg: 'el_messiriregular';
 
 $menu-width: 370px;
 $header-h: 90px;
+$header-h-mob: 60px;
 $intro-section-h: calc(100vh - 90px);
 
 // Colors
@@ -30,3 +31,9 @@ $media-mobile: '(max-width: #{$media-mobile-max}px)';
 $media-mobile-landscape: '(max-width: #{$media-mobile-max}px) and (orientation: landscape)';
 $media-mobile-portrait: '(max-width: #{$media-mobile-max}px) and (orientation: portrait)';
 $media-desktop: '(min-width: #{$media-desktop-min}px)';
+
+@value mobile: #{$media-mobile};
+@value mobile-portrait: #{$media-mobile-portrait};
+@value mobile-landscape: #{$media-mobile-landscape};
+
+@value desktop: #{$media-desktop};

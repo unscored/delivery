@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .orderCart {
   position: absolute;
@@ -11,8 +12,15 @@
   transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   z-index: 3;
 
+  @include screen('mobile') {
+    transform: translate3d(100%, 0, 0);
+    width: calc(100% - #{$header-h-mob});
+    box-shadow: inset 13px 5px 11px -8px rgba(0,0,0,0.53);
+  }
+
   &.opened {
     transform: translate3d(0, 0, 0);
+    z-index: 400;
   }
 }
 
@@ -139,6 +147,12 @@
   background-color: $orange;
   cursor: pointer;
   overflow: hidden;
+
+  @include screen('mobile') {
+    width: $header-h-mob;
+    height: $header-h-mob;
+    left: -$header-h-mob;
+  }
 }
 
 .cartIcon {
@@ -157,6 +171,13 @@
   background-color: $white;
   width: 80px;
   height: 80px;
+
+  @include screen('mobile') {
+    top: -25px;
+    right: -25px;
+    width: 50px;
+    height: 50px;
+  }
 }
 
 .countText {
@@ -168,11 +189,19 @@
   height: 40px;
   justify-content: center;
   align-items: center;
+
   span {
     font-family: $el-mis-reg;
     font-size: 12px;
     line-height: 12px;
     color: $black;
+  }
+
+  @include screen('mobile') {
+    width: 20px;
+    height: 20px;
+    bottom: 3px;
+    left: 5px;
   }
 }
 

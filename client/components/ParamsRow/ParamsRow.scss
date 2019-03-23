@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .paramsRow {
   height: 100px;
@@ -9,6 +10,7 @@
   justify-content: space-between;
   position: relative;
   z-index: 1;
+
   &:after {
     content: '';
     position: absolute;
@@ -18,5 +20,13 @@
     height: 4px;
     background-color: $punch;
     box-shadow: 2px 4px 5px 0px rgba(0,0,0,0.6);
+
+    @include screen('mobile') {
+      height: 3px;
+    }
+  }
+
+  @include screen('mobile') {
+    height: 50px;
   }
 }

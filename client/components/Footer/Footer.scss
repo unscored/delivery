@@ -20,7 +20,7 @@
   text-align: center;
 
   @include screen('mobile') {
-    height: $header-h-mob;
+    height: 40px;
   }
 
   p {
@@ -31,7 +31,7 @@
 
     @include screen('mobile') {
       font-size: 12px;
-      line-height: $header-h-mob;
+      line-height: 40px;
     }
   }
 }

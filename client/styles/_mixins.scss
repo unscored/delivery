@@ -1,4 +1,4 @@
-@import '~styles/vars';
+@import "variables";
 
 @mixin screen($size) {
 	$mediaQueries: (

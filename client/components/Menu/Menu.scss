@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .sideMenu {
   position: absolute;
@@ -11,8 +12,15 @@
   transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   z-index: 3;
 
+  @include screen('mobile') {
+    transform: translate3d(-100%, 0, 0);
+    width: calc(100% - #{$header-h-mob});
+    box-shadow: inset -13px 5px 11px -8px rgba(0,0,0,0.53);
+  }
+
   &.opened {
     transform: translate3d(0, 0, 0);
+    z-index: 400;
   }
 }
 
@@ -28,6 +36,12 @@
   height: $header-h;
   background-color: $black;
   cursor: pointer;
+
+  @include screen('mobile') {
+    right: -$header-h-mob;
+    width: $header-h-mob;
+    height: $header-h-mob;
+  }
 }
 
 .toggleBtnIcon {
