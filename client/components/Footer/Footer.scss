@@ -1,9 +1,17 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .top {
   height: 250px;
   position: relative;
   background-image: url('../../images/footer_bg.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+
+  @include screen('mobile') {
+    height: 100px;
+  }
 }
 
 .bottom {
@@ -11,11 +19,20 @@
   background-color: $black;
   text-align: center;
 
+  @include screen('mobile') {
+    height: $header-h-mob;
+  }
+
   p {
     font-family: $el-mis-reg;
     font-size: 14px;
     line-height: $header-h;
     color: $lightGray;
+
+    @include screen('mobile') {
+      font-size: 12px;
+      line-height: $header-h-mob;
+    }
   }
 }
 
@@ -33,9 +50,19 @@
     color: $black;
     white-space: nowrap;
 
+    @include screen('mobile') {
+      font-size: 35px;
+      line-height: 35px;
+    }
+
     &.email {
       font-size: 48px;
       line-height: 48px;
+
+      @include screen('mobile') {
+        font-size: 14px;
+        line-height: 14px;
+      }
     }
   }
 }

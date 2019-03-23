@@ -7,12 +7,12 @@ const Footer = () => {
     <footer>
       <div className={css.top}>
         <div className={css.contacts}>
-          <p>+38 093 093 39 62</p>
+          <p>+38 063 37 32 915</p>
           <p className={css.email}>pizza-belvedere@gmail.com</p>
         </div>
       </div>
       <div className={css.bottom}>
-        <p>Copyright © 2018 <span>Belvedere</span>. All rights reserved.</p>
+        <p>Copyright © {new Date().getFullYear()} <span>Belvedere</span>. All rights reserved.</p>
       </div>
     </footer>
   )
