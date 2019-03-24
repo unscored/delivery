@@ -4,7 +4,7 @@ import { MdShoppingCart } from 'react-icons/md';
 import { I18n } from 'react-redux-i18n';
 import classNames from 'classnames';
 
-import CartItemsList from './CartItemsList'
+import CartItemsList from '../CartItemsList'
 import Button from '../Button';
 import { cssMQ } from '../../utils';
 import { ROUTES_MAP } from '../../constants';
