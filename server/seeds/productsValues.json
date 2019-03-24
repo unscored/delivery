@@ -7,38 +7,10 @@
     "productId": "41fb3630-5c58-4bee-b640-71acfb4c9346"
   },
   {
-    "id": "797cbc2c-2384-4d68-8612-26d6f62babf5",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
-    "productId": "41fb3630-5c58-4bee-b640-71acfb4c9346"
-  },
-  {
-    "id": "0f1a316f-2e7e-49d8-bef6-fbf5b29c2d60",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "6b78d4ee-43b4-4f13-ae81-87b2efb4b7cb",
-    "productId": "41fb3630-5c58-4bee-b640-71acfb4c9346"
-  },
-  {
-    "id": "d7aaf37a-7655-40fa-aedf-939089de485a",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "5b4314a8-d029-4887-bc9b-7e70a3d4c526",
-    "productId": "41fb3630-5c58-4bee-b640-71acfb4c9346"
-  },
-  {
     "id": "022b841f-81d0-407e-a4f9-46198c56c59c",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
-    "productId": "ed9efc82-8a52-425d-a475-81722c62e7c0"
-  },
-  {
-    "id": "4adf19f8-17f5-417c-8362-cea9de723f85",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
     "productId": "ed9efc82-8a52-425d-a475-81722c62e7c0"
   },
   {
@@ -49,24 +21,10 @@
     "productId": "d71e7eae-54a8-45b5-913b-bf115c5103d9"
   },
   {
-    "id": "6669b8bd-8c60-4d00-82da-d21a59986324",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
-    "productId": "d71e7eae-54a8-45b5-913b-bf115c5103d9"
-  },
-  {
     "id": "791fd00b-1605-434a-926d-ea22f30f914a",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
-    "productId": "874d1642-8c26-46b9-b75a-556bba4c7466"
-  },
-  {
-    "id": "99bf4ec9-d972-4c27-940a-ca19433f9cc1",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
     "productId": "874d1642-8c26-46b9-b75a-556bba4c7466"
   },
   {
@@ -77,13 +35,6 @@
     "productId": "07942829-e0b3-43e7-b793-4716d9d27824"
   },
   {
-    "id": "89155983-a799-4ee3-a3ff-91c4988ad4d6",
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
-    "productId": "07942829-e0b3-43e7-b793-4716d9d27824"
-  },
-  {
     "id": "c0dc6fb5-a28e-4bf8-a178-bb7838b8ae36",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
@@ -91,10 +42,73 @@
     "productId": "abd04957-cc0c-43db-ab87-08372aa2b859"
   },
   {
-    "id": "185e64dd-d9c3-4845-96ac-9b94d8350232",
+    "id": "771edb6e-6300-4be2-86f7-fc929c765084",
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
-    "valueId": "7aa2ea1d-edde-4670-b2ea-ebfcaee7a649",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "47a29c8b-615f-4259-a724-034caf7ceabf"
+  },
+  {
+    "id": "91198f48-d4f0-4b24-aef9-18cfc9a52dba",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "063b9742-1a4b-419d-a6dc-942c001afec0"
+  },
+  {
+    "id": "023e6fc9-6947-4658-96cf-e5872fd6a2ce",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "02526c64-a637-4225-87c4-052568983d72"
+  },
+  {
+    "id": "ba63572d-16dd-4621-b10d-49b7c1cd87fe",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "aa03318b-835f-48d2-8a30-8c4f57c32b63"
+  },
+  {
+    "id": "22366d62-8214-43e9-9926-bb1fb076fc80",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "2839802f-0a69-4c1c-8287-5a16db010263"
+  },
+  {
+    "id": "c285dc00-d622-4db1-a507-82261afa5a1c",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "4fafed13-7191-4dc0-9c73-a6b6e3ef7d3f"
+  },
+  {
+    "id": "24e45745-23a1-4c6a-ae64-51c68ad61e76",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "ffc59642-59d3-4fbc-8a3e-af418e56d631"
+  },
+  {
+    "id": "55b5a33f-2cf4-4b7e-bbea-f46e432cba3a",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "24ff5e53-f946-4fc4-af4d-3b26c8cb227b"
+  },
+  {
+    "id": "e79d7057-4594-414b-b894-6cc4d73231d1",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
     "productId": "abd04957-cc0c-43db-ab87-08372aa2b859"
+  },
+  {
+    "id": "17bcc593-2518-499e-a3a0-e6e32eb6a1b0",
+    "createdAtDate": "2018-10-13 19:03:13",
+    "updatedAtDate": "2018-10-13 19:03:13",
+    "valueId": "f0744688-d79c-4075-95d3-ecbb456b5a30",
+    "productId": "7df39689-429e-44f8-bb8d-706b75b7f9b8"
   }
 ]
