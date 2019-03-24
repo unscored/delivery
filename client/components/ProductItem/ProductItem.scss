@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .product {
   width: 250px;
@@ -12,11 +13,29 @@
   border: 4px solid transparent;
   transition: 0.15s border ease-in-out;
 
-  &:hover {
-    border: 4px solid $orange;
+  @include screen('desktop') {
+    &:hover {
+      border: 4px solid $orange;
+  
+      .addToCart {
+        opacity: 1;
+      }
+    }
+  }
 
-    .addToCart {
-      opacity: 1;
+  @include screen('mobile') {
+    width: 270px;
+    padding: 30px 0 120px 0;
+
+    &:after {
+      position: absolute;
+      content: '';
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background-color: $orange;
+      box-shadow: 2px 4px 5px 0px rgba(0, 0, 0, 0.6);
     }
   }
 }
@@ -70,6 +89,10 @@
 .description {
   padding: 0 20px 25px 20px;
 
+  @include screen('mobile') {
+    padding: 0 0 25px 0;
+  }
+
   p {
     font-family: $el-mis-reg;
     font-size: 14px;
@@ -109,6 +132,11 @@
   left: 50%;
   transform: translate(-50%, 0);
   transition: 0.15s opacity ease-in-out;
+
+  @include screen('mobile') {
+    opacity: 1;
+    bottom: 45px;
+  }
 }
 
 .productImg {
