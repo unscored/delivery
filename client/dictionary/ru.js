@@ -17,7 +17,7 @@ const translate = {
   emptyFields: 'Все поля в форме "Контактные данные" обязательны для заполнения!',
   correctPhone: 'Пожалуйста, введите корректный номер телефона',
   successOrderModalTitle: 'Ваш заказ принят',
-  successOrderModalText: 'В течении 5 минут наш менеджер с вами свяжется!',
+  successOrderModalText: 'В течении 5 минут наш менеджер с Вами свяжется!',
   ok: 'Хорошо',
   cartTableLabels: {
     productLabel: 'Продукт',

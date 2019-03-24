@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .modal {
   position: fixed;
@@ -13,16 +14,25 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  box-sizing: border-box;
+
+  @include screen('mobile') {
+    padding: 20px;
+  }
 }
 
 .modalContent {
-  width: 500px;
+  max-width: 500px;
   padding: 40px;
   background-color: $black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
+  @include screen('mobile') {
+    padding: 20px;
+  }
 }
 
 .title {
@@ -34,6 +44,11 @@
     font-size: 24px;
     line-height: 28px;
     color: $orange;
+
+    @include screen('mobile') {
+      font-size: 20px;
+      line-height: 23px;
+    }
   }
 }
 
