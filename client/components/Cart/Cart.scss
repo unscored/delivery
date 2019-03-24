@@ -1,7 +1,17 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .pageContent {
   padding: 67px 0 155px 0;
+
+  @include screen('mobile') {
+    padding: 10px 0 60px 0;
+  }
+}
+
+.catItemsWrap {
+  max-width: 340px;
+  margin: 0 auto;
 }
 
 .emptyCartMessage {
@@ -10,9 +20,20 @@
   p {
     font-family: $el-mis-reg;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 1;
     color: $white;
     opacity: 0.5;
+
+    @include screen('mobile') {
+      font-size: 16px;
+      padding: 50px 0 0 0;
+    }
+  }
+}
+
+.orderBtn {
+  @include screen('mobile') {
+    padding: 30px 0 0 0;
   }
 }
 
@@ -26,10 +47,18 @@
 .additionalData {
   display: flex;
   justify-content: space-between;
+
+  @include screen('mobile') {
+    flex-flow: column nowrap;
+  }
 }
 
 .additionalDataItem {
   width: 45%;
+
+  @include screen('mobile') {
+    width: 100%;
+  }
 }
 
 .cartTotal {
@@ -37,7 +66,11 @@
   p {
     font-family: $west;
     font-size: 28px;
-    line-height: 28px;
+    line-height: 1;
     color: $punch;
+
+    @include screen('mobile') {
+      font-size: 20px;
+    }
   }
 }

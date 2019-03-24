@@ -2,11 +2,14 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
+import CartItemsList from '../CartItemsList';
+import Responsive from '../Responsive';
 import CartTable from './CartTable';
 import UserInfoForm from '../UserInfoForm';
 import Button from '../Button';
 import { cartItemTypes } from '../../propTypes';
 import { SUCCESS_PUSH_ORDER_MODAL } from '../../constants';
+
 import css from './Cart.scss';
 
 import banner from '../../images/cart-page-2500x600.jpg';
@@ -52,38 +55,56 @@ export default class Cart extends Component {
         <div className="banner" style={{'backgroundImage': `url("${banner}")`}}/>
         <div className="container">
           <div className={css.pageContent}>
-            {cartItems.length
-              ? (
-                <Fragment>
-                  <CartTable items={cartItems} deleteItem={deleteFromCart} />
-                  <div className={css.orderRow}>
-                    <div className={css.cartTotal}>
-                      <p>{`${I18n.t('cartTableLabels.totalLabel')}: ${totalPrice} ${I18n.t('currency')}`}</p>
+            <div className={css.catItemsWrap}>
+              {cartItems.length
+                ? (
+                  <Fragment>
+                    <Responsive query={Responsive.DESKTOP}>
+                      <CartTable items={cartItems} deleteItem={deleteFromCart} />
+                    </Responsive>
+                    <Responsive query={Responsive.MOBILE}>
+                      <CartItemsList items={cartItems} onDeleteItem={deleteFromCart} />
+                    </Responsive>
+                    <div className={css.orderRow}>
+                      <div className={css.cartTotal}>
+                        <p>{`${I18n.t('cartTableLabels.totalLabel')}: ${totalPrice} ${I18n.t('currency')}`}</p>
+                      </div>
+                      <Responsive query={Responsive.DESKTOP}>
+                        <div className={css.orderBtn}>
+                          <Button
+                            disabled={!isValid}
+                            value={`${I18n.t('orderBtnTitle')}`}
+                            onClick={this.onClick}
+                          />
+                        </div>
+                      </Responsive>
                     </div>
-                    <div className={css.orderBtn}>
-                      <Button
-                        disabled={!isValid}
-                        value={`${I18n.t('orderBtnTitle')}`}
-                        onClick={this.onClick}
-                      />
+                    <div className={css.additionalData}>
+                      <div className={css.additionalDataItem}>
+                        <UserInfoForm />
+                      </div>
+                      <div className={css.additionalDataItem}>
+                        {/* CouponBlock */}
+                      </div>
                     </div>
+                    <Responsive query={Responsive.MOBILE}>
+                        <div className={css.orderBtn}>
+                          <Button
+                            disabled={!isValid}
+                            value={`${I18n.t('orderBtnTitle')}`}
+                            onClick={this.onClick}
+                          />
+                        </div>
+                      </Responsive>
+                  </Fragment>
+                )
+                : (
+                  <div className={css.emptyCartMessage}>
+                    <p>{I18n.t('emptyCartText')}</p>
                   </div>
-                  <div className={css.additionalData}>
-                    <div className={css.additionalDataItem}>
-                      <UserInfoForm />
-                    </div>
-                    <div className={css.additionalDataItem}>
-                      {/* CouponBlock */}
-                    </div>
-                  </div>
-                </Fragment>
-              )
-              : (
-                <div className={css.emptyCartMessage}>
-                  <p>{I18n.t('emptyCartText')}</p>
-                </div>
-              )
-            }
+                )
+              }
+            </div>
           </div>
         </div>
       </div>

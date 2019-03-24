@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import css from './SideCart.scss';
+import css from './CartItemsList.scss';
 
 const CartItemParams = ({items}) => {
   return (

@@ -4,10 +4,9 @@ import { MdShoppingCart } from 'react-icons/md';
 import { I18n } from 'react-redux-i18n';
 import classNames from 'classnames';
 
+import CartItemsList from './CartItemsList'
 import Button from '../Button';
 import { cssMQ } from '../../utils';
-import List from '../List';
-import CartItem from './CartItem';
 import { ROUTES_MAP } from '../../constants';
 import withHideExtraMenus from '../../redux/decorators/withHideExtraMenus';
 
@@ -39,14 +38,7 @@ const Cart = props => {
         { cartItems.length !== 0 ?
           (
             <div>
-              <List
-                classNameCss={css.itemsList}
-                items={cartItems}
-                ListItem={({item}) => (
-                  <CartItem item={item} onPressDelete={() => deleteFromCart(item.cartId)}/>
-                )}
-                keyExtractor={item => item.cartId}
-              />
+              <CartItemsList items={cartItems} onDeleteItem={deleteFromCart}/>
 
               <div className={css.total}>
                 <p>{I18n.t('totalOrder')}</p>

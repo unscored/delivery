@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 
 import Params from './CartItemParams';
 
-import css from './SideCart.scss';
+import css from './CartItemsList.scss';
 
 const CartItem = (props) => {
   const { item, onPressDelete } = props;

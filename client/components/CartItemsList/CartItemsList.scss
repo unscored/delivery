@@ -1,0 +1,101 @@
+@import "client/styles/variables";
+@import "client/styles/mixins";
+
+.itemsList {
+  height: 100%;
+}
+
+.cartItem {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: $gray;
+    box-shadow: 1px 2px 0px 0px rgba(0,0,0,1);
+  }
+}
+
+.params {
+  padding: 5px 0;
+   
+  li {
+    font-family: $el-mis-reg;
+    font-size: 14px;
+    line-height: 1;
+    color: $white;
+    padding: 5px 0;
+
+    @include screen('mobile') {
+      font-size: 12px;
+      padding: 3px 0;
+    }
+  }
+}
+
+.cartItemImg {
+  width: 80px;
+  margin: 0 10px;
+  img {
+    width: 100%;
+    display: block;
+  }
+}
+
+.cartItemDelBtn {
+  display: block;
+  color: $white;
+  transition: 0.15s color ease-in-out;
+
+  @include screen('desktop') {
+    &:hover {
+      color: $punch;
+    }
+  }
+}
+
+.cartItemInfo {
+  width: 160px;
+  
+  p {
+    display: block;
+  }
+}
+
+.cartItemInfoName {
+  font-family: $west;
+  font-size: 24px;
+  line-height: 1;
+  color: $orange;
+  padding: 0 0 12px 0;
+
+  @include screen('mobile') {
+    font-size: 18px;
+    padding: 0 0 7px 0;
+  }
+}
+
+.countPrice {
+  font-family: $el-mis-reg;
+  font-size: 14px;
+  line-height: 1;
+  color: $white;
+
+  @include screen('mobile') {
+    font-size: 12px;
+  }
+  
+  span {
+    color: $punch;
+  }
+}

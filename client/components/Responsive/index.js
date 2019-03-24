@@ -1,35 +1,38 @@
-import { useState, useEffect } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import * as css from './Responsive.scss';
 
-const Responsive = ({ children, query }) => {
-	const [isMatching, setMatching] = useState(Responsive.isMatching(query));
-	const onWindowResize = () => setMatching(Responsive.isMatching(query));
+export default class Responsive extends Component {
+  static MOBILE = css.mobile;
+  static DESKTOP = css.desktop;
+  static defaultProps = {
+    query: Responsive.DESKTOP,
+    children: null
+  };
+  static propTypes = {
+    query: PropTypes.oneOf([Responsive.MOBILE, Responsive.DESKTOP]),
+    children: PropTypes.node
+  };
+  static isMatching = query => !!window.matchMedia(query).matches;
 
-	useEffect(() => {
-		window.addEventListener('resize', onWindowResize);
-		return function cleanup() {
-			window.removeEventListener('resize', onWindowResize);
-		};
-	}, [isMatching]);
+  constructor(props) {
+    super(props);
+  
+    this.state = {
+      isMatching: Responsive.isMatching(props.query)
+    }
+  }
+  componentDidMount() {
+    window.addEventListener('resize', this.onWindowResize);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('resize', this.onWindowResize);
+  }
 
-	return isMatching && children;
+	onWindowResize = () => this.setState({ isMatching: Responsive.isMatching(this.props.query) });
+
+	render() {
+    return this.state.isMatching && this.props.children;
+  }
 };
-
-Responsive.isMatching = query => !!window.matchMedia(query).matches;
-
-Responsive.MOBILE = css.mobile;
-Responsive.DESKTOP = css.desktop;
-
-Responsive.defaultProps = {
-	query: Responsive.DESKTOP,
-	children: null
-};
-
-Responsive.propTypes = {
-	query: PropTypes.oneOf([Responsive.MOBILE, Responsive.DESKTOP]),
-	children: PropTypes.node
-};
-
-export default Responsive;

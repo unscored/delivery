@@ -28,21 +28,21 @@ export default class App extends Component {
     return (
       <Provider store={store} >
         <Router>
-          <div>
-            <Header />
-            <ToastContainer
-              autoClose={2000}
-              className={"cart-toast-container"}
-              toastClassName={"cart-toast"}
-              hideProgressBar
-              transition={Zoom}
-            />
-            <Route exact path={ROUTES_MAP.main} component={Main}/>
-            <Route path={ROUTES_MAP.contacts} component={Contacts}/>
-            <Route path={ROUTES_MAP.cart} component={Cart}/>
-            <Footer />
-            <Modal />
-          </div>
+            <React.Fragment>
+              <Header />
+              <ToastContainer
+                autoClose={2000}
+                className={"cart-toast-container"}
+                toastClassName={"cart-toast"}
+                hideProgressBar
+                transition={Zoom}
+              />
+              <Route exact path={ROUTES_MAP.main} component={Main}/>
+              <Route path={ROUTES_MAP.contacts} component={Contacts}/>
+              <Route path={ROUTES_MAP.cart} component={Cart}/>
+              <Footer />
+              <Modal />
+            </React.Fragment>
         </Router>
       </Provider>
     );

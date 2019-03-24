@@ -1,8 +1,13 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .userInfo {
   padding: 50px 35px;
   background-color: rgba(0, 0, 0, 0.5);
+
+  @include screen('mobile') {
+    padding: 25px;
+  }
 }
 
 .title {
@@ -10,9 +15,13 @@
   h3 {
     font-family: $west;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 1;
     color: $orange;
     padding: 0 0 30px 0;
+
+    @include screen('mobile') {
+      font-size: 18px;
+    }
   }
 }
 
