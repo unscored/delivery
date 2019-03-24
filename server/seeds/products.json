@@ -30,16 +30,6 @@
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
   },
   {
-    "id": "874d1642-8c26-46b9-b75a-556bba4c7466",
-    "name": "Матерацци",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
-    "description": "Ветчина, соус белый, кислый огурчик, свинина, сыр моцарелла.",
-    "price": 100,
-    "createdAtDate": "2018-10-13 19:03:13",
-    "updatedAtDate": "2018-10-13 19:03:13",
-    "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
-  },
-  {
     "id": "07942829-e0b3-43e7-b793-4716d9d27824",
     "name": "Баффало",
     "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
