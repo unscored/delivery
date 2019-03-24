@@ -54,15 +54,36 @@
       font-size: 35px;
       line-height: 35px;
     }
+  }
 
-    &.email {
-      font-size: 48px;
-      line-height: 48px;
+  .insta {
+    font-family: $el-mis-reg;
+    color: $black;
+    white-space: nowrap;
+    font-size: 48px;
+    line-height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0 0 0;
+    transition: color 0.25s ease-in-out;
 
+    span {
+      padding: 0 0 0 10px;
       @include screen('mobile') {
-        font-size: 14px;
-        line-height: 14px;
+        padding: 0 0 0 5px;
       }
+    }
+    
+    @include screen('desktop') {
+      &:hover {
+        color: $punch;
+      }
+    }
+
+    @include screen('mobile') {
+      font-size: 14px;
+      line-height: 14px;
     }
   }
 }
