@@ -42,8 +42,12 @@
   p {
     font-family: $west;
     font-size: 24px;
-    line-height: 24px;
+    line-height: 1;
     color: $punch;
+
+    @include screen('mobile') {
+      font-size: 18px;
+    }
   }
 }
 
@@ -74,9 +78,14 @@
   li {
     font-family: $el-mis-reg;
     font-size: 14px;
-    line-height: 14px;
+    line-height: 1;
     color: $white;
     padding: 5px 0;
+
+    @include screen('mobile') {
+      font-size: 12px;
+      padding: 3px 0;
+    }
   }
 }
 
@@ -93,8 +102,10 @@
   color: $white;
   transition: 0.15s color ease-in-out;
 
-  &:hover {
-    color: $punch;
+  @include screen('desktop') {
+    &:hover {
+      color: $punch;
+    }
   }
 }
 
@@ -109,16 +120,25 @@
 .cartItemInfoName {
   font-family: $west;
   font-size: 24px;
-  line-height: 24px;
+  line-height: 1;
   color: $orange;
   padding: 0 0 12px 0;
+
+  @include screen('mobile') {
+    font-size: 18px;
+    padding: 0 0 7px 0;
+  }
 }
 
 .countPrice {
   font-family: $el-mis-reg;
   font-size: 14px;
-  line-height: 14px;
+  line-height: 1;
   color: $white;
+
+  @include screen('mobile') {
+    font-size: 12px;
+  }
   
   span {
     color: $punch;
@@ -210,6 +230,10 @@
   height: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
+
+  @include screen('mobile') {
+    padding: 18px;
+  }
 }
 
 .line {
@@ -220,10 +244,20 @@
 
 .title {
   padding: 0 0 26px 0;
+
+  @include screen('mobile') {
+    text-align: center;
+    padding: 0 0 17px 0;
+  }
+
   h3 {
     font-family: $west;
     font-size: 36px;
-    line-height: 36px;
+    line-height: 1;
     color: $orange;
+
+    @include screen('mobile') {
+      font-size: 24px;
+    }
   }
 }

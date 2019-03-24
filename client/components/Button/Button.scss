@@ -1,4 +1,5 @@
 @import "client/styles/variables";
+@import "client/styles/mixins";
 
 .btn {
   width: 100%;
@@ -16,9 +17,16 @@
   box-sizing: border-box;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
 
-  &:hover {
-    color: $black;
-    background-color: $punch;
+  @include screen('desktop') {
+    &:hover {
+      color: $black;
+      background-color: $punch;
+    }
+  }
+
+  @include screen('mobile') {
+    font-size: 12px;
+    line-height: 38px;
   }
 }
 
@@ -32,8 +40,10 @@
   border: 2px solid $orange;
   color: $orange;
 
-  &:hover {
-    background-color: $orange;
-    color: $black;
+  @include screen('desktop') {
+    &:hover {
+      background-color: $orange;
+      color: $black;
+    }
   }
 }
