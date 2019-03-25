@@ -7,7 +7,7 @@ module.exports = {
   getClients: async (params, callback) => {
     try {
       const clients = await models.client.findAll({
-        attributes: ['id', 'name', 'phone', 'address']
+        attributes: ['id', 'name', 'phone']
       });
 
       callback(null, clients);

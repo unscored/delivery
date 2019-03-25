@@ -53,6 +53,7 @@ const prepareProducts = data => {
  * @returns {Array}
  */
 const prepareOrders = data => {
+  // console.log(data);
   const result = data.reduce((acc, item) => {
     let duplicateOrderIndex = acc.findIndex(o => item.id === o.id);
     const orderListItem = {
@@ -83,6 +84,7 @@ const prepareOrders = data => {
 
       if (duplicateProductIndex < 0) {
         acc[duplicateOrderIndex].orderList.push(orderListItem);
+        acc[duplicateOrderIndex].totalPrice += orderListItem.price;
       } else {
         let prevPrice = acc[duplicateOrderIndex].orderList[duplicateProductIndex].price;
         let newPrice = prevPrice + (parseInt(item.propPrice, 10) * item.quantity);
@@ -94,7 +96,6 @@ const prepareOrders = data => {
           value: item.propValue,
         });
       }
-      
     }
     return acc;
   }, []);

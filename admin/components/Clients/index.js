@@ -14,8 +14,7 @@ export default class Clients extends Component {
 
   columns = [
     { title: I18n.t('orderTableTitles.name'), dataIndex: 'name', key: 'name' },
-    { title: I18n.t('orderTableTitles.phone'), dataIndex: 'phone', key: 'phone' },
-    { title: I18n.t('orderTableTitles.address'), dataIndex: 'address', key: 'address' },
+    { title: I18n.t('orderTableTitles.phone'), dataIndex: 'phone', key: 'phone' }
   ];
 
   componentDidMount() {

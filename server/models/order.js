@@ -32,6 +32,10 @@ module.exports = (sequelize, dataTypes) => {
     notices: {
       type: dataTypes.TEXT
     },
+    address: {
+      type: dataTypes.STRING,
+      allowNull: false
+    },
     createdAt: {
       type: dataTypes.VIRTUAL,
       get () {

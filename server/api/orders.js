@@ -14,18 +14,22 @@ module.exports = {
       user = await models.client.findOne({
         where: { phone: params.phone }
       });
-  
-      if (!user) {
+
+      if (user) {
+        await user.update({
+          name: params.name,
+        });
+      } else {
         user = await models.client.create({
           name: params.name,
-          phone: params.phone,
-          address: params.address
+          phone: params.phone
         });
       }
 
       order = await models.order.create({
-        notice: '',
-        clientId: user.id
+        notices: '',
+        clientId: user.id,
+        address: params.address
       });
 
       params.items.map((item, i) => {
@@ -56,8 +60,8 @@ module.exports = {
           o.id
         , c.name
         , c.phone
-        , c.address
         , o.status
+        , o.address
         , v.value as propValue
         , p.name as propName
         , v.price as propPrice
