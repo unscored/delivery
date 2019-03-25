@@ -10,8 +10,10 @@
 }
 
 .catItemsWrap {
-  max-width: 340px;
-  margin: 0 auto;
+  @include screen('mobile') {
+    max-width: 340px;
+    margin: 0 auto;
+  }
 }
 
 .emptyCartMessage {
