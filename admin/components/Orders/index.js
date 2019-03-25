@@ -56,7 +56,7 @@ export default class Orders extends Component {
           rowKey={record => record.id}
           expandedRowRender={this.expandedRowRender}
           dataSource={items}
-          pagination={{ hideOnSinglePage: true, pageSize: 10 }}
+          pagination={{ hideOnSinglePage: true, pageSize: 20 }}
         />
       </LayoutContainer>
     );

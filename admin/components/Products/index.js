@@ -13,9 +13,9 @@ export default class Products extends Component {
   };
 
   columns = [
-    { title: I18n.t('orderTableTitles.name'), dataIndex: 'name', key: 'name' },
-    { title: I18n.t('orderTableTitles.address'), dataIndex: 'description', key: 'description' },
-    { title: I18n.t('orderTableTitles.address'), dataIndex: 'price', key: 'price' },
+    { title: I18n.t('productsTableTitles.name'), dataIndex: 'name', key: 'name' },
+    { title: I18n.t('productsTableTitles.description'), dataIndex: 'description', key: 'description' },
+    { title: I18n.t('productsTableTitles.price'), dataIndex: 'price', key: 'price' },
   ];
 
   componentDidMount() {
@@ -36,7 +36,7 @@ export default class Products extends Component {
           columns={this.columns}
           rowKey={record => record.id}
           dataSource={items}
-          pagination={{ hideOnSinglePage: true, pageSize: 10 }}
+          pagination={{ hideOnSinglePage: true, pageSize: 20 }}
         />
       </LayoutContainer>
     );
