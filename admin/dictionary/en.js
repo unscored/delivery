@@ -23,6 +23,11 @@ const translate = {
     date: "Date",
     totalPrice: "Total"
   },
+  productsTableTitles: {
+    name: "Name",
+    description: "Description",
+    price: "Price",
+  },
   statusTypes: {
     new: "New",
     paid: "Paid",
