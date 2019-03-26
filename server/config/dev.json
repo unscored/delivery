@@ -29,6 +29,10 @@
   "sms": {
     "numbers": ["380930933955"]
   },
+  "spaRoutes": {
+    "admin": ["/admin", "/admin/orders", "/admin/clients", "/admin/products"],
+    "client": ["/", "/cart", "/contacts"]
+  },
   "direct": {
     "ES6": true,
     "rootNamespace": "Server",

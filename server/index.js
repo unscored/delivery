@@ -7,6 +7,7 @@ const cors = require('cors');
 const direct = require('./utils/direct');
 const server = require('./utils/server');
 const app = express();
+const { spaRoutes } = require('./config');
 
 const PUBLIC_PATH = path.join(__dirname, '..', 'public');
 
@@ -17,12 +18,12 @@ app.use(cors());
 app.use(express.static(PUBLIC_PATH));
 
 // client spa routing
-app.get(['/', '/cart', '/contacts'], function(req, resp) {
+app.get([...spaRoutes.client], function(req, resp) {
   resp.sendFile(path.join(PUBLIC_PATH, 'index.html'));
 });
 
 // admin spa routing
-app.get(['/admin', '/admin/orders', '/admin/clients'], function(req, resp) {
+app.get([...spaRoutes.admin], function(req, resp) {
   resp.sendFile(path.join(PUBLIC_PATH, 'admin', 'index.html'));
 });
 
