@@ -80,7 +80,8 @@ module.exports = {
           inner join \`values\` v on op.valueId = v.id
           inner join properties p on v.propertyId = p.id
           inner join types t on p.typeId = t.id
-          inner join products pr on op.productId = pr.id;
+          inner join products pr on op.productId = pr.id
+          ORDER BY date DESC;
       `;
 
       const result = await models.sequelize.query(query, {
