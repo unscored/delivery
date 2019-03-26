@@ -1,5 +1,8 @@
 'use strict';
 
+const result = require('dotenv').config();
+const dotenv = result.parsed;
+
 process.argv.some(arg => {
   const params = arg.split('=');
 
@@ -14,7 +17,7 @@ let config = (process.env.NODE_ENV === 'production')
               : require('./dev.json');
 
 try {
-  config = require('deepmerge')(config, require('./local.json'));
+  config = require('deepmerge')(dotenv, config);
 } catch (err) {}
 
 module.exports = config;

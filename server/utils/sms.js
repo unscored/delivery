@@ -1,13 +1,13 @@
 'use strict'
 
 const fetch = require('node-fetch');
-const { sms } = require('../config');
+const { sms, ESPUTNIK_SEND_SMS_URL, ESPUTNIK_LOGIN, ESPUTNIK_PASSWORD } = require('../config');
 
 const send = () => {
-  fetch(process.env.ESPUTNIK_SEND_SMS_URL, {
+  fetch(ESPUTNIK_SEND_SMS_URL, {
     method: "POST",
     headers: {
-      "Authorization": `Basic ${Buffer.from(`${process.env.ESPUTNIK_LOGIN}:${process.env.ESPUTNIK_PASSWORD}`).toString('base64')}`,
+      "Authorization": `Basic ${Buffer.from(`${ESPUTNIK_LOGIN}:${ESPUTNIK_PASSWORD}`).toString('base64')}`,
       "Content-Type": "application/json"
     },
     body: JSON.stringify({

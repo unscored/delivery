@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "node --require dotenv/config ./index.js env=production",
-    "debug": "DEBUG=server:* nodemon --require dotenv/config ./index.js",
-    "debugw": "set DEBUG=server:* & nodemon --require dotenv/config ./index.js",
+    "start": "node ./index.js env=production",
+    "debug": "DEBUG=server:* nodemon ./index.js",
+    "debugw": "set DEBUG=server:* & nodemon ./index.js",
     "create": "node_modules/.bin/sequelize db:create",
     "sync": "node ./utils/syncDb",
     "fill": "node_modules/.bin/sequelize db:seed:all",
