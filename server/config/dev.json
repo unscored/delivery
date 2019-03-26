@@ -26,6 +26,9 @@
       "paranoid": true
     }
   },
+  "sms": {
+    "numbers": ["380930933955"]
+  },
   "direct": {
     "ES6": true,
     "rootNamespace": "Server",

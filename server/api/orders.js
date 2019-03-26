@@ -3,6 +3,7 @@
 const models = require('../models');
 const errors = require('../utils/errors');
 const helpers = require('../utils/helpers');
+const sms = require('../utils/sms');
 
 module.exports = {
   addOrder: async (params, callback) => {
@@ -46,6 +47,8 @@ module.exports = {
           return item;
         });
       });
+
+      sms.send();
 
       callback(null, result);
     } catch (ex) {

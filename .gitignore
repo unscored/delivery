@@ -9,6 +9,9 @@ server/config/local.json
 server/node_modules
 server/package-lock.json
 
+# Excludes from server .env file
+server/.env
+
 # Excludes from public directory
 public
 
