@@ -19,6 +19,11 @@ const translate = {
   successOrderModalTitle: 'Your order is accepted',
   successOrderModalText: 'Within 5 minutes, our manager will contact you!',
   ok: 'Ok',
+  tel: 'Tel.',
+  instagram: 'Instagram',
+  workHours: 'Working Hours',
+  contacts: 'Contacts',
+  ourAddress: 'Our Address',
   cartTableLabels: {
     productLabel: 'Product',
     priceLabel: 'Price',

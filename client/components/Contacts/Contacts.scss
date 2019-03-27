@@ -1,0 +1,117 @@
+@import "client/styles/variables";
+@import "client/styles/mixins";
+
+.contactsContent {
+  padding: 67px 0 155px 0;
+  display: flex;
+
+  @include screen('mobile') {
+    padding: 40px 0 60px 0;
+    flex-flow: column nowrap;
+  }
+}
+
+.mapWrap {
+  flex: 1;
+  border: 4px solid $punch;
+  padding: 15px;
+  margin: 0 30px 0 0;
+
+  @include screen('mobile') {
+    margin: 0 0 30px 0;
+    flex: 0 0 250px;
+  }
+
+  .map {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+
+    @include screen('mobile') {
+      height: 250px;
+    }
+  }
+}
+
+.info {
+  flex: 0 0 30%;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 30px 35px;
+
+  @include screen('mobile') {
+    flex: 0 0 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-flow: row wrap;
+    padding: 10px;
+  }
+}
+
+.infoItem {
+  padding: 0 0 60px 0;
+
+  @include screen('mobile') {
+    padding: 20px;
+  }
+
+  &:last-child {
+    padding:  0;
+
+    @include screen('mobile') {
+      padding: 20px;
+    }
+  }
+}
+
+.infoItemTitle {
+   padding: 0 0 30px 0;
+
+   @include screen('mobile') {
+    padding: 0 0 15px 0;
+  }
+
+  h3 {
+    font-family: $west;
+    font-size: 24px;
+    color: $orange;
+    
+    @include screen('mobile') {
+      font-size: 18px;
+    }
+  }
+}
+
+.infoItemContent {
+  position: relative;
+
+  p {
+    font-family: $el-mis-reg;
+    font-size: 16px;
+    line-height: 1;
+    color: $white;
+    padding: 0 0 12px 0;
+
+    @include screen('mobile') {
+      font-size: 14px;
+    }
+
+    &:last-child {
+      padding: 0;
+    }
+  }
+
+  span {
+    color: $punch;
+
+    a {
+      color: inherit;
+      transition: color .35s ease-in;
+
+      &:hover {
+        color: $orange;
+      }
+    }
+  }
+}
