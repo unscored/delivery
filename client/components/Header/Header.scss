@@ -10,10 +10,11 @@ header {
   top: 0;
   left: 0;
   z-index: 100;
+  box-shadow: -1px 7px 5px -5px rgba(0,0,0,0.92);
 
   @include screen('mobile') {
     height: $header-h-mob;
-    box-shadow: inset -6px 5px 40px -8px rgba(0,0,0,0.53);
+    box-shadow: -1px 7px 5px -5px rgba(0,0,0,0.92);
   }
 }
 
