@@ -1,3 +1,7 @@
 {
-  "API_URL": "http://127.0.0.1:3003/api"
+  "API_URL": "http://127.0.0.1:3003/api",
+  "CONTACT_PHONE": "+38 063 37 32 915",
+  "INSTA_URL": "https://www.instagram.com/cafe_belvedere/",
+  "CONTACT_CITY": "г. Черноморск",
+  "ADDRESS_STRING": "ул. 1 Мая 6г, кафе \"Belvedere\""
 }

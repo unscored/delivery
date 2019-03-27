@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaInstagram } from 'react-icons/fa';
 
+import { CONTACT_PHONE, INSTA_URL } from '../../constants';
 import { cssMQ } from '../../utils';
 import css from './Footer.scss';
 
@@ -9,8 +10,8 @@ const Footer = () => {
     <footer>
       <div className={css.top}>
         <div className={css.contacts}>
-          <p>+38 063 37 32 915</p>
-          <a href='https://www.instagram.com/cafe_belvedere/' target="_blank" className={css.insta}>
+          <p>{CONTACT_PHONE}</p>
+          <a href={INSTA_URL} target="_blank" className={css.insta}>
             <FaInstagram size={cssMQ.isMobile() ? 22 : 38} color={'#000'}/>
             <span>cafe_belvedere</span>
           </a>
