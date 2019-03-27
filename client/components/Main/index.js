@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
+import { cssMQ } from '../../utils';
 import ParamsRow from '../ParamsRow';
 import ProductItem from '../ProductItem';
 import withSelectedItems from '../../redux/decorators/withSelectedItems';
@@ -8,6 +9,7 @@ import List from '../List';
 import withScrollTop from '../decorators/withScrollTop';
 
 import banner from '../../images/main-page-2500x600.jpg';
+import bannerMob from '../../images/main-page-2500x600_mobile.jpg';
 
 import css from './Main.scss';
 
@@ -45,7 +47,7 @@ export default class Main extends PureComponent {
 
     return (
       <div>
-        <div className="banner" style={{'backgroundImage': `url("${banner}")`}}/>
+        <div className="banner" style={{'backgroundImage': `url("${cssMQ.isMobile() ? bannerMob : banner}")`}}></div>
         <div className="container">
           <ParamsRow />
           <List

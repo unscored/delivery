@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import { I18n } from 'react-redux-i18n';
 
+import { cssMQ } from '../../utils';
+
 import banner from '../../images/contacts-page-2500x600.jpg';
+import bannerMob from '../../images/contacts-page-2500x600_mobile.jpg';
 import map from '../../images/map.jpg';
 
 import css from './Contacts.scss';
@@ -15,7 +18,7 @@ export default class Cart extends Component {
   render() {
     return (
       <div>
-        <div className="banner" style={{'backgroundImage': `url("${banner}")`}}></div>
+        <div className="banner" style={{'backgroundImage': `url("${cssMQ.isMobile() ? bannerMob : banner}")`}}></div>
         <div className="container">
           <div className={css.contactsContent}>
             <div className={css.mapWrap}>

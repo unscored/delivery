@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
+import { cssMQ } from '../../utils';
 import CartItemsList from '../CartItemsList';
 import Responsive from '../Responsive';
 import CartTable from './CartTable';
@@ -13,6 +14,7 @@ import { SUCCESS_PUSH_ORDER_MODAL } from '../../constants';
 import css from './Cart.scss';
 
 import banner from '../../images/cart-page-2500x600.jpg';
+import bannerMob from '../../images/cart-page-2500x600_mobile.jpg';
 
 export default class Cart extends Component {
   static propTypes = {
@@ -52,7 +54,7 @@ export default class Cart extends Component {
 
     return (
       <div>
-        <div className="banner" style={{'backgroundImage': `url("${banner}")`}}/>
+        <div className="banner" style={{'backgroundImage': `url("${cssMQ.isMobile() ? bannerMob : banner}")`}}></div>
         <div className="container">
           <div className={css.pageContent}>
             <div className={css.catItemsWrap}>

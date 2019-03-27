@@ -42,9 +42,6 @@
 
   @include screen('mobile') {
     flex: 0 0 100%;
-    display: flex;
-    justify-content: space-between;
-    flex-flow: row wrap;
     padding: 10px;
   }
 }
