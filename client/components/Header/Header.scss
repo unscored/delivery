@@ -26,14 +26,16 @@ header {
   z-index: 2;
 
   a {
-    font-family: $chicken;
-    font-size: 77px;
-    line-height: $header-h;
-    color: $punch;
+    width: 150px;
+    display: block;
+
+    img {
+      width: 100%;
+      display: block;
+    }
 
     @include screen('mobile') {
-      font-size: 55px;
-      line-height: $header-h-mob;
+      width: 100px;
     }
   }
 }
