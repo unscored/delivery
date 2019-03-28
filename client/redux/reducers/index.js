@@ -6,7 +6,7 @@ import menu from './menu';
 import cart, * as fromCart from './cart';
 import user, * as fromUser from './user';
 import selectedItems from './selectedItems';
-import currentModalID from './modal';
+import popUp from './popUp';
 
 const rootReducer = combineReducers({
   products,
@@ -15,7 +15,7 @@ const rootReducer = combineReducers({
   user,
   selectedItems,
   i18n,
-  currentModalID,
+  popUp,
 });
 
 export default rootReducer;

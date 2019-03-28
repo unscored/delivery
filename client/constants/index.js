@@ -29,5 +29,5 @@ export const MENU = [
   { id: guid(), name: 'cart', path: ROUTES_MAP.cart },
 ];
 
-// modals
-export const SUCCESS_PUSH_ORDER_MODAL = "SUCCESS_PUSH_ORDER_MODAL";
+// pop up
+export const INFO_POP_UP = "INFO_POP_UP";

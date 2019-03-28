@@ -9,9 +9,9 @@ import { ToastContainer, cssTransition } from "react-toastify";
 import { ROUTES_MAP } from './constants';
 import Main from './containers/Main';
 import Cart from './containers/Cart';
-import Modal from './containers/Modal';
 import Contacts from './containers/Contacts';
 import Header from './containers/Header';
+import PopUpManager from './components/PopUpManager';
 import Footer from './components/Footer';
 import store from './redux/store';
 
@@ -41,7 +41,7 @@ export default class App extends Component {
               <Route path={ROUTES_MAP.contacts} component={Contacts}/>
               <Route path={ROUTES_MAP.cart} component={Cart}/>
               <Footer />
-              <Modal />
+              <PopUpManager />
             </React.Fragment>
         </Router>
       </Provider>

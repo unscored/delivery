@@ -18,6 +18,8 @@ const translate = {
   correctPhone: 'Пожалуйста, введите корректный номер телефона',
   successOrderModalTitle: 'Ваш заказ принят',
   successOrderModalText: 'В течении 5 минут наш менеджер с Вами свяжется!',
+  failOrderModalTitle: 'Ошибка!',
+  failOrderModalText: 'Что-то пошло не так. Пожалуйста, попробуйте позже',
   ok: 'Хорошо',
   tel: 'Тел.',
   instagram: 'Instagram',

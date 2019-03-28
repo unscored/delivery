@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { isFormDataValid, getTotalPrice } from '../redux/reducers';
 import Cart from '../components/Cart';
 import actions from '../redux/actions/cart';
-import modalActions from '../redux/actions/modal';
 import withScrollTop from '../components/decorators/withScrollTop';
 
 export default connect (
@@ -21,7 +20,6 @@ export default connect (
   },
   dispatch => ({
     deleteFromCart: id => dispatch(actions.deleteFromCart(id)),
-    pushOrder: (items, userInfo) => dispatch(actions.pushOrder(items, userInfo)),
-    setModal: id => dispatch(modalActions.setModal(id)),
+    pushOrder: (items, userInfo, historyPush) => dispatch(actions.pushOrder(items, userInfo, historyPush)),
   }),
 )(withScrollTop(Cart));

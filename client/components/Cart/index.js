@@ -9,7 +9,6 @@ import CartTable from './CartTable';
 import UserInfoForm from '../UserInfoForm';
 import Button from '../Button';
 import { cartItemTypes } from '../../propTypes';
-import { SUCCESS_PUSH_ORDER_MODAL } from '../../constants';
 
 import css from './Cart.scss';
 
@@ -29,7 +28,9 @@ export default class Cart extends Component {
     isValid: PropTypes.bool.isRequired,
     deleteFromCart: PropTypes.func.isRequired,
     pushOrder: PropTypes.func.isRequired,
-    setModal: PropTypes.func.isRequired,
+    history: PropTypes.shape({
+      push: PropTypes.func
+    }).isRequired
   };
 
   onClick = async () => {
@@ -37,11 +38,10 @@ export default class Cart extends Component {
       cartItems,
       userInfo,
       pushOrder,
-      setModal
+      history
     } = this.props;
 
-    await pushOrder(cartItems, userInfo);
-    setModal(SUCCESS_PUSH_ORDER_MODAL);
+    pushOrder(cartItems, userInfo, history.push);
   }
 
   render() {

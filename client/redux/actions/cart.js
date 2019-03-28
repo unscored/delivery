@@ -2,7 +2,9 @@ import { toast } from "react-toastify";
 import { I18n } from 'react-redux-i18n';
 
 import Http from '../../http';
-import { API, API_METHODS } from '../../constants';
+import popUpActions from './popUp';
+import userActions from './user';
+import { API, API_METHODS, INFO_POP_UP, ROUTES_MAP } from '../../constants';
 import { constants } from '../reducers/cart';
 
 const hide = () => ({ type: constants.hide });
@@ -11,10 +13,19 @@ const toggle = () => ({ type: constants.toggle });
 
 const changeQuantity = (mode, id, value) => ({ type: constants.changeQuantity, payload: { mode, id, value } });
 
-const pushOrder = (items, userInfo) => dispatch => {
+const pushOrder = (items, userInfo, historyPush = null) => dispatch => {
   dispatch({type: constants.pushOrder});
 
   const { name, phone, address } = userInfo;
+  const handleOkClick = () => {
+    dispatch(popUpActions.setPopUp(null));
+    dispatch(clearCart());
+    dispatch(userActions.clearUserInfo());
+
+    if (historyPush) {
+      historyPush(ROUTES_MAP.main);
+    }
+  };
   const data = [{
     name,
     address,
@@ -26,13 +37,29 @@ const pushOrder = (items, userInfo) => dispatch => {
     method: API_METHODS.addOrder,
     data,
   };
-
+  console.log(constants);
   const onSuccess = () => {
     dispatch({ type: constants.pushOrderSuccess });
+    dispatch(popUpActions.setPopUp(
+      INFO_POP_UP, 
+      {
+        title: I18n.t('successOrderModalTitle'),
+        content: I18n.t('successOrderModalText'),
+        handleOkClick
+      }
+    ));
   };
   const onError = error => {
     console.log(error);
     dispatch({ type: constants.pushOrderFail });
+    dispatch(popUpActions.setPopUp(
+      INFO_POP_UP,
+      {
+        title: I18n.t('failOrderModalTitle'),
+        content: I18n.t('failOrderModalText'),
+        handleOkClick
+      }
+    ));
   };
 
   return Http.post(body).then(onSuccess).catch(onError);

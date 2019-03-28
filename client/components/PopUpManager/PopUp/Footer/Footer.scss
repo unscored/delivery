@@ -1,0 +1,10 @@
+@import "client/styles/variables";
+@import "client/styles/mixins";
+
+.footer {
+	padding: 30px 0 0 0;
+
+	@include screen('mobile') {
+		padding: 18px 0 0 0;
+	}
+}
