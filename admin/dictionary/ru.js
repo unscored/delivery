@@ -4,6 +4,7 @@ const translate = {
   password: "Пароль",
   rememberMe: "Запомнить меня",
   enter: "Войти",
+  edit: "Изменить",
   form: {
     emptyName: "Введите имя!",
     emptyPassword: "Введите пароль!"

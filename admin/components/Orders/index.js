@@ -34,7 +34,19 @@ class Orders extends Component {
     },
     { title: I18n.t('orderTableTitles.date'), dataIndex: 'date', key: 'date', render: item => parseDate(item) },
     { title: I18n.t('orderTableTitles.totalPrice'), dataIndex: 'totalPrice', key: 'totalPrice', render: item => `${item} ${I18n.t('currency')}` },
-    { title: I18n.t('orderTableTitles.action'), dataIndex: '', key: 'x', render: item => <a href="#" onClick={() => this.onEditClick(item)}>Изменить</a> },
+    {
+      title: I18n.t('orderTableTitles.action'),
+      dataIndex: '',
+      key: 'x',
+      render: item => (
+        <button
+          className={css.editBtn}
+          onClick={() => this.onEditClick(item)}
+        >
+          {I18n.t('edit')}
+        </button>
+      )
+    },
   ];
 
   componentDidMount() {
