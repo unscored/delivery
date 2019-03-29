@@ -56,6 +56,27 @@ module.exports = {
       callback(ex);
     }
   },
+  updateOrder: async (params, callback) => {
+   try {
+      let result = {};
+      let order = null;
+
+      order = await models.order.findOne({
+        where: { id: params.id }
+      });
+
+      if (order) {
+        await order.update({
+          address: params.address,
+          status: params.status,
+        });
+      }
+      callback(null, result);
+    } catch (ex) {
+      console.log('api/orders.js | updateOrder | exception:', ex);
+      callback(ex);
+    }
+  },
   getOrders: async (params, callback) => {
     try {
       const query = `

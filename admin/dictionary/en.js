@@ -21,7 +21,8 @@ const translate = {
     address: "Address",
     status: "Status",
     date: "Date",
-    totalPrice: "Total"
+    totalPrice: "Total",
+    action: "Action"
   },
   productsTableTitles: {
     name: "Name",
@@ -30,7 +31,7 @@ const translate = {
   },
   statusTypes: {
     new: "New",
-    paid: "Paid",
+    ready: "Ready",
     closed: "Closed",
     rejected: "Rejected",
     returned: "Returned",

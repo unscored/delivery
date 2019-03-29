@@ -26,18 +26,13 @@ const pushOrder = (items, userInfo, historyPush = null) => dispatch => {
       historyPush(ROUTES_MAP.main);
     }
   };
-  const data = [{
-    name,
-    address,
-    phone,
-    items,
-  }];
+  
   const body = {
     action: API.orders,
     method: API_METHODS.addOrder,
-    data,
+    data: [{ name, address, phone, items }],
   };
-  console.log(constants);
+
   const onSuccess = () => {
     dispatch({ type: constants.pushOrderSuccess });
     dispatch(popUpActions.setPopUp(

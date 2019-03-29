@@ -21,7 +21,8 @@ const translate = {
     address: "Адрес",
     status: "Статус",
     date: "Дата",
-    totalPrice: "Сумма"
+    totalPrice: "Сумма",
+    action: "Действие"
   },
   productsTableTitles: {
     name: "Название",
@@ -30,7 +31,7 @@ const translate = {
   },
   statusTypes: {
     new: "Новый",
-    paid: "Оплачен",
+    ready: "Готов",
     closed: "Закрыт",
     rejected: "Отменен",
     returned: "Возвращен",
