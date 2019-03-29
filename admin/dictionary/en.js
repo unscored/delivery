@@ -5,6 +5,8 @@ const translate = {
   rememberMe: "Remember me",
   enter: "Enter",
   edit: "Edit",
+  editOrder: "Edit Order",
+  editProduct: "Edit Product",
   form: {
     emptyName: "Please input your username!",
     emptyPassword: "Please input your password!"

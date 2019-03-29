@@ -77,7 +77,6 @@ class Orders extends Component {
   }
 
   onEditClick = (data) => {
-    console.log(data);
     this.setState({
       editItem: data,
       newAddress: data.address,
@@ -165,7 +164,7 @@ class Orders extends Component {
           pagination={{ hideOnSinglePage: true, pageSize: 20 }}
         />
         <Modal
-          title="Редактировать Заказ"
+          title={I18n.t('editOrder')}
           visible={isModalOpen}
           onOk={this.onModalOkClick}
           confirmLoading={confirmLoading}
