@@ -51,17 +51,17 @@ export const parseDate = date => {
  */
 export const getStatusTypeByConstant = t => type => {
   switch (type) {
-    case STATUS_TYPE.NEW:
+    case STATUS_TYPE.new:
       return t.t('statusTypes.new');
-    case STATUS_TYPE.PROCESSING:
+    case STATUS_TYPE.ready:
+      return t.t('statusTypes.ready');
+    case STATUS_TYPE.processing:
       return t.t('statusTypes.processing');
-    case STATUS_TYPE.PAID:
-      return t.t('statusTypes.paid');
-    case STATUS_TYPE.CLOSED:
+    case STATUS_TYPE.closed:
       return t.t('statusTypes.closed');
-    case STATUS_TYPE.REJECTED:
+    case STATUS_TYPE.rejected:
       return t.t('statusTypes.rejected');
-    case STATUS_TYPE.RETURNED:
+    case STATUS_TYPE.returned:
       return t.t('statusTypes.returned');
     default:
       return t.t('statusTypes.undefinedType');

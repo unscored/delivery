@@ -22,17 +22,17 @@ export const hideArray = [
 
 export const API_METHODS = {
   getOrders: 'getOrders',
+  updateOrder: 'updateOrder',
   getClients: 'getClients',
   getProducts: 'getProducts',
   login: 'login',
 }
 
 export const STATUS_TYPE = {
-  NEW: 0,
-  PROCESSING: 1,
-  READY: 2,
-  PAID: 3,
-  CLOSED: 4,
-  REJECTED: 5,
-  RETURNED: 6
+  new: 0,
+  processing: 1,
+  ready: 2,
+  closed: 3,
+  rejected: 4,
+  returned: 5
 }

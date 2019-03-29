@@ -22,7 +22,6 @@ module.exports = (sequelize, dataTypes) => {
           constants.validators.ORDER.STATUS.NEW,
           constants.validators.ORDER.STATUS.PROCESSING,
           constants.validators.ORDER.STATUS.READY,
-          constants.validators.ORDER.STATUS.PAID,
           constants.validators.ORDER.STATUS.CLOSED,
           constants.validators.ORDER.STATUS.REJECTED,
           constants.validators.ORDER.STATUS.RETURNED
