@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { get, reduce, map, isEqual } from 'lodash';
 import { I18n } from 'react-redux-i18n';
-import { Table, Modal, Input, Select } from 'antd';
+import { Table, Modal, Input, Select, Tag } from 'antd';
 
 import LayoutContainer from '../common/LayoutContainer';
 import { STATUS_TYPE } from '../../constants';
@@ -26,7 +26,12 @@ class Orders extends Component {
     { title: I18n.t('orderTableTitles.name'), dataIndex: 'name', key: 'name' },
     { title: I18n.t('orderTableTitles.phone'), dataIndex: 'phone', key: 'phone' },
     { title: I18n.t('orderTableTitles.address'), dataIndex: 'address', key: 'address' },
-    { title: I18n.t('orderTableTitles.status'), dataIndex: 'status', key: 'status', render: item => getStatusTypeByConstant(I18n)(item) },
+    { 
+      title: I18n.t('orderTableTitles.status'),
+      dataIndex: 'status',
+      key: 'status',
+      render: item => <Tag color={getStatusTypeByConstant(I18n)(item).color}>{getStatusTypeByConstant(I18n)(item).title}</Tag>
+    },
     { title: I18n.t('orderTableTitles.date'), dataIndex: 'date', key: 'date', render: item => parseDate(item) },
     { title: I18n.t('orderTableTitles.totalPrice'), dataIndex: 'totalPrice', key: 'totalPrice', render: item => `${item} ${I18n.t('currency')}` },
     { title: I18n.t('orderTableTitles.action'), dataIndex: '', key: 'x', render: item => <a href="#" onClick={() => this.onEditClick(item)}>Изменить</a> },

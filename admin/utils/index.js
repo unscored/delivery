@@ -52,19 +52,19 @@ export const parseDate = date => {
 export const getStatusTypeByConstant = t => type => {
   switch (type) {
     case STATUS_TYPE.new:
-      return t.t('statusTypes.new');
+      return { title: t.t('statusTypes.new'), color: 'cyan' };
     case STATUS_TYPE.ready:
-      return t.t('statusTypes.ready');
+      return { title: t.t('statusTypes.ready'), color: 'orange' };
     case STATUS_TYPE.processing:
-      return t.t('statusTypes.processing');
+      return { title: t.t('statusTypes.processing'), color: 'purple' };
     case STATUS_TYPE.closed:
-      return t.t('statusTypes.closed');
+      return { title: t.t('statusTypes.closed'), color: 'green' };
     case STATUS_TYPE.rejected:
-      return t.t('statusTypes.rejected');
+      return { title: t.t('statusTypes.rejected'), color: 'red' };
     case STATUS_TYPE.returned:
-      return t.t('statusTypes.returned');
+      return { title: t.t('statusTypes.returned'), color: 'red' };
     default:
-      return t.t('statusTypes.undefinedType');
+      return { title: t.t('statusTypes.undefinedType'), color: 'lightgray' };
   }
 }
 
