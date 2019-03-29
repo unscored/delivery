@@ -12,6 +12,7 @@
     "dialect": "mysql",
     "logging": false,
     "timeout": 30000,
+    "operatorsAliases": false,
     "pool": {
       "max": 10,
       "idle": 10000
