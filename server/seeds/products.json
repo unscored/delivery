@@ -2,9 +2,9 @@
   {
     "id": "41fb3630-5c58-4bee-b640-71acfb4c9346",
     "name": "Гавайская",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza3.png?alt=media&token=ec93e785-5371-4eea-b96a-c54b1d2e2518",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fhavai.png?alt=media&token=04d03816-cf36-4ece-9e2f-5ab1b397e9c8",
     "description": "Соус красный, Сыр Чеддер, сыр Сулугуни, куриное филе, ананас.",
-    "price": 103,
+    "price": 128,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -12,9 +12,9 @@
   {
     "id": "ed9efc82-8a52-425d-a475-81722c62e7c0",
     "name": "Четыре Сыра",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fdomashnia.png?alt=media&token=4481f95e-ea49-4458-80fa-d0c6d358bd65",
     "description": "Соус красный, сыр Филадельфия, сыр Дор Блю, сыр Моцарелла, сыр Чеддер, сыр Сулугуни.",
-    "price": 119,
+    "price": 144,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -22,9 +22,9 @@
   {
     "id": "d71e7eae-54a8-45b5-913b-bf115c5103d9",
     "name": "Маргарита",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fmargarita.png?alt=media&token=ba081a91-0473-46ff-ab21-52d97ca57209",
     "description": "Соус красный, базилик, оливковое масло, сыр Чеддер, сыр Сулугуни.",
-    "price": 87,
+    "price": 112,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -32,9 +32,9 @@
   {
     "id": "07942829-e0b3-43e7-b793-4716d9d27824",
     "name": "Баффало",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza2.png?alt=media&token=98bc17c4-be15-4442-9efc-0ddb262c5acb",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fbuffalo.png?alt=media&token=94659d6c-7150-4ce3-b996-bda33a0abece",
     "description": "Соус красный, помидоры черри, лист салата, сыр Чеддер, сыр Сулугуни, сыр Моцарелла.",
-    "price": 93,
+    "price": 118,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -42,9 +42,9 @@
   {
     "id": "abd04957-cc0c-43db-ab87-08372aa2b859",
     "name": "Салями",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fsalami.png?alt=media&token=ac532330-cefd-4eec-929a-38a34bc4ddd4",
     "description": "Соус красный, колбаса, охотничьи колбаски, сыр Чеддер, сыр Сулугуни.",
-    "price": 109,
+    "price": 134,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -52,9 +52,9 @@
   {
     "id": "47a29c8b-615f-4259-a724-034caf7ceabf",
     "name": "Цезарь",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fcaesar.png?alt=media&token=1b72ee15-ac19-4333-828c-59ef60127b08",
     "description": "Соус красный, бекон, куриное филе, микс салатов, сыр Пармезан, сыр Чеддер, сыр Сулугуни.",
-    "price": 125,
+    "price": 150,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -62,9 +62,9 @@
   {
     "id": "063b9742-1a4b-419d-a6dc-942c001afec0",
     "name": "Капричиоза",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fkapri.png?alt=media&token=b7d46fdb-c0ac-42b0-a16f-e3c2430c94da",
     "description": "Соус красный, болгарский перец, ветчина, артишоки, чесночный соус, сыр Чеддер, сыр Сулугуни.",
-    "price": 123,
+    "price": 148,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -72,9 +72,9 @@
   {
     "id": "02526c64-a637-4225-87c4-052568983d72",
     "name": "Коврук",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fkovruk.png?alt=media&token=92e3ac6c-5aea-4065-ba33-1c3b64dfee95",
     "description": "Соус красный, куриное филе, ананас, сыр Чеддер, сыр Сулугуни.",
-    "price": 107,
+    "price": 132,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -82,9 +82,9 @@
   {
     "id": "aa03318b-835f-48d2-8a30-8c4f57c32b63",
     "name": "Вегетариано",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fvegan.png?alt=media&token=f34420d0-e912-4e49-8ece-7e5a60c4d80b",
     "description": "Соус красный, баклажан, цукини, помидор, синий лук, чесночный соус, сыр Чеддер, сыр Сулугуни.",
-    "price": 90,
+    "price": 115,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -92,9 +92,9 @@
   {
     "id": "2839802f-0a69-4c1c-8287-5a16db010263",
     "name": "Домашняя",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fdomashnia.png?alt=media&token=4481f95e-ea49-4458-80fa-d0c6d358bd65",
     "description": "Соус красный, говядина, шампиньоны, помидор, лук, сыр Чеддер, сыр Сулугуни.",
-    "price": 109,
+    "price": 134,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -102,9 +102,9 @@
   {
     "id": "ab5028e8-ff02-4e49-bf10-c0a1e24d7451",
     "name": "Дары моря",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fmore.png?alt=media&token=20de4db1-8be9-4860-aa80-00ad82c9ea71",
     "description": "Соус белый, кальмары, креветки, мидии, маслины, сыр Чеддер, сыр Сулугуни.",
-    "price": 137,
+    "price": 162,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -112,9 +112,9 @@
   {
     "id": "4fafed13-7191-4dc0-9c73-a6b6e3ef7d3f",
     "name": "Палермо",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpalermo.png?alt=media&token=50719ff2-e603-46f0-a319-539c6ffb2907",
     "description": "Соус Цезарь, куриное филе, шампиньоны, томаты, сыр Чеддер, сыр Сулугуни.",
-    "price": 83,
+    "price": 118,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -122,9 +122,9 @@
   {
     "id": "ffc59642-59d3-4fbc-8a3e-af418e56d631",
     "name": "Деревенская",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fderevnia.png?alt=media&token=d7de0e8a-d1f2-46ed-809c-ab15e9e969ac",
     "description": "Соус томатный, шампиньоны, охотничьи колбаски, маринованная свинина, томаты, сыр Чеддер, сыр Сулугуни.",
-    "price": 106,
+    "price": 131,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -132,9 +132,9 @@
   {
     "id": "24ff5e53-f946-4fc4-af4d-3b26c8cb227b",
     "name": "Четыре мяса",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fdeti.png?alt=media&token=f10bcf27-2cc8-4555-b61e-acf422780618",
     "description": "Соус красный, бекон, салями, куриное филе, маринованная свинина, томаты, сыр Чеддер, сыр Сулугуни.",
-    "price": 109,
+    "price": 134,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
@@ -142,9 +142,9 @@
   {
     "id": "7df39689-429e-44f8-bb8d-706b75b7f9b8",
     "name": "Детская",
-    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fpizza1.png?alt=media&token=e2c7d73f-2d0b-4cb5-b51a-8900ab75ec22",
+    "image": "https://firebasestorage.googleapis.com/v0/b/delivery-dcb99.appspot.com/o/images%2Fdeti.png?alt=media&token=f10bcf27-2cc8-4555-b61e-acf422780618",
     "description": "Джем, творог, ягоды по сезону.",
-    "price": 106,
+    "price": 131,
     "createdAtDate": "2018-10-13 19:03:13",
     "updatedAtDate": "2018-10-13 19:03:13",
     "typeId": "66f12982-3078-4727-aabc-0451906b7af6"
