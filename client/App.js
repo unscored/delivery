@@ -15,6 +15,8 @@ import PopUpManager from './components/PopUpManager';
 import Footer from './components/Footer';
 import store from './redux/store';
 
+import './images/share.jpg';
+
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/main.scss';
 
