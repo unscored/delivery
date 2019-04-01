@@ -1,11 +1,9 @@
 import { forEach } from 'lodash';
 import { FORMS } from '../redux/reducers/user';
-import { I18n } from 'react-redux-i18n';
 
 //input validation
-// const incorrectEmail = 'Please provide correct email.';
-const incorrectPhone = I18n.t('correctPhone');
-const emptyField = I18n.t('emptyFields');
+const incorrectPhone = 'Пожалуйста, введите корректный номер телефона';
+const emptyField = 'Все поля в форме "Контактные данные" обязательны для заполнения!';
 
 const phoneReg = /^\+\d{2} *\(\d{3}\) *\d{3} *\d{2}\d{2}$/;
 // const emailReg = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
