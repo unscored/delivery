@@ -2,7 +2,7 @@
   "server": {
     "protocol": "https",
     "host": "185.86.76.103",
-    "port": 80
+    "port": 443
   },
   "database": {
     "host": "localhost",
