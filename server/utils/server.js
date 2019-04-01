@@ -1,8 +1,14 @@
 'use strict';
 
-const http = require('http');
+const https = require('https');
+const fs = require('fs');
 const errors = require('./errors');
 const {protocol, host, port} = require('../config').server;
+
+const options = {
+  key: fs.readFileSync('ssl/287458.key'),
+  cert: fs.readFileSync('ssl/287458.crt')
+};
 
 const addErrorHandlers = app => {
   app.use((req, res, next) => next({
@@ -22,7 +28,7 @@ const addErrorHandlers = app => {
 const run = app => {
   addErrorHandlers(app);
 
-  const server = http.createServer(app).listen({host, port});
+  const server = https.createServer(options, app).listen({host, port});
 
   server.on('error', err => {
     console.error('utils/server.js, exception:', err);
