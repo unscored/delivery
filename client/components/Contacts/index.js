@@ -2,13 +2,13 @@ import React, { Component } from 'react';
 import { I18n } from 'react-redux-i18n';
 
 import { cssMQ } from '../../utils';
+import { CONTACT_PHONE, INSTA_URL, CONTACT_CITY, ADDRESS_STRING, WORK_HOURS, DAYS_OFF } from '../../constants';
 
 import banner from '../../images/contacts-page-2500x600.jpg';
 import bannerMob from '../../images/contacts-page-2500x600_mobile.jpg';
 import map from '../../images/map.jpg';
 
 import css from './Contacts.scss';
-import { CONTACT_PHONE, INSTA_URL, CONTACT_CITY, ADDRESS_STRING } from '../../constants';
 
 
 export default class Cart extends Component {
@@ -50,8 +50,8 @@ export default class Cart extends Component {
                   <h3>{I18n.t('workHours')}</h3>
                 </div>
                 <div className={css.infoItemContent}>
-                  <p>Пн-Пт: 9:00 - 21:00</p>
-                  <p>Выходные: Сб, Вс</p>
+                  <p>{WORK_HOURS}</p>
+                  <p>{DAYS_OFF}</p>
                 </div>
               </div>
             </div>

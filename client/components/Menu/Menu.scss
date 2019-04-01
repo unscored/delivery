@@ -9,6 +9,9 @@
   transform: translate3d(-$menu-width, 0, 0);
   height: 100vh;
   background-color: $codGray;
+  background-image: url('../../images/pattern_bg.jpg');
+  background-repeat: repeat;
+  background-size: 400px;
   transition: transform 0.3s cubic-bezier(0.785, 0.135, 0.15, 0.86);
   z-index: 3;
 
