@@ -26,7 +26,7 @@ export const API_METHODS = {
   getClients: 'getClients',
   getProducts: 'getProducts',
   login: 'login',
-}
+};
 
 export const STATUS_TYPE = {
   new: 0,
@@ -35,4 +35,7 @@ export const STATUS_TYPE = {
   closed: 3,
   rejected: 4,
   returned: 5
-}
+};
+
+// forms 
+export const ROOT_FORM = 'forms';

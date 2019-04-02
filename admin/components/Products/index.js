@@ -7,6 +7,7 @@ import { get } from 'lodash';
 import LayoutContainer from '../common/LayoutContainer';
 import * as css from './Products.scss';
 import EditModal from './EditModal';
+import { ROOT_FORM } from '../../constants';
 
 export const MODE = {
   CREATE: 'create',
@@ -16,6 +17,7 @@ export default class Products extends Component {
   static propTypes = {
     getProducts: PropTypes.func.isRequired,
     products: PropTypes.shape({}),
+    changeForm: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -55,6 +57,7 @@ export default class Products extends Component {
       item,
       mode: MODE.EDIT
     });
+    this.props.changeForm(`${ROOT_FORM}.editProduct`, item);
   }
 
   onCanelModal = () => {
@@ -73,7 +76,7 @@ export default class Products extends Component {
 
   render() {
     const items = get(this.props, 'products.items', []);
-    const { isModalVisible, mode } = this.state;
+    const { isModalVisible, mode, item } = this.state;
   
     return (
       <LayoutContainer title={I18n.t('routesNames.products')}>
@@ -87,7 +90,7 @@ export default class Products extends Component {
           dataSource={items}
           pagination={{ hideOnSinglePage: true, pageSize: 20 }}
         />
-        <EditModal onConfirm={this.onConfirmModal} onCancel={this.onCanelModal} visible={isModalVisible} mode={mode} />
+        <EditModal item={item} onConfirm={this.onConfirmModal} onCancel={this.onCanelModal} visible={isModalVisible} mode={mode} />
       </LayoutContainer>
     );
   }
