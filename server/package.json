@@ -21,7 +21,6 @@
     "deepmerge": "^2.1.0",
     "dotenv": "^7.0.0",
     "express": "~4.16.0",
-    "express-http-to-https": "^1.1.4",
     "extdirect": "^2.0.5",
     "jsonwebtoken": "^8.3.0",
     "mysql2": "^1.6.1",
