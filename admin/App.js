@@ -6,6 +6,8 @@ import {
   Switch,
 } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import { LocaleProvider } from 'antd';
+import ru_RU from 'antd/lib/locale-provider/ru_RU';
 
 import { PrivateRoute } from './containers/routes';
 import LogIn from './containers/LogIn';
@@ -23,22 +25,24 @@ import './styles/main.scss';
 export default class App extends Component {
   render() {
     return (
-      <Provider store={store} >
-        <Router>
-            <React.Fragment>
-              <Header />  
-              <SideMenu />
-              <Switch>
-                <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
-                <Route exact path={ROUTES_MAP.login} component={LogIn}/>
-                <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
-                <PrivateRoute exact path={ROUTES_MAP.products} component={Products}/>
-                <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
-                <Redirect exact from={ROUTES_MAP.default} to={ROUTES_MAP.main} />
-              </Switch>
-            </React.Fragment>
-        </Router>
-      </Provider>
+      <LocaleProvider locale={ru_RU}>
+        <Provider store={store} >
+          <Router>
+              <React.Fragment>
+                <Header />  
+                <SideMenu />
+                <Switch>
+                  <PrivateRoute exact path={ROUTES_MAP.main} component={Main}/>
+                  <Route exact path={ROUTES_MAP.login} component={LogIn}/>
+                  <PrivateRoute exact path={ROUTES_MAP.clients} component={Clients}/>
+                  <PrivateRoute exact path={ROUTES_MAP.products} component={Products}/>
+                  <PrivateRoute exact path={ROUTES_MAP.orders} component={Orders}/>
+                  <Redirect exact from={ROUTES_MAP.default} to={ROUTES_MAP.main} />
+                </Switch>
+              </React.Fragment>
+          </Router>
+        </Provider>
+      </LocaleProvider>
     );
   }
 }

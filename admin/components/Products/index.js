@@ -81,7 +81,7 @@ export default class Products extends Component {
     return (
       <LayoutContainer title={I18n.t('routesNames.products')}>
         <div className={css.actionsPanel}>
-          <Button type="primary">Добавить</Button>
+          <Button type="primary">{I18n.t('add')}</Button>
         </div>
         <Table
           locale={{ emptyText: I18n.t('noData') }}

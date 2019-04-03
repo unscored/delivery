@@ -5,6 +5,7 @@ const translate = {
   rememberMe: "Запомнить меня",
   enter: "Войти",
   edit: "Изменить",
+  add: "Добавить",
   editOrder: "Редактировать Заказ",
   editProduct: "Редактировать Продукт",
   form: {

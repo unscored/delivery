@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Form, Control } from 'react-redux-form';
-import { get } from 'lodash';
+import { get, map } from 'lodash';
 import { I18n } from 'react-redux-i18n';
 import { Modal, Input } from 'antd';
 
 import { ROOT_FORM } from '../../../constants';
 
-// import * as css from './EditModal.scss';
+import * as css from './EditModal.scss';
 
 const MyTextInput = (props) => <Input className="my-input" {...props} />;
 const MyTextArea = (props) => <Input.TextArea className="my-texrarea" autosize {...props} />;
@@ -35,24 +35,43 @@ export default class EditModal extends Component {
 
   onSubmit = data => console.log(data); 
 
+  renderParams = prop => {
+    return (
+      <p key={prop.id}>{prop.name}</p>
+      
+    )
+  }
+
   renderModalContent = () => {
+    const { item } = this.props;
+
     return (
       <Form model={`${ROOT_FORM}.editProduct`} onSubmit={this.onSubmit}>
-        <p>Имя</p>
-        <Control
-          model=".name"
-          component={MyTextInput}
-        />
-        <p>Описание</p>
-        <Control
-          model=".description"
-          component={MyTextArea}
-        />
-        <p>Цена</p>
-        <Control
-          model=".price"
-          component={MyTextInput}
-        />
+        <div className={css.inputField}>
+          <p>Имя</p>
+          <Control
+            model=".name"
+            component={MyTextInput}
+          />
+        </div>
+        <div className={css.inputField}>
+          <p>Описание</p>
+          <Control
+            model=".description"
+            component={MyTextArea}
+          />
+        </div>
+        <div className={css.inputField}>
+          <p>Цена</p>
+          <Control
+            model=".price"
+            component={MyTextInput}
+          />
+        </div>
+        <div className={css.parameters}>
+          <h3>Свойства</h3>
+          {map(get(item, 'properties', []), prop => this.renderParams(prop))}
+        </div>
       </Form>
     );
   }
