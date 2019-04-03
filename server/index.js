@@ -11,18 +11,17 @@ const { spaRoutes } = require('./config');
 
 const PUBLIC_PATH = path.join(__dirname, '..', 'public');
 
-app.use(function(req, res, next) {
+/*app.use(function(req, res, next) {
   if(!req.secure) {
     return res.redirect(['https://', req.get('Host'), req.url].join(''));
   }
   next();
-});
+});*/
 
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 app.use(cors());
-app.use(express.static(PUBLIC_PATH));
 
 // client spa routing
 app.get([...spaRoutes.client], function(req, resp) {

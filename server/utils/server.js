@@ -1,6 +1,6 @@
 'use strict';
 
-const https = require('https');
+const http = require('http');
 const fs = require('fs');
 const errors = require('./errors');
 const {protocol, host, port} = require('../config').server;
@@ -28,7 +28,7 @@ const addErrorHandlers = app => {
 const run = app => {
   addErrorHandlers(app);
 
-  const server = https.createServer(options, app).listen({host, port});
+  const server = http.createServer(app).listen({host, port});
 
   server.on('error', err => {
     console.error('utils/server.js, exception:', err);
