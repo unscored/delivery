@@ -43,7 +43,7 @@
     "classPath": "api",
     "server": "185.86.76.103",
     "port": 80,
-    "protocol": "https",
+    "protocol": "http",
     "timeout": 30000,
     "cacheAPI": false,
     "relativeUrl": true,

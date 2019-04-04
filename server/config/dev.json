@@ -1,6 +1,6 @@
 {
   "server": {
-    "protocol": "https",
+    "protocol": "http",
     "host": "0.0.0.0",
     "port": 3003
   },
@@ -43,7 +43,7 @@
     "classPath": "api",
     "server": "localhost",
     "port": 3003,
-    "protocol": "https",
+    "protocol": "http",
     "timeout": 30000,
     "cacheAPI": false,
     "relativeUrl": true,
