@@ -35,12 +35,12 @@ export default class EditModal extends Component {
 
   onSubmit = data => console.log(data); 
 
-  renderParams = prop => {
-    return (
-      <p key={prop.id}>{prop.name}</p>
+  // renderParams = prop => {
+  //   return (
+  //     <p key={prop.id}>{prop.name}</p>
       
-    )
-  }
+  //   )
+  // }
 
   renderModalContent = () => {
     const { item } = this.props;
@@ -68,10 +68,10 @@ export default class EditModal extends Component {
             component={MyTextInput}
           />
         </div>
-        <div className={css.parameters}>
+        {/* <div className={css.parameters}>
           <h3>Свойства</h3>
           {map(get(item, 'properties', []), prop => this.renderParams(prop))}
-        </div>
+        </div> */}
       </Form>
     );
   }
