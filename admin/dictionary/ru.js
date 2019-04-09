@@ -3,11 +3,24 @@ const translate = {
   login: "Логин",
   password: "Пароль",
   rememberMe: "Запомнить меня",
+  cancel: "Отмена",
+  save: "Сохранить",
   enter: "Войти",
   edit: "Изменить",
   add: "Добавить",
+  errorMessages: {
+    requiredImage: "Необходимо добавить картинку!",
+    requiredField: "Обязательное поле!",
+    lengthField: "Допустимое количество символов %{count}."
+  },
   editOrder: "Редактировать Заказ",
-  editProduct: "Редактировать Продукт",
+  editProduct: {
+    title: "Редактировать Продукт",
+    name: 'Наименование',
+    descr: 'Описание',
+    image: 'Изображение',
+    price: 'Цена',
+  },
   form: {
     emptyName: "Введите имя!",
     emptyPassword: "Введите пароль!"

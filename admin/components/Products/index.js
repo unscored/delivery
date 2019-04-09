@@ -60,7 +60,7 @@ export default class Products extends Component {
     this.props.changeForm(`${ROOT_FORM}.editProduct`, item);
   }
 
-  onCanelModal = () => {
+  onCancelModal = () => {
     this.setState({
       isModalVisible: false,
       item: null
@@ -90,7 +90,7 @@ export default class Products extends Component {
           dataSource={items}
           pagination={{ hideOnSinglePage: true, pageSize: 20 }}
         />
-        <EditModal item={item} onConfirm={this.onConfirmModal} onCancel={this.onCanelModal} visible={isModalVisible} mode={mode} />
+        <EditModal item={item} onConfirm={this.onConfirmModal} onCancel={this.onCancelModal} visible={isModalVisible} mode={mode} />
       </LayoutContainer>
     );
   }

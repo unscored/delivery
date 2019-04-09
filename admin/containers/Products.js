@@ -8,6 +8,6 @@ export default connect(
   ({ products }) => ({ products }),
   dispatch => ({
     getProducts: () => dispatch(actions.getProducts()),
-    changeForm: (model, value) => dispatch(rrfActions.change(model, value))
+    changeForm: (model, value) => dispatch(rrfActions.change(model, value, { silent: true }))
   })
 )(Products);

@@ -22,6 +22,28 @@ const getProducts = () => dispatch => {
   Http.post(body).then(onSuccess).catch(onError);
 }
 
+const updateProduct = data => dispatch => {
+  dispatch({ type: constants.updateProductStart });
+
+  const body = {
+    action: API.products,
+    method: API_METHODS.updateProduct,
+    data: [{ ...data }]
+  };
+
+  const onSuccess = result => {
+    dispatch({ type: constants.updateProductSuccess, payload: { result } });
+  };
+
+  const onError = error => {
+    console.log(error);
+    dispatch({ type: constants.updateProductFail });
+  };
+
+  Http.post(body).then(onSuccess).catch(onError);
+}
+
 export default {
   getProducts,
+  updateProduct
 }

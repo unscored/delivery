@@ -2,7 +2,7 @@ import { combineForms } from 'react-redux-form';
 
 import { ROOT_FORM } from '../../constants';
 
-const inititalPlanData = {
+const initital = {
 	id: '',
 	name: '',
 	description: '',
@@ -23,4 +23,4 @@ const inititalPlanData = {
   ] 
 };
 
-export default combineForms({ editProduct: inititalPlanData }, ROOT_FORM);
+export default combineForms({ editProduct: initital }, ROOT_FORM);

@@ -1,0 +1,62 @@
+.upload-input {
+  position: relative;
+}
+
+.preview {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 4px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: lightgray;
+
+  &:hover {
+
+    .previewOverlay {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .deleteIcon {
+      opacity: 1;
+      visibility: visible;
+    }
+  }
+}
+
+.previewOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: inherit; 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+}
+
+.deleteIcon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.35s ease-in-out, visibility 0.35s ease-in-out;
+  cursor: pointer;
+
+  svg {
+    fill: #FFFFFF;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.errorBlock {
+  color: red;
+  font-size: 12px;
+}

@@ -1,0 +1,27 @@
+@import "admin/styles/variables";
+
+.inputField {
+  padding: 0 0 20px 0;
+
+  p {
+    padding: 0 0 5px 0;
+  }
+
+  .error {
+    color: red;
+    font-size: 12px;
+  }
+}
+
+.input {
+  position: relative;
+
+  &.err-input {
+    border-color: red;
+
+    &:hover {
+      border-color: red;
+    }
+  }
+}
+

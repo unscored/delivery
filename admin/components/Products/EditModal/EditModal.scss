@@ -6,4 +6,29 @@
   p {
     padding: 0 0 5px 0;
   }
+
+  :global {
+    .ant-upload-list-picture-card {
+      float: none;
+
+      .ant-upload-list-item {
+        float: none;
+      }
+    }
+
+    .ant-upload-select-picture-card i {
+      font-size: 32px;
+      color: #999;
+    }
+    
+    .ant-upload-select-picture-card .ant-upload-text {
+      margin-top: 8px;
+      color: #666;
+    }
+  }
+}
+
+.fake {
+  visibility: hidden;
+  opacity: 0;
 }

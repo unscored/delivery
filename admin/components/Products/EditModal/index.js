@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Form, Control } from 'react-redux-form';
+import { connect } from 'react-redux';
+import { Form, actions as rrfActions } from 'react-redux-form';
 import { get, map } from 'lodash';
 import { I18n } from 'react-redux-i18n';
-import { Modal, Input } from 'antd';
+import { Modal, Input, Button } from 'antd';
+
+import productActions from '../../../redux/actions/products';
+
+import UploadInput from '../../UploadInput';
+import Field from '../../Field';
 
 import { ROOT_FORM } from '../../../constants';
 
@@ -12,11 +18,13 @@ import * as css from './EditModal.scss';
 const MyTextInput = (props) => <Input className="my-input" {...props} />;
 const MyTextArea = (props) => <Input.TextArea className="my-texrarea" autosize {...props} />;
 
-export default class EditModal extends Component {
+class EditModal extends Component {
   static propTypes = {
     visible: PropTypes.bool,
     onConfirm: PropTypes.func.isRequired,
+    submitForm: PropTypes.func.isRequired,
     onCancel: PropTypes.func.isRequired,
+    fetching: PropTypes.bool.isRequired,
     item: PropTypes.shape({})
   };
 
@@ -25,15 +33,55 @@ export default class EditModal extends Component {
     item: {}
   };
 
+  state = {
+    file: null,
+    isImageEmpty: false,
+  };
+
+  componentDidUpdate(prevProps) {
+    if (this.props.item && prevProps.item !== this.props.item) {
+      this.setState({ file: get(this.props, 'item.image', null) })
+    }
+  }
+
   onModalOkClick = () => {
-    this.props.onConfirm();
+    const { file } = this.state;
+
+    if (file == null) {
+      this.setState({ isImageEmpty: true });
+    } else {
+      this.props.submitForm();
+    }
   }
 
   onModalCancelClick = () => {
+    this.setState({ file: null });
     this.props.onCancel();
   }
 
-  onSubmit = data => console.log(data); 
+  onFileInputChange = file => {
+    if (file) {
+      this.setState({ file, isImageEmpty: false });
+    } else {
+      this.setState({ file });
+    }
+    
+  }
+
+  onSubmit = async data => {
+    const { file } = this.state;
+    const { item, updateProduct } = this.props;
+    const result = { ...data, file };
+
+    if (file !== get(item, 'image', '') || !_.isEqual(_.omit(data, ['file']), item)) {
+      await updateProduct(result);
+    }
+    this.props.onConfirm();
+  }
+
+  afterModalClose = () => {
+    this.setState({ isImageEmpty: false });
+  }
 
   // renderParams = prop => {
   //   return (
@@ -44,30 +92,52 @@ export default class EditModal extends Component {
 
   renderModalContent = () => {
     const { item } = this.props;
+    const { isImageEmpty } = this.state;
 
     return (
       <Form model={`${ROOT_FORM}.editProduct`} onSubmit={this.onSubmit}>
         <div className={css.inputField}>
-          <p>Имя</p>
-          <Control
-            model=".name"
-            component={MyTextInput}
-          />
+          <p>{I18n.t('editProduct.image')}</p>
+          <UploadInput
+            imageUrl={get(item, 'image', '')}
+            onChange={this.onFileInputChange}
+            errorMessage={I18n.t('errorMessages.requiredImage')}
+            showError={isImageEmpty}
+          /> 
         </div>
-        <div className={css.inputField}>
-          <p>Описание</p>
-          <Control
-            model=".description"
-            component={MyTextArea}
-          />
-        </div>
-        <div className={css.inputField}>
-          <p>Цена</p>
-          <Control
-            model=".price"
-            component={MyTextInput}
-          />
-        </div>
+        <Field
+          label={I18n.t('editProduct.name')}
+          model=".name"
+          errors={{
+            required: val => !val.length
+          }}
+          messages={{
+            required: I18n.t('errorMessages.requiredField')
+          }}
+        />
+        <Field
+          label={I18n.t('editProduct.descr')}
+          model=".description"
+          type={Field.TEXTAREA}
+          errors={{
+            required: val => !val.length,
+            length: val => val.length > 200
+          }}
+          messages={{
+            required: I18n.t('errorMessages.requiredField'),
+            length: I18n.t('errorMessages.lengthField', { count: 200 }),
+          }}
+        />
+        <Field
+          label={I18n.t('editProduct.price')}
+          model=".price"
+          errors={{
+            required: val => !val.length
+          }}
+          messages={{
+            required: I18n.t('errorMessages.requiredField')
+          }}
+        />
         {/* <div className={css.parameters}>
           <h3>Свойства</h3>
           {map(get(item, 'properties', []), prop => this.renderParams(prop))}
@@ -78,18 +148,34 @@ export default class EditModal extends Component {
 
   render() {
     const visible = get(this.props, 'visible', false);
-    const item = get(this.props, 'item', {});
-    console.log(item);
+    const fetching = get(this.props, 'fetching', false);
   
     return (
       <Modal
-          title={I18n.t('editProduct')}
+          title={I18n.t('editProduct.title')}
           visible={visible}
           onOk={this.onModalOkClick}
           onCancel={this.onModalCancelClick}
+          destroyOnClose
+          afterClose={this.afterModalClose}
+          footer={[
+            <Button key="back" disabled={fetching} onClick={this.onModalCancelClick}>{I18n.t('cancel')}</Button>,
+            <Button key="submit" loading={fetching} type="primary" onClick={this.onModalOkClick}>
+              {I18n.t('save')}
+            </Button>,
+          ]}
         >
           { this.renderModalContent() }
         </Modal>
     );
   }
 }
+
+export default connect(
+	({ products }) => ({ fetching: get(products, 'fetching', false) }),
+	dispatch => ({
+    updateProduct: data => dispatch(productActions.updateProduct(data)),
+		submitForm: () => dispatch(rrfActions.submit(`${ROOT_FORM}.editProduct`)),
+		setErrors: (model, errors) => dispatch(rrfActions.setErrors(`${ROOT_FORM}.editProduct.${model}`, errors)),
+	})
+)(EditModal);

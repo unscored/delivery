@@ -37,6 +37,17 @@ module.exports = {
       console.log('api/products.js | get | exception:', ex);
       callback(ex);
     }
+  },
+  updateProduct: async (params, callback) => {
+    try {
+      console.log(params);
+      const result = {};
+
+      callback(null, result);
+    } catch (ex) {
+      console.log('api/products.js | update | exception:', ex);
+      callback(ex);
+    }
   }
   
 };

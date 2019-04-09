@@ -25,6 +25,7 @@ export const API_METHODS = {
   updateOrder: 'updateOrder',
   getClients: 'getClients',
   getProducts: 'getProducts',
+  updateProduct: 'updateProduct',
   login: 'login',
 };
 
