@@ -1,4 +1,4 @@
-
+import { cloneDeep, omit } from 'lodash';
 
 export const constants = {
   getProductsStart: 'GET_PRODUCTS_START',
@@ -26,18 +26,25 @@ export default function (state = model, action) {
 
     case constants.getProductsSuccess: {
       const { payload } = action;
+
       return { ...state, fetching: false, fetched: true, items: payload.result };
     }
 
     case constants.updateProductSuccess: {
       const { payload } = action;
-      return { ...state, fetching: false, fetched: true };
+      const index = state.items.findIndex(item => item.id === payload.result.id);
+      const newItems = cloneDeep(state.items);
+      
+      if (index >= 0) {
+        newItems.splice(index, 1, omit(payload.result, ['file', 'success']));
+      }
+      return { ...state, fetching: false, fetched: true, items: newItems };
     }
 
     case constants.updateProductFail:
     case constants.getProductsFail: {
       const { payload } = action;
-      return { ...state, fetching: false, error: payload, fetched: false, items: [] };
+      return { ...state, fetching: false, error: payload, fetched: false };
     }
 
     default:

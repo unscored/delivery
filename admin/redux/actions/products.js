@@ -40,7 +40,7 @@ const updateProduct = data => dispatch => {
     dispatch({ type: constants.updateProductFail });
   };
 
-  Http.post(body).then(onSuccess).catch(onError);
+  return Http.post(body).then(onSuccess).catch(onError);
 }
 
 export default {

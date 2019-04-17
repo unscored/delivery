@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { I18n } from 'react-redux-i18n';
 import PropTypes from 'prop-types';
-import { Upload, Icon } from 'antd';
+import { Upload, message, Icon } from 'antd';
 
 import * as css from './UploadInput.scss';
 
@@ -24,8 +25,10 @@ export default class UploadInput extends Component {
 
     this.state = {
       imageUrl: props.imageUrl,
-      loading: false
+      loading: false,
     };
+
+    this.isError = false;
 
     this.reader = new FileReader();
   }
@@ -36,10 +39,15 @@ export default class UploadInput extends Component {
   }
 
   onFileInputChange = info => {
-    this.getBase64(info.file, imageUrl => {
-      this.setState({ imageUrl, loading: false });
-      this.props.onChange(imageUrl);
-    });
+    if (this.isError) {
+      this.setState({ imageUrl: null, loading: false });
+      this.isError = false;
+    } else {
+      this.getBase64(info.file, imageUrl => {
+        this.setState({ imageUrl, loading: false });
+        this.props.onChange(imageUrl);
+      });
+    }
   }
 
   onDeleteBtnClick = () => {
@@ -48,7 +56,15 @@ export default class UploadInput extends Component {
   }
 
   beforeFileUpload = file => {
+    const isLt2M = file.size / 1024 / 1024 < 3;
+
     this.setState({ loading: true });
+  
+    if (!isLt2M) {
+      message.error(I18n.t('editProduct.imageSizeErrorText', { size: 3 }));
+      this.isError = true;
+    }
+
     return false;
   }
 

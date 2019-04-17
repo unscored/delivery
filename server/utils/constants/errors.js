@@ -41,6 +41,10 @@ module.exports = {
     code: 40401,
     message: 'Route not found'
   },
+  UPLOAD_IMAGE_FAILED: {
+    code: 40901,
+    message: 'Upload file failed'
+  },
   INTERNAL_SERVER_ERROR: {
     code: 50001,
     message: 'Internal server error'

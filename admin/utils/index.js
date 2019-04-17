@@ -1,4 +1,8 @@
+import cloudinary from 'cloudinary-core';
+
 import { STATUS_TYPE } from '../constants';
+
+export const cl = new cloudinary.Cloudinary({cloud_name: $__WebPackConfig.CLOUDINARY_CLOUD_NAME});
 
 export const guid = function() {
 	function s4() {

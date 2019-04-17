@@ -20,6 +20,7 @@ const translate = {
     descr: 'Description',
     image: 'Image',
     price: 'Price',
+    imageSizeErrorText: 'Image must smaller than %{size}Mb!'
   },
   form: {
     emptyName: "Please input your username!",

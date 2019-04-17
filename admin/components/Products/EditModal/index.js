@@ -2,21 +2,19 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Form, actions as rrfActions } from 'react-redux-form';
-import { get, map } from 'lodash';
+import { get } from 'lodash';
 import { I18n } from 'react-redux-i18n';
-import { Modal, Input, Button } from 'antd';
+import { Modal, Button } from 'antd';
 
 import productActions from '../../../redux/actions/products';
 
+import { cl } from '../../../utils';
 import UploadInput from '../../UploadInput';
 import Field from '../../Field';
 
 import { ROOT_FORM } from '../../../constants';
 
 import * as css from './EditModal.scss';
-
-const MyTextInput = (props) => <Input className="my-input" {...props} />;
-const MyTextArea = (props) => <Input.TextArea className="my-texrarea" autosize {...props} />;
 
 class EditModal extends Component {
   static propTypes = {
@@ -75,6 +73,7 @@ class EditModal extends Component {
 
     if (file !== get(item, 'image', '') || !_.isEqual(_.omit(data, ['file']), item)) {
       await updateProduct(result);
+      console.log('*');
     }
     this.props.onConfirm();
   }
@@ -99,7 +98,7 @@ class EditModal extends Component {
         <div className={css.inputField}>
           <p>{I18n.t('editProduct.image')}</p>
           <UploadInput
-            imageUrl={get(item, 'image', '')}
+            imageUrl={cl.url(get(item, 'id', ''), { version: get(item, 'image', ''), sign_url: true })}
             onChange={this.onFileInputChange}
             errorMessage={I18n.t('errorMessages.requiredImage')}
             showError={isImageEmpty}

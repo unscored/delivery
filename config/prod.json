@@ -1,3 +1,4 @@
 {
-  "API_URL": "https://belvedere.od.ua/api"
+  "API_URL": "https://belvedere.od.ua/api",
+  "CLOUDINARY_CLOUD_NAME": "deuai3dk8"
 }
