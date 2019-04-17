@@ -26,6 +26,7 @@ const jsonEnvironment = devMode ? devEnvironment : prodEnvironment;
 const htmlPlugin = new HtmlWebPackPlugin({
   template: path.join(__dirname, targetEntryPath, 'index.html'),
   favicon: path.join(__dirname, targetEntryPath, 'favicon.ico'),
+  inject: 'body',
   filename: "./index.html"
 });
 const miniCssPlugin = new MiniCssExtractPlugin({
@@ -54,8 +55,16 @@ const targetOutput = {
   path: path.join(__dirname, targetOutputPath),
   filename: 'main-[hash:8].js'
 };
+const plugins = [
+  htmlPlugin,
+  miniCssPlugin,
+  definePlugin,
+  loaderOptionsPlugin
+];
 
+if (!isAdmin) plugins.push(cleanPlugin);
 if (devMode) targetOutput.publicPath = '/';
+if (!devMode && isAdmin) targetOutput.publicPath = '/admin';
 
 console.log(devMode, targetOutput);
 
@@ -141,11 +150,5 @@ module.exports = {
       optimizeCSS,
     ]
   },
-  plugins: [
-    htmlPlugin,
-    miniCssPlugin,
-    // cleanPlugin,
-    definePlugin,
-    loaderOptionsPlugin
-  ]
+  plugins
 };
