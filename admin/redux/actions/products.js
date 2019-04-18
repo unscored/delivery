@@ -32,7 +32,7 @@ const updateProduct = data => dispatch => {
   };
 
   const onSuccess = result => {
-    dispatch({ type: constants.updateProductSuccess, payload: { result } });
+    dispatch({ type: constants.updateProductSuccess, payload: result.data });
   };
 
   const onError = error => {

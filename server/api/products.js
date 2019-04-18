@@ -1,5 +1,7 @@
 'use strict';
 
+const _ = require('lodash');
+
 const models = require('../models');
 const errors = require('../utils/errors');
 const { uploadFile } = require('../utils/functions');
@@ -73,7 +75,7 @@ module.exports = {
         throw errors.recordNotFound('Product not found');
       }
   
-      callback(null, params);
+      callback(null, { data: {..._.omit(params, ['file']), image: targetImage} });
     } catch (ex) {
       console.log('api/products.js | update | exception:', ex);
       callback(ex);

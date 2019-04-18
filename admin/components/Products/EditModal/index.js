@@ -73,7 +73,6 @@ class EditModal extends Component {
 
     if (file !== get(item, 'image', '') || !_.isEqual(_.omit(data, ['file']), item)) {
       await updateProduct(result);
-      console.log('*');
     }
     this.props.onConfirm();
   }

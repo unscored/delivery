@@ -32,11 +32,11 @@ export default function (state = model, action) {
 
     case constants.updateProductSuccess: {
       const { payload } = action;
-      const index = state.items.findIndex(item => item.id === payload.result.id);
+      const index = state.items.findIndex(item => item.id === payload.id);
       const newItems = cloneDeep(state.items);
       
       if (index >= 0) {
-        newItems.splice(index, 1, omit(payload.result, ['file', 'success']));
+        newItems.splice(index, 1, payload);
       }
       return { ...state, fetching: false, fetched: true, items: newItems };
     }

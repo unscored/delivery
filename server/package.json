@@ -24,6 +24,7 @@
     "express": "~4.16.0",
     "extdirect": "^2.0.5",
     "jsonwebtoken": "^8.3.0",
+    "lodash": "^4.17.11",
     "mysql2": "^1.6.1",
     "node-fetch": "^2.3.0",
     "nodemailer": "^4.6.8",
