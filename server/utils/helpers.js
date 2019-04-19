@@ -29,7 +29,7 @@ const prepareProducts = data => {
       acc.push({
         id,
         name,
-        image: cloudinary.url(id, { version: imageVersion, sign_url: true, quality: 'auto', fetch_format: 'auto' }),
+        image: cloudinary.url(id, { version: imageVersion, secure: true, sign_url: true, quality: 'auto', fetch_format: 'auto' }),
         price,
         version: imageVersion,
         description,
