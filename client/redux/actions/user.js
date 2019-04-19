@@ -9,7 +9,7 @@ const validateOne = data => {
   let action = null;
 
   if (validator.message) {
-    toast.error(validator.message, { autoClose: 4000 });
+    toast.error(validator.message, { autoClose: 5000 });
     action = { type: constants.validationFail, payload: validator };
   }
   else { action = { type: constants.validationSuccess, payload: data }; }
