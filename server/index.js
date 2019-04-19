@@ -7,7 +7,14 @@ const cors = require('cors');
 const direct = require('./utils/direct');
 const server = require('./utils/server');
 const app = express();
-const { spaRoutes } = require('./config');
+const cloudinary = require('cloudinary').v2;
+const { spaRoutes, CLOUDINARY_CLOUD_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET } = require('./config');
+
+cloudinary.config({ 
+  cloud_name: CLOUDINARY_CLOUD_NAME, 
+  api_key: CLOUDINARY_API_KEY, 
+  api_secret: CLOUDINARY_API_SECRET 
+});
 
 const PUBLIC_PATH = path.join(__dirname, '..', 'public');
 

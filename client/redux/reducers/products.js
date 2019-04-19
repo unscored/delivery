@@ -1,6 +1,3 @@
-import { map } from 'lodash'; 
-import { cl } from '../../utils';
-
 const model = {
   items: [],
 };
@@ -16,12 +13,8 @@ export default function (state = model, action) {
   switch (type) {
     case constants.getProductsSuccess: {
       const { payload: { result } } = action;
-      const items = map(result, item => ({
-        ...item,
-        image: cl.url(item.id, { version: item.image, sign_url: true })
-      }));
 
-      return { ...state, items };
+      return { ...state, items: result };
     }
     default:
       return { ...state }

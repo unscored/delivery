@@ -1,4 +1,5 @@
 const crypto = require('crypto');
+const cloudinary = require('cloudinary').v2;
 
 /**
  * 
@@ -9,7 +10,7 @@ const crypto = require('crypto');
 const prepareProducts = data => {
   const result = data.reduce((acc, item) => {
     const dublicateIndex = acc.findIndex((p => p.id === item.id));
-    const { id, name, image, description, price, ...rest } = item;
+    const { id, name, image: imageVersion, description, price, ...rest } = item;
     let properties = [];
     let itemProperties = null;
     let dublicateParamsIndex = null;
@@ -25,7 +26,15 @@ const prepareProducts = data => {
 
     if (dublicateIndex < 0) {
       properties.push(propItem);
-      acc.push({ id, name, image, price, description, properties });
+      acc.push({
+        id,
+        name,
+        image: cloudinary.url(id, { version: imageVersion, sign_url: true, quality: 'auto', fetch_format: 'auto' }),
+        price,
+        version: imageVersion,
+        description,
+        properties
+      });
     } else {
       itemProperties = acc[dublicateIndex].properties;
       dublicateParamsIndex = itemProperties.findIndex((p => p.id === rest.paramNameId));

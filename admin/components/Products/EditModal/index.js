@@ -8,7 +8,6 @@ import { Modal, Button } from 'antd';
 
 import productActions from '../../../redux/actions/products';
 
-import { cl } from '../../../utils';
 import UploadInput from '../../UploadInput';
 import Field from '../../Field';
 
@@ -97,7 +96,7 @@ class EditModal extends Component {
         <div className={css.inputField}>
           <p>{I18n.t('editProduct.image')}</p>
           <UploadInput
-            imageUrl={cl.url(get(item, 'id', ''), { version: get(item, 'image', ''), sign_url: true })}
+            imageUrl={get(item, 'image', '')}
             onChange={this.onFileInputChange}
             errorMessage={I18n.t('errorMessages.requiredImage')}
             showError={isImageEmpty}

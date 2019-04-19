@@ -1,6 +1,7 @@
 'use strict';
 
 const _ = require('lodash');
+const cloudinary = require('cloudinary').v2;
 
 const models = require('../models');
 const errors = require('../utils/errors');
@@ -54,14 +55,14 @@ module.exports = {
 
       if (params.file !== params.image) {
         cloudFile = await uploadFile(params.file, { public_id: params.id });
-        
+        console.log(cloudFile);
         if (cloudFile.success) {
           targetImage = cloudFile.version;
         } else {
           throw errors.uploadImageFailed('Error occured while uploading image');
         }
       } else {
-        targetImage = params.image;
+        targetImage = params.version;
       }
 
       if (product) {
@@ -75,7 +76,15 @@ module.exports = {
         throw errors.recordNotFound('Product not found');
       }
   
-      callback(null, { data: {..._.omit(params, ['file']), image: targetImage} });
+      callback(
+        null,
+        { 
+          data: {
+            ..._.omit(params, ['file']),
+            image: cloudinary.url(params.id, { version: targetImage, sign_url: true, quality: 'auto', fetch_format: 'auto' })
+          }
+        }
+      );
     } catch (ex) {
       console.log('api/products.js | update | exception:', ex);
       callback(ex);

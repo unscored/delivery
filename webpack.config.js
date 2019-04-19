@@ -62,7 +62,7 @@ const plugins = [
   loaderOptionsPlugin
 ];
 
-if (!isAdmin) plugins.push(cleanPlugin);
+if (!isAdmin && !devMode) plugins.push(cleanPlugin);
 if (devMode) targetOutput.publicPath = '/';
 if (!devMode && isAdmin) targetOutput.publicPath = '/admin';
 
