@@ -1,7 +1,7 @@
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
@@ -32,11 +32,6 @@ const htmlPlugin = new HtmlWebPackPlugin({
 const miniCssPlugin = new MiniCssExtractPlugin({
   filename: "[name]-[hash:8].css",
   chunkFilename: "[id]-[hash:8].css"
-});
-const uglifyJs = new UglifyJsPlugin({
-  cache: true,
-  parallel: true,
-  sourceMap: true // set to true if you want JS source maps
 });
 const definePlugin = new webpack.DefinePlugin({
   'process.env': { NODE_ENV: JSON.stringify(process.env.NODE_ENV) },
@@ -145,8 +140,13 @@ module.exports = {
     historyApiFallback: true,
   },
   optimization: {
+    splitChunks: {
+			chunks: 'all',
+			minChunks: 2,
+			name: 'vendor'
+		},
     minimizer: [
-      uglifyJs,
+      new TerserPlugin({ sourceMap: true }),
       optimizeCSS,
     ]
   },
