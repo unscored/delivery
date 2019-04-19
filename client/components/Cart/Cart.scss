@@ -1,7 +1,7 @@
 @import "client/styles/variables";
 @import "client/styles/mixins";
 
-.pageContent {
+.cartContent {
   padding: 67px 0 155px 0;
 
   @include screen('mobile') {
@@ -9,7 +9,7 @@
   }
 }
 
-.catItemsWrap {
+.cartItemsWrap {
   @include screen('mobile') {
     max-width: 340px;
     margin: 0 auto;

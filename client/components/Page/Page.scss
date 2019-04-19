@@ -1,0 +1,21 @@
+@import "client/styles/variables";
+@import "client/styles/mixins";
+
+.banner {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% $header-h;
+  box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.6);
+  height: 390px;
+
+  @include screen('mobile') {
+    background-position: 50% $header-h-mob;
+    height: 220px;
+  }
+}
+
+.pageContainer {
+  max-width: 1140px;
+  padding: 0 15px;
+  margin: 0 auto;
+}

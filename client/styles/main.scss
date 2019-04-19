@@ -3,35 +3,16 @@
 @import "variables";
 @import "mixins";
 
-// :global {
-// 	@import '~react-toastify/scss/main.scss';
-// }
 :global {
   body, html {
+    height: 100%;
+  }
+
+  body {
     background-image: url('../images/blackboard-pattern.jpg');
     background-repeat: repeat;
     background-size: auto auto;
-    height: 100%;
     background-color: black;
-  }
-
-  .banner {
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: 50% $header-h;
-    box-shadow: 0px 5px 5px 0px rgba(0,0,0,0.6);
-    height: 390px;
-
-    @include screen('mobile') {
-      background-position: 50% $header-h-mob;
-      height: 220px;
-    }
-  }
-
-  .container {
-    max-width: 1140px;
-    padding: 0 15px;
-    margin: 0 auto;
   }
 
   @keyframes zoomIn {

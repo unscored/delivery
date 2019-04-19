@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-import { cssMQ } from '../../utils';
+// import { cssMQ } from '../../utils';
 import ParamsRow from '../ParamsRow';
 import ProductItem from '../ProductItem';
 import withSelectedItems from '../../redux/decorators/withSelectedItems';
 import List from '../List';
+import Page from '../Page';
 import withScrollTop from '../decorators/withScrollTop';
 
 import banner from '../../images/main-page-2500x600.jpg';
@@ -46,18 +47,18 @@ export default class Main extends PureComponent {
     const { products: { items } } = this.props;
 
     return (
-      <div>
-        <div className="banner" style={{'backgroundImage': `url("${cssMQ.isMobile() ? bannerMob : banner}")`}}></div>
-        <div className="container">
-          <ParamsRow />
+      <Page
+        bannerImage={banner}
+        bannerImageMob={bannerMob}
+      >
+        <ParamsRow />
           <List
             classNameCss={css.productsList}
             ListItem={this._renderProductItem}
             items={items}
             keyExtractor={item => item.id}
           />
-        </div>
-      </div>
+      </Page>
     )
   }
 };
