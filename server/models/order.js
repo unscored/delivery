@@ -35,6 +35,13 @@ module.exports = (sequelize, dataTypes) => {
       type: dataTypes.STRING,
       allowNull: false
     },
+    items: {
+      type: dataTypes.JSON,
+      allowNull: false,
+      get() {
+        return Object.values(JSON.parse(this.getDataValue('items')))
+      }
+    },
     createdAt: {
       type: dataTypes.VIRTUAL,
       get () {
@@ -74,11 +81,6 @@ module.exports = (sequelize, dataTypes) => {
       targetKey: 'id',
       foreignKey: 'clientId',
       allowNull: false
-    });
-    Model.hasMany(models.orderProduct, {
-      as: 'ordersProducts',
-      sourceKey: 'id',
-      foreignKey: 'orderId'
     });
   };
 

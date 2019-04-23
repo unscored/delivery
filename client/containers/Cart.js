@@ -1,4 +1,5 @@
 import { connect } from 'react-redux';
+import _ from 'lodash';
 
 import { isFormDataValid, getTotalPrice } from '../redux/reducers';
 import Cart from '../components/Cart';
@@ -7,7 +8,9 @@ import withScrollTop from '../components/decorators/withScrollTop';
 
 export default connect (
   (state) => {
-    const { user, cart: { items } } = state;
+    const user = _.get(state, 'user', {});
+    const items = _.get(state, 'cart.items', []);
+    const fetching = _.get(state, 'cart.fetching', false);
     const totalPrice = getTotalPrice(state);
     const isValid = isFormDataValid(state);
 
@@ -15,6 +18,7 @@ export default connect (
       cartItems: items,
       totalPrice, 
       userInfo: user,
+      orderFetching: fetching,
       isValid,
     }
   },

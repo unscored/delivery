@@ -76,10 +76,10 @@ export const getStatusTypeByConstant = t => type => {
 export const getOrderItems = t => data => {
   let string = '';
   const result = data.reduce((acc, item) => {
-    string = `${item.type}: ${item.name}. ${item.quantity} ${t.t('countTitle')}`;
+    string = `${item.name}. ${item.quantity} ${t.t('countTitle')}`;
 
-    const params = item.params.reduce((res, prop) => {
-      res = res ? `${res}, ${prop.name}: ${prop.value}` : `${prop.name}: ${prop.value}`;
+    const params = item.selectedProps.reduce((res, prop) => {
+      res = res ? `${res}, ${prop}` : `${prop}`;
       return res;
     }, '');
 

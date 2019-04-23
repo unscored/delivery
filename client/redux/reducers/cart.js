@@ -19,6 +19,7 @@ export const MODE = {
 };
 
 const model = {
+  fetching: false,
   items: [],
   show: false,
 };
@@ -70,6 +71,15 @@ export default function (state = model, action) {
       }
       
       return result; 
+    }
+
+    case constants.pushOrder: {
+      return { ...state, fetching: true }
+    }
+
+    case constants.pushOrderFail:
+    case constants.pushOrderSuccess: {
+      return { ...state, fetching: false }
     }
 
     case constants.remove: {

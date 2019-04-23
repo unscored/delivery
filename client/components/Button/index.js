@@ -14,7 +14,6 @@ const Button = (props) => {
       href="#"
       className={resultClass}
       onClick={e => {
-        if (disabled) return;
         e.preventDefault();
         onClick();
       }}

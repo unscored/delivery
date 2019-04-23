@@ -1,5 +1,6 @@
 import { toast } from "react-toastify";
 import { I18n } from 'react-redux-i18n';
+import _ from 'lodash';
 
 import Http from '../../http';
 import popUpActions from './popUp';
@@ -30,7 +31,7 @@ const pushOrder = (items, userInfo, historyPush = null) => dispatch => {
   const body = {
     action: API.orders,
     method: API_METHODS.addOrder,
-    data: [{ name, address, phone, items }],
+    data: [{ name, address, phone, items: _.omit(items, ['cartId', 'selectedPropsID', 'image']) }],
   };
 
   const onSuccess = () => {

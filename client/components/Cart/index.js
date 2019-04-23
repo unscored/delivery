@@ -19,6 +19,7 @@ export default class Cart extends Component {
   static propTypes = {
     cartItems: PropTypes.arrayOf(cartItemTypes).isRequired,
     totalPrice: PropTypes.number.isRequired,
+    orderFetching: PropTypes.bool.isRequired,
     userInfo: PropTypes.shape({
       name: PropTypes.string,
       phone: PropTypes.string,
@@ -50,6 +51,7 @@ export default class Cart extends Component {
       isValid,
       totalPrice,
       deleteFromCart,
+      orderFetching,
     } = this.props;
 
     return (
@@ -93,7 +95,7 @@ export default class Cart extends Component {
                   <Responsive query={Responsive.MOBILE}>
                     <div className={css.orderBtn}>
                       <Button
-                        disabled={!isValid}
+                        disabled={!isValid || orderFetching}
                         value={`${I18n.t('orderBtnTitle')}`}
                         onClick={this.onClick}
                       />

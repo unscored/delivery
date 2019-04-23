@@ -10,7 +10,6 @@ module.exports = {
     try {
       const result = {};
       let user = null;
-      let order = null;
 
       user = await models.client.findOne({
         where: { phone: params.phone }
@@ -27,25 +26,11 @@ module.exports = {
         });
       }
 
-      order = await models.order.create({
+      await models.order.create({
         notices: '',
         clientId: user.id,
-        address: params.address
-      });
-
-      params.items.map((item, i) => {
-        let position = i + 1;
-
-        item.selectedPropsID.map(async (prop) => {
-          await models.orderProduct.create({
-            orderId: order.id,
-            valueId: prop,
-            productId: item.id,
-            position,
-            quantity: item.quantity,
-          });
-          return item;
-        });
+        address: params.address,
+        items: params.items
       });
 
       sms.send();
@@ -79,37 +64,16 @@ module.exports = {
   },
   getOrders: async (params, callback) => {
     try {
-      const query = `
-        select
-          o.id
-        , c.name
-        , c.phone
-        , o.status
-        , o.address
-        , v.value as propValue
-        , p.name as propName
-        , v.price as propPrice
-        , t.name as type
-        , pr.name as productName
-        , pr.price as productPrice
-        , op.position
-        , op.quantity
-        , o.createdAtDate as date
-        from ordersProducts op
-          inner join orders o on op.orderId = o.id
-          inner join clients c on o.clientId = c.id
-          inner join \`values\` v on op.valueId = v.id
-          inner join properties p on v.propertyId = p.id
-          inner join types t on p.typeId = t.id
-          inner join products pr on op.productId = pr.id
-          ORDER BY date DESC;
-      `;
-
-      const result = await models.sequelize.query(query, {
-        type: models.sequelize.QueryTypes.SELECT
+      const orders = await models.order.findAll({
+        order: [['createdAtDate', 'DESC']],
+        include: [
+          {
+            model: models.client,
+            as: 'client',
+            attributes: ['name', 'phone']
+          }
+        ]
       });
-
-      const orders = helpers.prepareOrders(result);
 
       callback(null, orders);
     } catch (ex) {

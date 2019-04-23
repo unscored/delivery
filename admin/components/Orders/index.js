@@ -23,17 +23,41 @@ class Orders extends Component {
   state = { isModalOpen: false, confirmLoading: false, editItem: null };
 
   columns = [
-    { title: I18n.t('orderTableTitles.name'), dataIndex: 'name', key: 'name' },
-    { title: I18n.t('orderTableTitles.phone'), dataIndex: 'phone', key: 'phone' },
-    { title: I18n.t('orderTableTitles.address'), dataIndex: 'address', key: 'address' },
+    {
+      title: I18n.t('orderTableTitles.name'),
+      dataIndex: 'name',
+      key: 'name',
+      render: (item, record) => <p>{_.get(record, 'client.name', '')}</p>,
+    },
+    {
+      title: I18n.t('orderTableTitles.phone'),
+      dataIndex: 'phone',
+      key: 'phone',
+      render: (item, record) => <p>{_.get(record, 'client.phone', '')}</p>,
+    },
+    {
+      title: I18n.t('orderTableTitles.address'),
+      dataIndex: 'address',
+      key: 'address'
+    },
     { 
       title: I18n.t('orderTableTitles.status'),
       dataIndex: 'status',
       key: 'status',
       render: item => <Tag color={getStatusTypeByConstant(I18n)(item).color}>{getStatusTypeByConstant(I18n)(item).title}</Tag>
     },
-    { title: I18n.t('orderTableTitles.date'), dataIndex: 'date', key: 'date', render: item => parseDate(item) },
-    { title: I18n.t('orderTableTitles.totalPrice'), dataIndex: 'totalPrice', key: 'totalPrice', render: item => `${item} ${I18n.t('currency')}` },
+    {
+      title: I18n.t('orderTableTitles.date'),
+      dataIndex: 'date',
+      key: 'date',
+      render: (item, record) => parseDate(record.createdAtDate)
+    },
+    {
+      title: I18n.t('orderTableTitles.totalPrice'),
+      dataIndex: 'totalPrice',
+      key: 'totalPrice',
+      render: (item, record) => `${this.getOrderTotalPrice(_.get(record, 'items', []))} ${I18n.t('currency')}`
+    },
     {
       title: I18n.t('orderTableTitles.action'),
       dataIndex: '',
@@ -64,8 +88,19 @@ class Orders extends Component {
     }, []);
   }
 
+  getOrderTotalPrice = (items) => {
+    if (!items) {
+      return 0;
+    }
+  
+    return items.reduce((acc, item) => {
+      acc += item.price * item.quantity;
+      return acc
+    }, 0);
+  }
+
   expandedRowRender = record => {
-    const data = getOrderItems(I18n)(record.orderList);
+    const data = getOrderItems(I18n)(record.items);
 
     return (
       <div>
@@ -152,6 +187,10 @@ class Orders extends Component {
   render() {
     const items = get(this.props, 'orders.items', []);
     const { isModalOpen, confirmLoading } = this.state;
+
+    if (items.length !== 0) {
+      console.log(items[0]);
+    }
 
     return (
       <LayoutContainer title={I18n.t('routesNames.orders')}>
