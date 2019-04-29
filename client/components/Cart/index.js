@@ -2,6 +2,7 @@ import React, { Fragment, Component } from 'react';
 import PropTypes from 'prop-types';
 import { I18n } from 'react-redux-i18n';
 
+import { analytics } from '../../utils';
 import CartItemsList from '../CartItemsList';
 import Responsive from '../Responsive';
 import CartTable from './CartTable';
@@ -34,6 +35,10 @@ export default class Cart extends Component {
     }).isRequired
   };
 
+  componentDidMount() {
+    analytics.onCart();
+  }
+
   onClick = async () => {
     const {
       cartItems,
@@ -42,6 +47,7 @@ export default class Cart extends Component {
       history
     } = this.props;
 
+    analytics.createOrder();
     pushOrder(cartItems, userInfo, history.push);
   }
 

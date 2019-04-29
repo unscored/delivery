@@ -6,6 +6,7 @@ import {
 import { Provider } from 'react-redux';
 import { ToastContainer } from "react-toastify";
 
+import { tracker } from './utils';
 import { ROUTES_MAP } from './constants';
 import Main from './containers/Main';
 import Cart from './containers/Cart';
@@ -21,6 +22,10 @@ import 'react-toastify/dist/ReactToastify.css';
 import './styles/main.scss';
 
 export default class App extends Component {
+  componentDidMount() {
+    tracker.init('UA-139253203-1');
+  }
+
   render() {
     return (
       <Provider store={store} >

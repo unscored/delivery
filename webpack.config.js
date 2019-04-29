@@ -20,7 +20,7 @@ const CONSTANTS = {
 const isAdmin = !!process.env.IS_ADMIN;
 const targetOutputPath = isAdmin ? `${CONSTANTS.OUTPUT_PATH}/${CONSTANTS.ENTRY_ADMIN_PATH}` : CONSTANTS.OUTPUT_PATH;
 const targetEntryPath = isAdmin ? CONSTANTS.ENTRY_ADMIN_PATH : CONSTANTS.ENTRY_CLIENT_PATH;
-const nodeEnv = process.env.NODE_ENV ? 'production' : 'development';
+const nodeEnv = process.env.NODE_ENV;
 const devMode = nodeEnv !== 'production';
 const jsonEnvironment = devMode ? devEnvironment : prodEnvironment;
 const htmlPlugin = new HtmlWebPackPlugin({

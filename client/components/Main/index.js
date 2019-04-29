@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 
-// import { cssMQ } from '../../utils';
+import { analytics } from '../../utils';
 import ParamsRow from '../ParamsRow';
 import ProductItem from '../ProductItem';
 import withSelectedItems from '../../redux/decorators/withSelectedItems';
@@ -34,12 +34,17 @@ export default class Main extends PureComponent {
 
   componentDidMount() {
     this.props.getProducts(1);
+    
+    analytics.onMain();
   }
 
-  _renderProductItem = ({item}) => (
+  renderProductItem = ({item}) => (
     <Product
       item={item}
-      onPress={(cartItem) => this.props.addToCart(cartItem)}
+      onPress={cartItem => {
+        analytics.onAddToCart(cartItem);
+        this.props.addToCart(cartItem);
+      }}
     />
   );
 
@@ -54,7 +59,7 @@ export default class Main extends PureComponent {
         <ParamsRow />
           <List
             classNameCss={css.productsList}
-            ListItem={this._renderProductItem}
+            ListItem={this.renderProductItem}
             items={items}
             keyExtractor={item => item.id}
           />

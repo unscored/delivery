@@ -2,12 +2,16 @@ import { guid } from '../utils';
 
 export const BASE_URL = $__WebPackConfig.API_URL;
 
+console.log(BASE_URL);
+
 export const INSTA_URL = 'https://www.instagram.com/cafe_belvedere/';
 export const CONTACT_PHONE = '+38 063 37 32 915';
 export const CONTACT_CITY = 'г. Черноморск';
 export const ADDRESS_STRING = 'ул. 1 Мая 6г, кафе \"Belvedere\"';
 export const WORK_HOURS = '11:00 - 23:00';
 export const DAYS_OFF = 'Без выходных';
+
+export const IS_DEV = process.env.NODE_ENV === 'development';
 
 export const API = {
   products: 'products',

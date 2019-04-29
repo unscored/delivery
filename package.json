@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:client": "webpack-dev-server --port 5000 --color --open",
-    "start:admin": "IS_ADMIN=1 webpack-dev-server --port 8000 --color --open",
+    "start:client": "cross-env NODE_ENV=development webpack-dev-server --port 5000 --color --open",
+    "start:admin": "cross-env NODE_ENV=development IS_ADMIN=1 webpack-dev-server --port 8000 --color --open",
     "build:client": "cross-env NODE_ENV=production webpack",
     "build:admin": "IS_ADMIN=1 cross-env NODE_ENV=production webpack",
     "build": "run-s build:client build:admin"
@@ -56,6 +56,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-ga": "^2.5.7",
     "react-icons": "^3.6.1",
     "react-redux": "^5.1.1",
     "react-redux-form": "^1.16.13",

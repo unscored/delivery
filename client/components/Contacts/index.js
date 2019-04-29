@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { I18n } from 'react-redux-i18n';
 
+import { analytics } from '../../utils';
 import Page from '../Page';
 import { CONTACT_PHONE, INSTA_URL, CONTACT_CITY, ADDRESS_STRING, WORK_HOURS, DAYS_OFF } from '../../constants';
 
@@ -14,6 +15,10 @@ import css from './Contacts.scss';
 export default class Cart extends Component {
   static propTypes = {
   };
+
+  componentDidMount() {
+    analytics.onContacts();
+  }
 
   render() {
     return (
@@ -32,7 +37,7 @@ export default class Cart extends Component {
               </div>
               <div className={css.infoItemContent}>
                 <div className={css.contacts}>
-                  <p>{`${I18n.t('tel')}: `} <span>{`${CONTACT_PHONE}`}</span></p>
+                  <p>{`${I18n.t('tel')}: `} <span><a href={`tel: ${CONTACT_PHONE}`}>{`${CONTACT_PHONE}`}</a></span></p>
                   <p>{`${I18n.t('instagram')}: `}<span><a href={INSTA_URL} target="_blank">cafe_belvedere</a></span></p>
                 </div>
               </div>
