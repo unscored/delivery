@@ -28,7 +28,7 @@ const HOC = connect(
       hideMenu();
     }
     
-    if (onClick) return onClick(...clickProps);
+    if (onClick) return onClick(...clickProps, isCartShow, isMenuShow);
     return null;
   }}
 />

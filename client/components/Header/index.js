@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 import Menu from '../Menu';
 import SideCart from '../../containers/SideCart';
+import { analytics } from '../../utils';
 import { ROUTES_MAP } from '../../constants';
 import logo from '../../images/logo.png';
 import withHideExtraMenus from '../../redux/decorators/withHideExtraMenus';
@@ -15,6 +16,10 @@ const Logo = withHideExtraMenus(Link);
 const Header = (props) => {
   const { menuItems, onPressMenuBtn, onMenuItemPress, show } = props;
 
+  const onLogoClick = () => {
+    analytics.onHeaderLogoClick();
+  }
+
   return (
     <header>
       <Menu
@@ -24,7 +29,7 @@ const Header = (props) => {
         isOpen={show}
       />
       <div className={css.headerLogo}>
-        <Logo to={ROUTES_MAP.main}><img src={logo} alt="Belvedere"/></Logo>
+        <Logo onClick={onLogoClick} to={ROUTES_MAP.main}><img src={logo} alt="Belvedere"/></Logo>
       </div>
       <SideCart />
     </header>

@@ -26,8 +26,16 @@ export default class Menu extends Component {
     this.props.handleMenuItemClick();
   };
   
+  onMenuIconClick = () => {
+    const { isOpen, handleMenuBtnClick } = this.props;
+    const action = isOpen ? 'hide' : 'show';
+
+    analytics.onMenuIconClick(action);
+    handleMenuBtnClick();
+  }
+  
   render() {
-    const { handleMenuBtnClick, isOpen } = this.props;
+    const { isOpen } = this.props;
 
     return (
       <div className={classNames(css.sideMenu, { [css.opened]: isOpen })}>
@@ -38,7 +46,7 @@ export default class Menu extends Component {
         </div>
         <div
           className={css.toggleBtn}
-          onClick={handleMenuBtnClick}
+          onClick={this.onMenuIconClick}
         >
           <div className={css.toggleBtnIcon}>
             <MdMenu size={cssMQ.isMobile() ? 22 : 36} color={'#FFF'}/>

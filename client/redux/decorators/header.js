@@ -5,7 +5,6 @@ import { I18n } from 'react-redux-i18n';
 
 import actions from '../actions/menu';
 import cartActions from '../actions/cart';
-import { ROUTES_MAP } from '../../constants';
 
 export default compose(
   withRouter,

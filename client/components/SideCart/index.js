@@ -30,7 +30,12 @@ const Cart = props => {
     history.push(cartRoute);
     analytics.onShowCartClick();
   }
-
+  const onCartIconClick = () => {
+    const action = show ? 'hide' : 'show';
+  
+    analytics.onCartIconClick(action);
+    handleCartBtnClick();
+  }
   return (
     <div className={classNames(css.orderCart, { [css.opened]: show })}>
       <div className={css.orderCartContent}>
@@ -69,7 +74,7 @@ const Cart = props => {
       </div>
       <div
         className={css.toggleBtn}
-        onClick={handleCartBtnClick}
+        onClick={onCartIconClick}
       >
         <div className={css.cartIcon}>
           <MdShoppingCart size={cssMQ.isMobile() ? 22 : 38} color={'#FFF'}/>
