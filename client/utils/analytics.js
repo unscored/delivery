@@ -73,6 +73,14 @@ export const analytics = {
 		type: 'event',
 		payload: { 'category': 'belvedere', 'action': 'Click on menu icon in header', 'label': `${action} side menu` },
   }),
+  'onInstaLinkClick': () => track({
+		type: 'event',
+		payload: { 'category': 'belvedere', 'action': 'Click on insta link in footer' },
+  }),
+  'onPhoneLinkClick': () => track({
+		type: 'event',
+		payload: { 'category': 'belvedere', 'action': 'Click on phone number in footer' },
+  }),
   'onCartIconClick': action => track({
 		type: 'event',
 		payload: { 'category': 'belvedere', 'action': 'Click on cart icon in header', 'label': `${action} side cart` },
