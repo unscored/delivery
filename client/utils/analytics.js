@@ -61,6 +61,14 @@ export const analytics = {
 		type: 'event',
 		payload: { 'category': 'belvedere', 'action': 'Add item to the cart', 'label': `${item.name}. ${item.selectedProps.join(', ')}` },
   }),
+  'onShowCartClick': () => track({
+		type: 'event',
+		payload: { 'category': 'belvedere', 'action': 'Click on show cart button' },
+  }),
+  'onMenuItemClick': item => track({
+		type: 'event',
+		payload: { 'category': 'belvedere', 'action': 'Click on menu item', 'label': item },
+  }),
   'createOrder': () => track({
 		type: 'event',
 		payload: { 'category': 'belvedere', 'action': 'Create new order' },

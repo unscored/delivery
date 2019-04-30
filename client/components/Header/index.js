@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { I18n } from 'react-redux-i18n';
 import { Link } from 'react-router-dom';
 
 import Menu from '../Menu';

@@ -1,0 +1,23 @@
+@import "client/styles/variables";
+@import "client/styles/mixins";
+
+.menuItem {
+  padding: 0 0 38px 0;
+}
+
+.menuItemLink {
+  font-family: $el-mis-reg;
+  font-size: 14px;
+  line-height: 16px;
+  color: $white;
+  text-transform: uppercase;
+
+  &:hover {
+    color: $punch;
+    text-decoration: none;
+  }
+}
+
+.menuItemLinkActive {
+  color: $punch
+}

@@ -12,6 +12,16 @@
   @include screen('mobile') {
     height: 100px;
   }
+
+  a {
+    color: black;
+
+    @include screen('desktop') {
+      &:hover {
+        color: black;
+      }
+    }
+  }
 }
 
 .bottom {

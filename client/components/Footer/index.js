@@ -10,7 +10,7 @@ const Footer = () => {
     <footer>
       <div className={css.top}>
         <div className={css.contacts}>
-          <p>{CONTACT_PHONE}</p>
+          <p><a href={`tel: ${CONTACT_PHONE}`}>{CONTACT_PHONE}</a></p>
           <a href={INSTA_URL} target="_blank" className={css.insta}>
             <FaInstagram size={cssMQ.isMobile() ? 22 : 38} color={'#000'}/>
             <span>cafe_belvedere</span>

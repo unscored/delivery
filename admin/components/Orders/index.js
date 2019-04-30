@@ -188,10 +188,6 @@ class Orders extends Component {
     const items = get(this.props, 'orders.items', []);
     const { isModalOpen, confirmLoading } = this.state;
 
-    if (items.length !== 0) {
-      console.log(items[0]);
-    }
-
     return (
       <LayoutContainer title={I18n.t('routesNames.orders')}>
         <Table

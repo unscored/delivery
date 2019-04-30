@@ -1,43 +1,29 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { NavLink } from 'react-router-dom';
 import { MdMenu } from 'react-icons/md';
 import classNames from 'classnames';
 
-import { cssMQ } from '../../utils';
+import { cssMQ, analytics } from '../../utils';
+import { menuItemsType } from '../../propTypes';
+import MenuItem from './MenuItem';
 
 import css from './Menu.scss';
 
 export default class Menu extends Component {
+  static defaultProps = {
+    items: [],
+  };
+
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.shape({
-      id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-      name: PropTypes.string,
-      path: PropTypes.string,
-    })),
+    items: menuItemsType,
     isOpen: PropTypes.bool,
     handleMenuBtnClick: PropTypes.func.isRequired,
     handleMenuItemClick: PropTypes.func.isRequired,
   };
 
-  _renderItems = () => {
-    const { handleMenuItemClick } = this.props;
-
-    return this.props.items.map(item => {
-      return (
-        <li key={item.id} className={css.menuItem} onClick={handleMenuItemClick}>
-          <NavLink
-            key={item.id}
-            to={item.path}
-            className={css.menuItemLink}
-            activeClassName={css.menuItemLinkActive}
-            exact
-          >
-            {item.name}
-          </NavLink>
-        </li>
-      );
-    })
+  onMenuItemClick = (itemName) => {
+    analytics.onMenuItemClick(itemName);
+    this.props.handleMenuItemClick();
   };
   
   render() {
@@ -47,7 +33,7 @@ export default class Menu extends Component {
       <div className={classNames(css.sideMenu, { [css.opened]: isOpen })}>
         <div className={css.sideMenuContent}>
           <ul>
-            {this._renderItems()}
+            { this.props.items.map(item => <MenuItem key={`menu-item-${item.id}`} item={item} onClick={this.onMenuItemClick} />) }
           </ul>
         </div>
         <div

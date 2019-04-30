@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import CartItemsList from '../CartItemsList'
 import Button from '../Button';
-import { cssMQ } from '../../utils';
+import { cssMQ, analytics } from '../../utils';
 import { ROUTES_MAP } from '../../constants';
 import withHideExtraMenus from '../../redux/decorators/withHideExtraMenus';
 
@@ -25,6 +25,11 @@ const Cart = props => {
     totalPrice,
     history,
   } = props;
+
+  const onViewShopCartClick = () => {
+    history.push(cartRoute);
+    analytics.onShowCartClick();
+  }
 
   return (
     <div className={classNames(css.orderCart, { [css.opened]: show })}>
@@ -49,7 +54,7 @@ const Cart = props => {
                 <div className={css.buttonItem}>
                   <ButtonWithHideCart 
                     value={I18n.t('viewShopCart')}
-                    onClick={() => history.push(cartRoute)}
+                    onClick={onViewShopCartClick}
                   />
                 </div>
               </div>
