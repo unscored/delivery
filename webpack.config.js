@@ -1,8 +1,9 @@
 const OptimizeCSSAssetsPlugin = require("optimize-css-assets-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const TerserPlugin = require("terser-webpack-plugin");
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebPackPlugin = require("html-webpack-plugin");
+const TerserPlugin = require("terser-webpack-plugin");
 const autoprefixer = require("autoprefixer");
 const webpack = require("webpack");
 const path = require("path");
@@ -38,6 +39,7 @@ const definePlugin = new webpack.DefinePlugin({
   $__WebPackConfig: JSON.stringify(jsonEnvironment),
 });
 const cleanPlugin = new CleanWebpackPlugin([CONSTANTS.OUTPUT_PATH]);
+const copyPlugin = new CopyWebpackPlugin([{ from: path.resolve(__dirname, 'client', 'assets', 'static'), to: '' }]);
 const optimizeCSS = new OptimizeCSSAssetsPlugin({});
 const loaderOptionsPlugin = new webpack.LoaderOptionsPlugin({
   options: {
@@ -57,7 +59,10 @@ const plugins = [
   loaderOptionsPlugin
 ];
 
-if (!isAdmin && !devMode) plugins.push(cleanPlugin);
+if (!isAdmin && !devMode) {
+  plugins.push(cleanPlugin);
+  plugins.push(copyPlugin);
+}
 if (devMode) targetOutput.publicPath = '/';
 if (!devMode && isAdmin) targetOutput.publicPath = '/admin';
 
